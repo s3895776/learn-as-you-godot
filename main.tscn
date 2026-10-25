@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dy48pregbydt4" path="res://Sprites/Coin.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bfyciw7g6eoum" path="res://coin.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://7sgkv1bfye87" path="res://With-Background/Enemies.png" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://c658lb1m44bs5" path="res://Player.png" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cuf2q2hxutl7i" path="res://SixCoins.tscn" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b56fw8fuul4se" path="res://Sprites/Player.png" id="6_272bh"]
+[ext_resource type="Script" uid="uid://c1523rtbp8rkm" path="res://Scripts/mover.gd" id="8_5vw27"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 resource_name = "Fade In"
@@ -60,6 +61,9 @@ _data = {
 &"RESET": SubResource("Animation_7mycd")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+size = Vector2(68, 93)
+
 [node name="Main" type="Node2D" unique_id=630068510]
 
 [node name="Control" type="Control" parent="." unique_id=224453923]
@@ -83,6 +87,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_7mycd")
 
 [node name="FamilyGuys" parent="." unique_id=1497872013 instance=ExtResource("1_lquwl")]
+visible = false
 position = Vector2(616, -327)
 scale = Vector2(0.57004, 1.1419748)
 
@@ -111,17 +116,28 @@ position = Vector2(-101, -37)
 position = Vector2(570, -260)
 
 [node name="FamilyGuys2" parent="." unique_id=785710374 instance=ExtResource("1_lquwl")]
+visible = false
 position = Vector2(-185, -354)
 
 [node name="Enemies" type="Sprite2D" parent="." unique_id=1309869807]
+visible = false
 position = Vector2(275, 269)
 texture = ExtResource("4_lquwl")
-
-[node name="Player" type="Sprite2D" parent="." unique_id=1153273602]
-position = Vector2(-13, 165)
-texture = ExtResource("5_7mycd")
 
 [node name="Node2D2" parent="." unique_id=1194341704 instance=ExtResource("6_7mycd")]
 
 [node name="Node2D3" parent="." unique_id=480160724 instance=ExtResource("6_7mycd")]
 position = Vector2(192, 0)
+
+[node name="Player" type="Sprite2D" parent="." unique_id=1583085865]
+position = Vector2(-81, -377)
+texture = ExtResource("6_272bh")
+script = ExtResource("8_5vw27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1982728462]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_12j5o")
+
+[node name="Coin" type="Sprite2D" parent="Player" unique_id=967124213]
+position = Vector2(37, 25)
+texture = ExtResource("2_0xm2m")
