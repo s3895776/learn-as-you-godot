@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bfyciw7g6eoum"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h2yge"]
-load_path = "res://.godot/imported/Coin.png-c2cd5c0bdd61476fb24bcd9448984ab7.ctex"
-
-[node name="Coin" type="Sprite2D" unique_id=497953134]
-modulate = Color(1, 0, 1, 1)
-texture = SubResource("CompressedTexture2D_h2yge")

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://1kqutksg1dkr"]
+
+[ext_resource type="Texture2D" uid="uid://dy034nluitw2s" path="res://Godot 2D Platformer - Assets/Sprites/Characters/character_0000.png" id="1_cbpp0"]
+[ext_resource type="Script" uid="uid://crwosk4ke77lw" path="res://Godot 2D Platformer - Assets/Scripts/player.gd" id="1_v8xqx"]
+[ext_resource type="Texture2D" uid="uid://fkua061st1dt" path="res://Godot 2D Platformer - Assets/Sprites/Characters/character_0001.png" id="3_uvmx8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12j5o"]
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_v8xqx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_cbpp0")]
+}
+
+[sub_resource type="Animation" id="Animation_uvmx8"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_cbpp0")]
+}
+
+[sub_resource type="Animation" id="Animation_inftj"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_uvmx8")]
+}
+
+[sub_resource type="Animation" id="Animation_v5fas"]
+resource_name = "move"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_uvmx8"), ExtResource("1_cbpp0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5fas"]
+_data = {
+&"RESET": SubResource("Animation_v8xqx"),
+&"idle": SubResource("Animation_uvmx8"),
+&"jump": SubResource("Animation_inftj"),
+&"move": SubResource("Animation_v5fas")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=193058604]
+script = ExtResource("1_v8xqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1999988202]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_12j5o")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1829043541]
+texture = ExtResource("1_cbpp0")
+offset = Vector2(0, -12)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=410160183]
+libraries/ = SubResource("AnimationLibrary_v5fas")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2125407751]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1489020421]
+zoom = Vector2(2, 2)
