@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var anim : AnimationPlayer = $AnimationPlayer
 
 const move_speed = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 var acceleration = 50
 var braking = 20
 var move_input : float
