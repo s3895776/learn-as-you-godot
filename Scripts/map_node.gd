@@ -22,7 +22,6 @@ func _ready() -> void:
 	add_child(future_map.instantiate())
 	future_map_node = $level1future
 	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -38,9 +37,9 @@ func switch_maps():
 		_enable_map(present_map_node, true)
 		_enable_map(future_map_node, false)
 
-func _enable_map(map : Node2D, enable : bool):
+func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable
-	map.get_tile_map_layer().set_enabled(enable)
+	map.enable_TileMapLayer(enable)
 #	note: any other collisions will not be disabled. 
 	

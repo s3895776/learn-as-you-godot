@@ -10,3 +10,4 @@ script = ExtResource("1_8gbba")
 [node name="CurrentMap" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
 
 [node name="Player" parent="." unique_id=193058604 instance=ExtResource("1_jjgbg")]
+position = Vector2(0, -5)

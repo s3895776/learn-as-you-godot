@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cg30b4ch4r7gv"]
+
+[ext_resource type="Script" uid="uid://bywjn8nlxm7nl" path="res://Scripts/map_node.gd" id="1_wp7i3"]
+[ext_resource type="PackedScene" uid="uid://rcycqsennc01" path="res://Scenes/base_level.tscn" id="2_g7uvm"]
+
+[node name="MapNode" type="Node2D" unique_id=1349269865]
+script = ExtResource("1_wp7i3")
+
+[node name="PresentMap" parent="." unique_id=751929317 instance=ExtResource("2_g7uvm")]
+
+[node name="FutureMap" parent="." unique_id=1115390499 instance=ExtResource("2_g7uvm")]
