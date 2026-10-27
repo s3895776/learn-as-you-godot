@@ -92,10 +92,10 @@ texture = ExtResource("1_cbpp0")
 offset = Vector2(0, -12)
 flip_h = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2125407751]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=410160183]
 libraries/ = SubResource("AnimationLibrary_v5fas")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2125407751]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1489020421]
 zoom = Vector2(2, 2)
@@ -103,5 +103,4 @@ zoom = Vector2(2, 2)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1481811051]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("4_vgqql")
-animation = &"Walk"
-frame_progress = 0.28938827
+animation = &"Idle"
