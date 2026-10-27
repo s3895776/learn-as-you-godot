@@ -4,7 +4,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	
-#	otherside requires a signal
+#	otherside requires to be in the tag "Player" assigned by the dev. 
 	if not body.is_in_group("Player"):
 		print(body.get_groups())
 		return

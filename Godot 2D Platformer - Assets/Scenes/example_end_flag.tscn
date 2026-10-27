@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cphgm4vepxag3"]
 
-[ext_resource type="Script" uid="uid://dw58yc0h5hh8i" path="res://Godot 2D Platformer - Assets/Scripts/end_flag.gd" id="1_bsmef"]
+[ext_resource type="Script" uid="uid://dw58yc0h5hh8i" path="res://Godot 2D Platformer - Assets/Scripts/example_end_flag.gd" id="1_bsmef"]
 [ext_resource type="PackedScene" uid="uid://4jldtgmvqcm4" path="res://family_guys.tscn" id="2_tbwav"]
 [ext_resource type="Texture2D" uid="uid://dh2i2nus4ds52" path="res://Godot 2D Platformer - Assets/Sprites/Objects/tile_0112.png" id="3_m028e"]
 
