@@ -42,4 +42,5 @@ func _enable_map(map : Node2D, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable
 	map.get_tile_map_layer().set_enabled(enable)
+#	note: any other collisions will not be disabled. 
 	
