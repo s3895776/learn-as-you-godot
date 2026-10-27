@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LearnAsYouGodot"
-run/main_scene="uid://c6u17flb7yqes"
+run/main_scene="uid://hqtusj2re21m"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

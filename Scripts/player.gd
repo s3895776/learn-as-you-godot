@@ -10,9 +10,11 @@ var braking = 20
 var move_input : float
 
 #time travel feature: switch between maps.
-func switch_map():
-	get_node(get_tree().get_current_scene().get_path()).toggle_map()
-		
+func switch_maps():
+	#(get_tree().get_current_scene().get_path()).toggle_map()
+#	from main switch maps
+	get_node(get_tree().get_current_scene().get_path()).switch_maps()
+			
 
 func _ready():
 #	tag system: group will identify the player.
@@ -55,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		
 	if Input.is_action_just_pressed("switch_map"):
-		switch_map()
+		switch_maps()
 	#var direction := Input.get_axis("move_left", "move_right")
 	#if direction:
 		#velocity.x = direction * SPEED
