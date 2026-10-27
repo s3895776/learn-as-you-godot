@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dav4vko0n7w71"]
 
 [ext_resource type="Texture2D" uid="uid://dspwrtlwb3b0s" path="res://Godot 2D Platformer - Assets/Sprites/Backgrounds/backgroundDesert.png" id="1_hjuyq"]
-[ext_resource type="Script" uid="uid://cnex14bofsfnd" path="res://Scripts/level_1_present.gd" id="1_r4gva"]
+[ext_resource type="Script" uid="uid://cnex14bofsfnd" path="res://Scripts/Level_scripts/level_1_present.gd" id="1_r4gva"]
 [ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="2_r4gva"]
 
 [node name="level1present" type="Node2D" unique_id=1141539653]

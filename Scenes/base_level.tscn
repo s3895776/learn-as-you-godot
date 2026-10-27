@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://rcycqsennc01"]
+
+[ext_resource type="Script" uid="uid://dg02j3hmuw0cs" path="res://Scripts/Level_scripts/base_level.gd" id="1_5gpc1"]
+
+[node name="base_level" type="Node2D" unique_id=751929317]
+script = ExtResource("1_5gpc1")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=743124280]
