@@ -7,5 +7,7 @@
 script = ExtResource("1_wp7i3")
 
 [node name="PresentMap" parent="." unique_id=751929317 instance=ExtResource("2_g7uvm")]
+script = null
 
 [node name="FutureMap" parent="." unique_id=1115390499 instance=ExtResource("2_g7uvm")]
+script = null
