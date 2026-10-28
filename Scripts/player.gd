@@ -8,6 +8,11 @@ const JUMP_VELOCITY = -300.0
 var acceleration = 50
 var braking = 20
 var direction : float
+var face =  1  #0 is left, 1 is right
+
+enum States {NULL, IDLE, WALK, JUMP, ABILITY, PUSH, PULL}
+
+var state: States = States.NULL
 
 #time travel feature: switch between maps.
 func switch_maps():
@@ -20,20 +25,81 @@ func _ready():
 	add_to_group("Player")
 
 func _manage_animation():
-	if not is_on_floor():
-		animated_sprite.play("Jump")
-		pass
-	elif direction != 0:
+	
+	if state == States.IDLE:
+			animated_sprite.play("Idle")
+			animated_sprite.flip_h = face == 0
+	elif state == States.WALK:
 		animated_sprite.play("Walk")
 		animated_sprite.flip_h = direction < 0
-	else:
-		animated_sprite.play("Idle")
+	elif state == States.JUMP:
+		animated_sprite.play("Jump")
+	elif state == States.ABILITY:
+		animated_sprite.play("Ability")
+	elif state == States.PUSH:
+		animated_sprite.play("Push")
+	elif state == States.PULL:
+		animated_sprite.play("Pull")
+
+func state_changer():
+	
+	if state == States.NULL:
+		state = States.IDLE
+		_manage_animation()
+	
+	if (state == States.IDLE and is_on_floor() and Input.is_action_just_pressed("switch_map")):
+		state = States.ABILITY
+		_manage_animation()
+	
+	if state == States.ABILITY:
+		await animated_sprite.animation_finished
+		print("COMPLETE")
+		print("WAIT")
+		state = States.IDLE
+		_manage_animation()
+		#switch_maps()
+		
+	if state == States.IDLE and direction != 0:
+		state = States.WALK
+		if direction < 0:
+			face = 0
+		else:
+			face = 1
+		_manage_animation()
+			
+	if state == States.WALK and direction == 0:
+		state = States.IDLE
+		_manage_animation()
+		
+	if state == States.IDLE and velocity.y != 0:
+		state = States.JUMP
+		_manage_animation()
+	
+	if state == States.JUMP and is_on_floor():
+		state = States.IDLE
+		_manage_animation()
+		
+	if state == States.WALK and velocity.y != 0:
+		state = States.JUMP
+		_manage_animation()
+	
+		#Original
+	#if not is_on_floor():
+		#animated_sprite.play("Jump")
+		#pass
+	#elif direction != 0:
+		#animated_sprite.play("Walk")
+		#animated_sprite.flip_h = direction < 0
+	#else:
+		#animated_sprite.play("Idle")
 
 func _process(delta: float) -> void:
 	
 	_manage_animation()
 	
 func _physics_process(delta: float) -> void:
+	
+	state_changer()
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -58,10 +124,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		
-	if Input.is_action_just_pressed("switch_map"):
+		#func _physics_process(delta: float) -> void:
+	
+	#var time_warping := is_on_floor() and Input.is_action_just_pressed("switch_map")
+	#if time_warping:
+		#state == States.TIME
+		#trying to make it recognise between not pressing anything for idle and not pressing anything while trying to time warp
+	#elif 
+		
+	#var time_warp := false
+	#if is_on_floor() and Input.is_action_just_pressed("switch_map"): 
+			##time_warp = true
+	##if time_warp:
 		#animated_sprite.play("Ability")
 		#await $AnimatedSprite2D.animation_finished
-		switch_maps()
+		#switch_maps()
 	#var direction := Input.get_axis("move_left", "move_right")
 	#if direction:
 		#velocity.x = direction * SPEED
