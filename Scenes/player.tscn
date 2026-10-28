@@ -103,4 +103,6 @@ zoom = Vector2(2, 2)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1481811051]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("4_vgqql")
-animation = &"Walk"
+animation = &"Ability"
+frame = 1
+frame_progress = 1.0

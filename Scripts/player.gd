@@ -21,7 +21,7 @@ func _ready():
 
 func _manage_animation():
 	if not is_on_floor():
-		#animated_sprite.play("jump")
+		animated_sprite.play("Jump")
 		pass
 	elif direction != 0:
 		animated_sprite.play("Walk")
@@ -47,8 +47,8 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	direction = Input.get_axis("move_left", "move_right")
-	if velocity.x != 0:
-		animated_sprite.flip_h = velocity.x > 0
+	#if velocity.x != 0:
+		#animated_sprite.flip_h = velocity.x > 0
 	
 	#velocity.x = move_input * move_speed
 	
@@ -59,6 +59,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		
 	if Input.is_action_just_pressed("switch_map"):
+		#animated_sprite.play("Ability")
+		#await $AnimatedSprite2D.animation_finished
 		switch_maps()
 	#var direction := Input.get_axis("move_left", "move_right")
 	#if direction:
