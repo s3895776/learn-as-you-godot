@@ -2,9 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://cdm51gnv0ipkn" path="res://Sprites/Tiles/pixil-frame-0.png" id="1_xkb4e"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
+size = Vector2(17, 17)
+
 [node name="box" type="Node2D" unique_id=320433613]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1561191468]
+[node name="Area2D" type="Area2D" parent="." unique_id=1488900022]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=864603308]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_61ot5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1561191468]
 texture = ExtResource("1_xkb4e")
 hframes = 17
 vframes = 16

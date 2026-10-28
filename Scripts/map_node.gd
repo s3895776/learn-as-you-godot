@@ -4,6 +4,8 @@ extends Node2D
 @export var present_map : PackedScene
 @export var future_map : PackedScene
 
+var switchable_objects : Array[TimeSwitchObject]
+
 #these should be pointers
 var present_map_node : Node2D
 var future_map_node : Node2D
@@ -38,7 +40,22 @@ func switch_maps():
 	else:
 		_enable_map(present_map_node, true)
 		_enable_map(future_map_node, false)
+	
+	request_node_flip()
+	
+func request_node_flip():
+#	checks all children, not recursive, for the object type time switch objects. 
+	for c in get_children():
+		if c is TimeSwitchObject:
+			switchable_objects.append(c)
+	
+	for objects in switchable_objects:
+		objects.switch_object(future)
+	
+#.connect()
+#	for each node to flip, trigger their flip function.
 
+	
 func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable

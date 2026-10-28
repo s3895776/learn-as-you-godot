@@ -7,13 +7,13 @@
 [node name="seed_to_tree" type="Node2D" unique_id=114018887]
 script = ExtResource("1_8yj4w")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=320740347]
+[node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
 position = Vector2(24, -8)
 texture = ExtResource("2_0hfn8")
 hframes = 20
 vframes = 10
 frame = 144
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1653657133]
+[node name="Tree" type="TileMapLayer" parent="." unique_id=1653657133]
 tile_map_data = PackedByteArray("AAABAP3/AAASAAIAAAABAP7/AAARAAUAAAABAP//AAARAAYAAAAAAPv/AAARAAAAAAAAAPz/AAARAAEAAAAAAP3/AAARAAIAAAABAPv/AAASAAAAAAABAPz/AAASAAEAAAACAPv/AAATAAAAAAACAPz/AAATAAEAAAACAP3/AAATAAIAAAA=")
 tile_set = ExtResource("3_lyuc6")
