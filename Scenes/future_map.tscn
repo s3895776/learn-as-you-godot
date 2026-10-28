@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://7d3ch4ucpqbt"]
-
-[ext_resource type="Script" uid="uid://c3o6tevf6b55m" path="res://Scenes/future_map.gd" id="1_kr4el"]
-
-[node name="FutureMap" type="Node2D" unique_id=203542762]
-script = ExtResource("1_kr4el")
