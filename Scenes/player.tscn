@@ -105,4 +105,4 @@ position = Vector2(0, -8)
 sprite_frames = ExtResource("4_vgqql")
 animation = &"Ability"
 frame = 1
-frame_progress = 1.0
+frame_progress = 0.53322124

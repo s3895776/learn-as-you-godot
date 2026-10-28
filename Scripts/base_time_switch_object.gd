@@ -11,5 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 # 
-func switch_object(future : bool):
-	time_switched.emit()
+@abstract func switch_object(future : bool)
