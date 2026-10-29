@@ -8,11 +8,14 @@
 
 [node name="MapNode" type="Node2D" unique_id=1349269865]
 script = ExtResource("1_wp7i3")
-present_map = ExtResource("2_6ud8w")
-future_map = ExtResource("3_bodeh")
 
 [node name="seed_to_tree" parent="." unique_id=114018887 instance=ExtResource("2_4odpq")]
 position = Vector2(222, -2)
 
 [node name="box" parent="." unique_id=320433613 instance=ExtResource("3_15ahl")]
 position = Vector2(121, -103)
+
+[node name="level1present" parent="." unique_id=1141539653 instance=ExtResource("2_6ud8w")]
+
+[node name="level1future" parent="." unique_id=1887611081 instance=ExtResource("3_bodeh")]
+visible = false

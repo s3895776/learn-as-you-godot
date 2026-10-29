@@ -5,7 +5,7 @@ var tile_maps : Array[TileMapLayer]
 # Called when the node enters the scene tree for the first time.
 @abstract func _ready() -> void
 
-## each level must define their own tile_maps.
+## each level must define their own tile_maps by adding all of them. 
 @abstract func define_maps()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,3 +19,9 @@ func _process(delta: float) -> void:
 func enable_TileMapLayer(enable : bool):
 	for map in tile_maps:
 		map.set_enabled(enable)
+
+## return the next level
+#func next_level
+
+## return the previous level
+# func previous_level

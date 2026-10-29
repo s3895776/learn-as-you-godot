@@ -1,8 +1,5 @@
 extends Node2D
 # 
-#
-@export var present_map : PackedScene
-@export var future_map : PackedScene
 
 var switchable_objects : Array[TimeSwitchObject]
 
@@ -14,24 +11,28 @@ var future = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#change_maps(get_node("res://Scenes/level1present.tscn"), get_node("res://Scenes/level1future.tscn"))
-	#present_map.instance
-#	get a packed scene instantiated and into a variable for map_node gd
-	add_child(present_map.instantiate())
 	present_map_node = $level1present
 	
 #	set visibility and collision
 	_enable_map(present_map_node, false)
 	
-	add_child(future_map.instantiate())
 	future_map_node = $level1future
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+## go from first level to any level
+func switch_levels(present : PackedScene, future : PackedScene):
+	#present_map = present
+	#future_map = future
+	present_map_node.change_to_packed_scene(present)
+	future_map_node.change_to_packed_scene(future)
+	switch_maps()
+	
+## change the time of the leveL: swap present and future map
 func switch_maps():
-	print("result")
+	print("switching time")
 	future = not future
 	if (future):
 #		careful with the collision as the player may clip into or fall based on the order of ops.
@@ -43,17 +44,17 @@ func switch_maps():
 	
 	request_node_flip()
 	
+## checks all children, not recursive, for the base time switch objects. 
+## scenes need switchable objects to exist only as children on map node and
+## switchable objects themselves (they will handle the logic for their own switchable).
+## if the player brings switchable objects they should be pointers to the map node children. 
 func request_node_flip():
-#	checks all children, not recursive, for the object type time switch objects. 
 	for c in get_children():
 		if c is TimeSwitchObject:
 			switchable_objects.append(c)
 	
 	for objects in switchable_objects:
 		objects.switch_object(future)
-	
-#.connect()
-#	for each node to flip, trigger their flip function.
 
 	
 func _enable_map(map : BaseLevel, enable : bool):
