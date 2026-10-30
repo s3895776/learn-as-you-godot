@@ -7,17 +7,16 @@ var switchable_objects : Array[TimeSwitchObject]
 var present_map_node : Node2D
 var future_map_node : Node2D
 
-var future = true
+var future = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	present_map_node = $level1present
 	
-#	set visibility and collision
-	_enable_map(present_map_node, false)
-	
 	future_map_node = $level1future
 	
+#	set visibility and collision
+	switch_maps()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
