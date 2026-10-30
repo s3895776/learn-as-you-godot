@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dav4vko0n7w71" path="res://Scenes/level1present.tscn" id="2_6ud8w"]
 [ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/box.tscn" id="3_15ahl"]
 [ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/level1future.tscn" id="3_bodeh"]
+[ext_resource type="PackedScene" uid="uid://1kqutksg1dkr" path="res://Scenes/player.tscn" id="6_6ud8w"]
 
 [node name="MapNode" type="Node2D" unique_id=1349269865]
 script = ExtResource("1_wp7i3")
@@ -13,9 +14,16 @@ script = ExtResource("1_wp7i3")
 position = Vector2(222, -2)
 
 [node name="box" parent="." unique_id=320433613 instance=ExtResource("3_15ahl")]
-position = Vector2(121, -103)
+position = Vector2(122, -9)
 
 [node name="level1present" parent="." unique_id=1141539653 instance=ExtResource("2_6ud8w")]
 
 [node name="level1future" parent="." unique_id=1887611081 instance=ExtResource("3_bodeh")]
 visible = false
+
+[node name="Player" parent="." unique_id=193058604 instance=ExtResource("6_6ud8w")]
+scale = Vector2(2, 2)
+
+[connection signal="grab_success" from="." to="Player" method="_on_map_node_grab_success"]
+[connection signal="grab" from="box" to="." method="_on_box_grab"]
+[connection signal="grabbing" from="Player" to="." method="_on_player_grabbing"]

@@ -10,6 +10,7 @@ var braking = 20
 var direction : float
 var face =  1  #0 is left, 1 is right
 var stop : bool = false
+signal grabbing
 
 enum States {NULL, IDLE, WALK, JUMP, ABILITY, PUSH, PULL}
 
@@ -43,6 +44,14 @@ func _manage_animation():
 			animated_sprite.play("Push")
 		elif state == States.PULL:
 			animated_sprite.play("Pull")
+
+func interact():
+#	if grabbing something, emit false
+# 	if not grabbing something, emit true. 
+# 	requires response from map_node. 
+	grabbing.emit()
+		
+	
 
 func state_changer():
 	if not stop:
@@ -86,12 +95,12 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		state_changer()
 	
+#	perform time switch
 	if Input.is_action_just_pressed("switch_map"):
 		if (state != States.ABILITY):
 			state = States.ABILITY
@@ -103,43 +112,27 @@ func _physics_process(delta: float) -> void:
 			stop = false
 			switch_maps()
 			state = States.IDLE
-		
+	
+	if Input.is_action_just_pressed("interact"):
+		interact()
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	
 	direction = Input.get_axis("move_left", "move_right")
-	#if velocity.x != 0:
-		#animated_sprite.flip_h = velocity.x > 0
-	#velocity.x = move_input * move_speed
+	
+	
 	
 	# lerping
 	if direction != 0:
-		state_changer()
 		velocity.x = lerp(velocity.x, direction * move_speed, acceleration * delta)
 	else:
-		state_changer()
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		
+	state_changer()
 	_manage_animation()
-	
-	#func _physics_process(delta: float) -> void:
-	#var time_warping := is_on_floor() and Input.is_action_just_pressed("switch_map")
-	#if time_warping:
-		#state == States.TIME
-		#trying to make it recognise between not pressing anything for idle and not pressing anything while trying to time warp
-	#elif 
-		
-	#var time_warp := false
-	#if is_on_floor() and Input.is_action_just_pressed("switch_map"): 
-			##time_warp = true
-	##if time_warp:
-		#animated_sprite.play("Ability")
-		#await $AnimatedSprite2D.animation_finished
-		#switch_maps()
-	#var direction := Input.get_axis("move_left", "move_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
+
+func _on_map_node_grab_success() -> void:
+#	change the state of the player to push / pull 
+# 	change the state of the player to normal. 
+	pass # Replace with function body.

@@ -9,10 +9,22 @@ var future_map_node : Node2D
 
 var future = false
 
+# array for grabbed objects: can be a separate class type. 
+var grabbed_objects: Array[Node2D]
+var player_grabbing = true
+
+signal grab_success
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	present_map_node = $level1present
+#	setup signals for:
+#	player grabbing objects. 
+#   inline code:
+# 	$Player.signal.connect(method)
+#	$box.signal.connect(method(args)) # try to match args with signal. 
+# 	box entering player range
 	
+	present_map_node = $level1present
 	future_map_node = $level1future
 	
 #	set visibility and collision
@@ -48,6 +60,7 @@ func switch_maps():
 ## switchable objects themselves (they will handle the logic for their own switchable).
 ## if the player brings switchable objects they should be pointers to the map node children. 
 func request_node_flip():
+#	signal: request switch
 	for c in get_children():
 		if c is TimeSwitchObject:
 			switchable_objects.append(c)
@@ -62,3 +75,29 @@ func _enable_map(map : BaseLevel, enable : bool):
 	map.enable_TileMapLayer(enable)
 #	note: any other collisions will not be disabled. 
 	
+	
+## add and remove from grabbable objects array
+func _on_box_grab(can_grab: bool) -> void:
+	if (can_grab):
+		grabbed_objects.append($box)
+	else:
+		grabbed_objects.remove_at(grabbed_objects.find($box))
+
+## player can grab objects around, uses two signals from player and grabbed object. 
+func _on_player_grabbing() -> void:
+#	grab any object from the first array and reparent it to player.
+	if not player_grabbing and len(grabbed_objects) > 0:
+	#	remove the collision for the item
+	#	
+		grabbed_objects[0].set_collision(true) 
+		player_grabbing = true
+		grabbed_objects[0].reparent($Player)
+		
+#	reparent the object from player to this node.
+	elif player_grabbing and len(grabbed_objects) > 0:	
+		player_grabbing = false
+		grabbed_objects[0].reparent(self)
+		grabbed_objects[0].set_collision(false) 
+
+		
+#		return the collision. 
