@@ -13,7 +13,8 @@ var future = false
 var grabbed_objects: Array[Node2D]
 var player_grabbing = true
 
-signal grab_success
+#signal grab_success
+#signal grab_try
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -74,30 +75,7 @@ func _enable_map(map : BaseLevel, enable : bool):
 	map.visible = enable
 	map.enable_TileMapLayer(enable)
 #	note: any other collisions will not be disabled. 
-	
-	
-## add and remove from grabbable objects array
-func _on_box_grab(can_grab: bool) -> void:
-	if (can_grab):
-		grabbed_objects.append($box)
-	else:
-		grabbed_objects.remove_at(grabbed_objects.find($box))
 
-## player can grab objects around, uses two signals from player and grabbed object. 
+# box and player interaction
 func _on_player_grabbing() -> void:
-#	grab any object from the first array and reparent it to player.
-	if not player_grabbing and len(grabbed_objects) > 0:
-	#	remove the collision for the item
-	#	
-		grabbed_objects[0].set_collision(true) 
-		player_grabbing = true
-		grabbed_objects[0].reparent($Player)
-		
-#	reparent the object from player to this node.
-	elif player_grabbing and len(grabbed_objects) > 0:	
-		player_grabbing = false
-		grabbed_objects[0].reparent(self)
-		grabbed_objects[0].set_collision(false) 
-
-		
-#		return the collision. 
+	pass # Replace with function body.

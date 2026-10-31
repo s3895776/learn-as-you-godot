@@ -15,7 +15,7 @@ script = ExtResource("1_wp7i3")
 position = Vector2(222, -2)
 
 [node name="box" parent="." unique_id=320433613 instance=ExtResource("3_15ahl")]
-position = Vector2(245, -92)
+position = Vector2(96, -9)
 
 [node name="level1present" parent="." unique_id=1141539653 instance=ExtResource("2_6ud8w")]
 
@@ -26,8 +26,7 @@ visible = false
 scale = Vector2(2, 2)
 
 [node name="SecondBox" parent="." unique_id=2125272134 instance=ExtResource("7_bodeh")]
-position = Vector2(111, -26)
+position = Vector2(311, -260)
 
-[connection signal="grab_success" from="." to="Player" method="_on_map_node_grab_success"]
-[connection signal="grab" from="box" to="." method="_on_box_grab"]
-[connection signal="grabbing" from="Player" to="." method="_on_player_grabbing"]
+[connection signal="grab_success" from="box" to="Player" method="_on_box_grab_success"]
+[connection signal="grabbing" from="Player" to="box" method="_on_player_grabbing"]
