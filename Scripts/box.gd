@@ -27,3 +27,4 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	
 func set_collision(no_col : bool):
 	$Area2D/CollisionShape2D.disabled = no_col
+	$CollisionShape2D.disabled = no_col

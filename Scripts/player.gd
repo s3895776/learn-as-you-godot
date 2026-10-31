@@ -57,7 +57,7 @@ func state_changer():
 	if not stop:
 		if state == States.NULL:
 			state = States.IDLE
-			
+		
 		elif state == States.IDLE and direction != 0:
 			state = States.WALK
 			if direction < 0:
