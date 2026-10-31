@@ -7,9 +7,11 @@
 radius = 8.0
 height = 18.0
 
-[node name="Player" type="CharacterBody2D" unique_id=193058604]
+[node name="Player" type="CharacterBody2D" unique_id=193058604 node_paths=PackedStringArray("left_collision_ray", "right_collision_ray")]
 collision_layer = 3
 script = ExtResource("1_6t5aa")
+left_collision_ray = NodePath("left_collision_ray")
+right_collision_ray = NodePath("right_collision_ray")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1999988202]
 position = Vector2(0, -9)
@@ -26,3 +28,11 @@ sprite_frames = ExtResource("4_vgqql")
 animation = &"Ability"
 frame = 1
 frame_progress = 0.53322124
+
+[node name="left_collision_ray" type="RayCast2D" parent="." unique_id=572653223]
+position = Vector2(0, -7)
+target_position = Vector2(-13, 0)
+
+[node name="right_collision_ray" type="RayCast2D" parent="." unique_id=1965756921]
+position = Vector2(0, -7)
+target_position = Vector2(14, 0)
