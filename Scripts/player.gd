@@ -46,18 +46,22 @@ func _manage_animation():
 		pass
 	elif state == States.IDLE:
 		animated_sprite.play("Idle")
+		$ExtraFX.play("NOTHING")
 	elif state == States.WALK:
 		animated_sprite.play("Walk")
+		$ExtraFX.play("NOTHING")
 		animated_sprite.flip_h = direction < 0
 	elif state == States.JUMP:
 		animated_sprite.play("Jump")
 	elif state == States.PUSH:
 		animated_sprite.play("Push")
+		$ExtraFX.play("Sweat")
 	elif state == States.PULL:
 		animated_sprite.play("Pull")
+		$ExtraFX.play("Sweat")
 	elif state == States.PUSH_IDLE:
 		animated_sprite.play("PushIdle")
-#	todo: push idle animation.
+		$ExtraFX.play("NOTHING")
 			
 func state_changer():
 	if state == States.STOP:
@@ -104,6 +108,7 @@ func on_ability():
 	state = States.STOP
 #		want to play ability ONCE and prevent animation from playing again
 	animated_sprite.play("Ability")
+	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
 	await animated_sprite.animation_finished
 	switch_maps()

@@ -34,3 +34,9 @@ target_position = Vector2(-13, 0)
 [node name="right_collision_ray" type="RayCast2D" parent="." unique_id=1965756921]
 position = Vector2(0, -7)
 target_position = Vector2(14, 0)
+
+[node name="ExtraFX" type="AnimatedSprite2D" parent="." unique_id=409536252]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("4_vgqql")
+animation = &"Sweat"
+autoplay = "NOTHING"
