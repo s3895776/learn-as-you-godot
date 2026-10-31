@@ -55,6 +55,8 @@ func _manage_animation():
 		animated_sprite.play("Push")
 	elif state == States.PULL:
 		animated_sprite.play("Pull")
+	elif state == States.PUSH_IDLE:
+		animated_sprite.play("PushIdle")
 #	todo: push idle animation.
 			
 func state_changer():
