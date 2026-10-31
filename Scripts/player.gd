@@ -10,6 +10,8 @@ var acceleration = 50
 var braking = 20
 var direction : float
 #var stop : bool = false
+@export var left_collision_ray: RayCast2D
+@export var right_collision_ray: RayCast2D
 
 signal grabbing
 
@@ -51,16 +53,13 @@ func _manage_animation():
 		animated_sprite.play("Jump")
 	elif state == States.PUSH:
 		animated_sprite.play("Push")
-		animated_sprite.flip_h = direction < 0
 	elif state == States.PULL:
 		animated_sprite.play("Pull")
-		animated_sprite.flip_h = direction < 0
 #	todo: push idle animation.
 			
 func state_changer():
 	if state == States.STOP:
 		pass
-	
 #		to walk states
 	elif state == States.IDLE and direction != 0:
 		state = States.WALK
@@ -80,13 +79,15 @@ func state_changer():
 		state = States.JUMP
 		
 #		push and pull states moves (requires interact to move into push state
-	elif (state == States.PUSH or state == States.PULL) and direction == 0:
+	elif (state in push_states) and direction == 0:
 		state = States.PUSH_IDLE
-#		if pushing a box (direction of box to player is equal), 
-	elif (state == States.PUSH_IDLE or state == States.PULL) and false:
+#		TODO: if pushing a box (box location and direction are same), 
+	elif (state in push_states) and direction == get_box_side():
+		print("Push")
 		state = States.PUSH
-#		if pulling a box (direction of box to player is not the same)
-	elif (state == States.PUSH_IDLE or state == States.PUSH) and false:
+#		TODO: if pulling a box ( box to player is not the same)
+	elif (state in push_states) and direction != get_box_side():
+		print("Pull")
 		state = States.PULL
 	
 func on_interact():
@@ -137,6 +138,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction * move_speed, acceleration * delta)
 		if (state in push_states):
 			velocity.x = pull_speed * direction
+			print(direction)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		if (state in push_states):
@@ -148,7 +150,11 @@ func _physics_process(delta: float) -> void:
 
 func set_pull_speed(value: float) -> void:
 	pull_speed = value
-
+	
+func get_box_side() -> float:
+	if left_collision_ray.is_colliding(): return -1.0
+	elif right_collision_ray.is_colliding(): return 1.0
+	else: return 0.0
 
 func _on_box_grab_success() -> void:
 #	change push or pull states. 
