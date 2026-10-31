@@ -77,7 +77,8 @@ func _pull_movement() -> void:
 		parent.velocity.x = speed * direction
 
 ## get player node.
-## player cannot disconnect from the box if they are walking into it
+## player cannot disconnect from the box if they are walking into it (i.e. pushing)
+## strange indeed. 
 func _get_collider_player_node() -> bool:
 	for ray : RayCast2D in [left_collision_ray, right_collision_ray]:
 #		check if not null first to prevent method call on null type
