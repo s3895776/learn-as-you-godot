@@ -25,7 +25,7 @@ zoom = Vector2(2, 2)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1481811051]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("4_vgqql")
-animation = &"Sweat"
+animation = &"Idle"
 
 [node name="left_collision_ray" type="RayCast2D" parent="." unique_id=572653223]
 position = Vector2(0, -7)
@@ -38,5 +38,11 @@ target_position = Vector2(14, 0)
 [node name="ExtraFX" type="AnimatedSprite2D" parent="." unique_id=409536252]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("4_vgqql")
-animation = &"Sweat"
+animation = &"NOTHING"
+autoplay = "NOTHING"
+
+[node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1861195055]
+position = Vector2(0, -32)
+sprite_frames = ExtResource("4_vgqql")
+animation = &"NOTHING"
 autoplay = "NOTHING"

@@ -15,7 +15,7 @@ var direction : float
 
 signal grabbing
 
-enum States {IDLE, WALK, JUMP, STOP, PUSH, PULL, PUSH_IDLE}
+enum States {IDLE, WALK, JUMP, STOP, PUSH, PULL, PUSH_IDLE, CROUCH}
 
 var state: States = States.IDLE
 
@@ -31,7 +31,7 @@ func _ready():
 	
 #	set your character to idle
 	state_changer()
-	
+
 #Original animations
 	#if not is_on_floor():
 		#animated_sprite.play("Jump")
@@ -47,6 +47,8 @@ func _manage_animation():
 	elif state == States.IDLE:
 		animated_sprite.play("Idle")
 		$ExtraFX.play("NOTHING")
+	elif state == States.CROUCH:
+		animated_sprite.play("Crouch")
 	elif state == States.WALK:
 		animated_sprite.play("Walk")
 		$ExtraFX.play("NOTHING")
@@ -69,9 +71,19 @@ func state_changer():
 #		to walk states
 	elif state == States.IDLE and direction != 0:
 		state = States.WALK
+		
+	elif state == States.CROUCH and direction != 0:
+		state = States.WALK
+		
+#		to crouch states
+	elif state == States.IDLE and Input.is_action_pressed("move_down"):
+		state = States.CROUCH
 
 #		to idle states 
 	elif state == States.WALK and direction == 0:
+		state = States.IDLE
+		
+	elif state == States.CROUCH and Input.is_action_just_released("move_down"):
 		state = States.IDLE
 		
 	elif state == States.JUMP and is_on_floor():
@@ -82,6 +94,9 @@ func state_changer():
 		state = States.JUMP
 		
 	elif state == States.WALK and velocity.y != 0:
+		state = States.JUMP
+		
+	elif state == States.CROUCH and velocity.y != 0:
 		state = States.JUMP
 		
 #		push and pull states moves (requires interact to move into push state

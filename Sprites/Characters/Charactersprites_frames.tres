@@ -10,6 +10,18 @@ region = Rect2(16, 112, 16, 16)
 atlas = ExtResource("1_tlju3")
 region = Rect2(32, 112, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukphd"]
+atlas = ExtResource("1_tlju3")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeiyr"]
+atlas = ExtResource("1_tlju3")
+region = Rect2(112, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n50nq"]
+atlas = ExtResource("1_tlju3")
+region = Rect2(128, 208, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrcfh"]
 atlas = ExtResource("1_tlju3")
 region = Rect2(32, 48, 16, 16)
@@ -94,6 +106,14 @@ region = Rect2(64, 144, 16, 16)
 atlas = ExtResource("1_tlju3")
 region = Rect2(16, 208, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d737k"]
+atlas = ExtResource("1_tlju3")
+region = Rect2(64, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2j3j"]
+atlas = ExtResource("1_tlju3")
+region = Rect2(80, 208, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww6cq"]
 atlas = ExtResource("1_tlju3")
 region = Rect2(128, 112, 16, 16)
@@ -158,6 +178,25 @@ animations = [{
 "loop": 0,
 "name": &"Ability",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukphd")
+}],
+"loop": 1,
+"name": &"Crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeiyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n50nq")
+}],
+"loop": 1,
+"name": &"FButton",
+"speed": 1.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -269,6 +308,17 @@ animations = [{
 "loop": 1,
 "name": &"PushIdle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d737k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2j3j")
+}],
+"loop": 1,
+"name": &"QButton",
+"speed": 1.5
 }, {
 "frames": [{
 "duration": 1.0,
