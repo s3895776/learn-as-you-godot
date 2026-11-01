@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://u0es300tfkcm" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/tiles_packed.png" id="2_0hfn8"]
 [ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="3_lyuc6"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_07gyt"]
+[ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="5_nurst"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2dd1r"]
-radius = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
 
-[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("area_2d")]
+[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed")]
 script = ExtResource("1_8yj4w")
-area_2d = NodePath("Area2D")
+pickup_component = NodePath("PickupComponent")
+seed = NodePath("Seed")
 
 [node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
 position = Vector2(24, -5)
@@ -24,17 +25,21 @@ visible = false
 tile_map_data = PackedByteArray("AAABAP3/AAASAAIAAAABAP7/AAARAAUAAAABAP//AAARAAYAAAAAAPv/AAARAAAAAAAAAPz/AAARAAEAAAAAAP3/AAARAAIAAAABAPv/AAASAAAAAAABAPz/AAASAAEAAAACAPv/AAATAAAAAAACAPz/AAATAAEAAAACAP3/AAATAAIAAAA=")
 tile_set = ExtResource("3_lyuc6")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1093183471]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=340099056]
-position = Vector2(24, -6)
-shape = SubResource("CircleShape2D_2dd1r")
-
 [node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1507825665]
 position = Vector2(24, -32)
 sprite_frames = ExtResource("4_07gyt")
 animation = &"QButton"
 autoplay = "NOTHING"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="PickupComponent" type="Area2D" parent="." unique_id=1217087518]
+script = ExtResource("5_nurst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=608704315]
+position = Vector2(24, -6)
+shape = SubResource("RectangleShape2D_61ot5")
+
+[connection signal="body_entered" from="PickupComponent" to="." method="_on_pickup_component_body_entered"]
+[connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="PickupComponent" to="." method="_on_pickup_component_body_exited"]
+[connection signal="body_exited" from="PickupComponent" to="PickupComponent" method="_on_body_exited"]
+[connection signal="show_sprite" from="PickupComponent" to="." method="_on_pickup_component_show_sprite"]

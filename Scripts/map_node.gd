@@ -13,8 +13,6 @@ var future = false
 var grabbed_objects: Array[Node2D]
 var player_grabbing = true
 
-#signal grab_success
-#signal grab_try
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

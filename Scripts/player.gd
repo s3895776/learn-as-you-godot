@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite = $AnimatedSprite2D
+@export var inventory: Inventory
 
 const move_speed = 250.0
 var pull_speed = 100.0
@@ -14,10 +15,12 @@ var direction : float
 @export var right_collision_ray: RayCast2D
 
 signal grabbing
+signal drop
 
 enum States {IDLE, WALK, JUMP, STOP, PUSH, PULL, PUSH_IDLE, CROUCH}
 
 var state: States = States.IDLE
+var can_switch = true
 
 #time travel feature: switch between maps.
 func switch_maps():
@@ -115,9 +118,16 @@ func on_interact():
 #	emit something to someone
 #	the other side will have to get true, then return the signal.
 #	alternative is to have ray colliders and grab whatever's close by
-#	which honestly is pretty good idea.
-	grabbing.emit()
+	if self.has_player_item():
+		#drop.emit(self.inventory)
+		inventory.get_child(0).reparent(get_parent())
+	grabbing.emit(self)
 	
+
+func _can_switch_time():
+	if (state != States.STOP and not has_player_item()):
+		return true
+	return false
 	
 func on_ability():
 	state = States.STOP
@@ -145,7 +155,8 @@ func _physics_process(delta: float) -> void:
 	
 #	perform time switch, can't be in push states.
 	if Input.is_action_just_pressed("switch_map") and (state not in push_states):
-		if (state != States.STOP):
+#		conditions for getting stop state
+		if (_can_switch_time()):
 			on_ability()
 	
 #	must be on the ground
@@ -184,3 +195,9 @@ func _on_box_grab_success() -> void:
 		state = States.PUSH_IDLE
 	else:
 		state = States.IDLE
+		
+func get_player_inventory():
+	return inventory.get_inventory()
+
+func has_player_item():
+	return inventory.has_item()

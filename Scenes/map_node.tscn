@@ -29,4 +29,5 @@ scale = Vector2(2, 2)
 position = Vector2(311, -260)
 
 [connection signal="grab_success" from="box" to="Player" method="_on_box_grab_success"]
+[connection signal="grabbing" from="Player" to="seed_to_tree" method="_on_player_grabbing"]
 [connection signal="grabbing" from="Player" to="box" method="_on_player_grabbing"]
