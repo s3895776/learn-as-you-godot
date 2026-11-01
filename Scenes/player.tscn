@@ -38,8 +38,10 @@ target_position = Vector2(14, 0)
 [node name="ExtraFX" type="AnimatedSprite2D" parent="." unique_id=409536252]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("4_vgqql")
-animation = &"NOTHING"
+animation = &"Shine"
 autoplay = "NOTHING"
+frame = 8
+frame_progress = 1.0
 
 [node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1861195055]
 position = Vector2(0, -32)

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-# Collision Rays with player
-#@onready var left_collision_ray: RayCast2D
-#@onready var right_collision_ray: RayCast2D
+# Raycast for Button
+@onready var Lraycast: RayCast2D = $LeftSideButton
+@onready var Rraycast: RayCast2D = $RightSideButton
 
 #signal grab
 signal grab_success
@@ -34,13 +34,24 @@ func _process(delta: float) -> void:
 	#$Area2D/CollisionShape2D.disabled = no_col
 	#$CollisionShape2D.disabled = no_col
 
-# show button prompt when player is near
-#func _buttonprompt(_delta: float) -> void:
-	#if left_collision_ray.is_colliding(): 
-		#$Buttons.play("QButton")
-	#elif right_collision_ray.is_colliding():
-		#$Buttons.play("QButton")
-	#else: $Buttons.play("NOTHING")
+func _physics_process(delta: float) -> void:
+	# checks raycasts to see if player is near
+	if Lraycast.is_colliding():
+		var Lhit_object = Lraycast.get_collider()
+		if Lhit_object.is_in_group("Player"):
+			$Buttons.play("QButton")
+		else:
+			$Buttons.play("NOTHING")
+	
+	elif Rraycast.is_colliding():
+		var Rhit_object = Rraycast.get_collider()
+		if Rhit_object.is_in_group("Player"):
+			$Buttons.play("QButton")
+		else:
+			$Buttons.play("NOTHING")
+	else:
+		$Buttons.play("NOTHING")
+
 
 func _on_player_grabbing() -> void:
 #	check player existence. Move component will also set player immediately. 

@@ -334,6 +334,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_ww6cq")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ww6cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww6cq")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hr5i6")
 }, {
 "duration": 1.0,
@@ -341,13 +347,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yixls")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ww6cq")
 }],
 "loop": 0,
 "name": &"Shine",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,

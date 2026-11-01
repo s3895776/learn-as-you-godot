@@ -3,17 +3,38 @@
 [ext_resource type="Script" uid="uid://ddnmj70drsluq" path="res://Scripts/seed_to_tree.gd" id="1_8yj4w"]
 [ext_resource type="Texture2D" uid="uid://u0es300tfkcm" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/tiles_packed.png" id="2_0hfn8"]
 [ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="3_lyuc6"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_07gyt"]
 
-[node name="seed_to_tree" type="Node2D" unique_id=114018887]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dd1r"]
+radius = 12.0
+
+[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("area_2d")]
 script = ExtResource("1_8yj4w")
+area_2d = NodePath("Area2D")
 
 [node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
-position = Vector2(24, -8)
+position = Vector2(24, -5)
 texture = ExtResource("2_0hfn8")
 hframes = 20
 vframes = 10
 frame = 144
 
 [node name="Tree" type="TileMapLayer" parent="." unique_id=1653657133]
+visible = false
 tile_map_data = PackedByteArray("AAABAP3/AAASAAIAAAABAP7/AAARAAUAAAABAP//AAARAAYAAAAAAPv/AAARAAAAAAAAAPz/AAARAAEAAAAAAP3/AAARAAIAAAABAPv/AAASAAAAAAABAPz/AAASAAEAAAACAPv/AAATAAAAAAACAPz/AAATAAEAAAACAP3/AAATAAIAAAA=")
 tile_set = ExtResource("3_lyuc6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1093183471]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=340099056]
+position = Vector2(24, -6)
+shape = SubResource("CircleShape2D_2dd1r")
+
+[node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1507825665]
+position = Vector2(24, -32)
+sprite_frames = ExtResource("4_07gyt")
+animation = &"QButton"
+autoplay = "NOTHING"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
