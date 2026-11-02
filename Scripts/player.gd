@@ -1,6 +1,4 @@
 extends CharacterBody2D
-@onready var sprite: Sprite2D = $Sprite
-@onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite = $AnimatedSprite2D
 @export var inventory: Inventory
 
@@ -14,8 +12,6 @@ var direction : float
 @export var left_collision_ray: RayCast2D
 @export var right_collision_ray: RayCast2D
 
-signal grabbing
-signal drop
 
 enum States {IDLE, WALK, JUMP, STOP, PUSH, PULL, PUSH_IDLE, CROUCH}
 
@@ -34,16 +30,8 @@ func _ready():
 	
 #	set your character to idle
 	state_changer()
-
-#Original animations
-	#if not is_on_floor():
-		#animated_sprite.play("Jump")
-		#pass
-	#elif direction != 0:
-		#animated_sprite.play("Walk")
-		#animated_sprite.flip_h = direction < 0
-	#else:
-		#animated_sprite.play("Idle")
+	Events.grab_success.connect(_on_box_grab_success)
+	
 func _manage_animation():
 	if state == States.STOP:
 		pass
@@ -116,12 +104,9 @@ func state_changer():
 	
 func on_interact():
 #	emit something to someone
-#	the other side will have to get true, then return the signal.
-#	alternative is to have ray colliders and grab whatever's close by
 	if self.has_player_item():
-		#drop.emit(self.inventory)
-		inventory.get_child(0).reparent(get_parent())
-	grabbing.emit(self)
+		inventory.drop_item(get_parent())
+	Events.grabbing.emit()
 	
 
 func _can_switch_time():

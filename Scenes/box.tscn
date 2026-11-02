@@ -15,10 +15,18 @@ region = Rect2(144, 80, 16, 16)
 [node name="box" type="CharacterBody2D" unique_id=1269202155]
 script = ExtResource("1_ego7h")
 
-[node name="MoveComponent" type="Node" parent="." unique_id=1673969509 node_paths=PackedStringArray("left_collision_ray", "right_collision_ray")]
+[node name="MoveComponent" type="Node2D" parent="." unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
 script = ExtResource("2_2jyye")
-left_collision_ray = NodePath("../left_collision_ray")
-right_collision_ray = NodePath("../right_collision_ray")
+right_collision_ray = NodePath("right_collision_ray")
+left_collision_ray = NodePath("left_collision_ray")
+
+[node name="left_collision_ray" type="RayCast2D" parent="MoveComponent" unique_id=632731859]
+target_position = Vector2(-20, 0)
+collision_mask = 4
+
+[node name="right_collision_ray" type="RayCast2D" parent="MoveComponent" unique_id=1347349083]
+target_position = Vector2(20, 0)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=864603308]
 position = Vector2(0, 1.5)
@@ -27,14 +35,6 @@ shape = SubResource("RectangleShape2D_61ot5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1561191468]
 position = Vector2(0, 1.5000002)
 texture = SubResource("AtlasTexture_rs26n")
-
-[node name="left_collision_ray" type="RayCast2D" parent="." unique_id=632731859]
-target_position = Vector2(-15, 0)
-collision_mask = 2
-
-[node name="right_collision_ray" type="RayCast2D" parent="." unique_id=1347349083]
-target_position = Vector2(15, 0)
-collision_mask = 2
 
 [node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=445887059]
 position = Vector2(0, -25)
@@ -45,6 +45,8 @@ frame_progress = 0.25298363
 
 [node name="LeftSideButton" type="RayCast2D" parent="." unique_id=915939070]
 target_position = Vector2(-30, 0)
+collision_mask = 4
 
 [node name="RightSideButton" type="RayCast2D" parent="." unique_id=2138473914]
 target_position = Vector2(30, 0)
+collision_mask = 4

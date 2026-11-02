@@ -1,7 +1,9 @@
+## Inventory (component) stores and displays one item. 
 class_name Inventory
 extends Node2D
 var item: Node2D
 var item_sprite: Texture
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +14,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-## show 
+## signal to drop the current item. 
+func drop_item(parent_node : Node):
+	Events.dropping.emit(parent_node)
 
 ## show the item in UI
 func show_inventory_item(): 

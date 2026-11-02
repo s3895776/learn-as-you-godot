@@ -42,4 +42,3 @@ shape = SubResource("RectangleShape2D_61ot5")
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="PickupComponent" to="." method="_on_pickup_component_body_exited"]
 [connection signal="body_exited" from="PickupComponent" to="PickupComponent" method="_on_body_exited"]
-[connection signal="show_sprite" from="PickupComponent" to="." method="_on_pickup_component_show_sprite"]
