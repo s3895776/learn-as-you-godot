@@ -7,7 +7,6 @@ extends Node
 @export var right_collision_ray: RayCast2D
 @export var left_collision_ray: RayCast2D
 
-
 #be sure to check player is in group ("Player")
 var player : Node2D = null
 var grabbed: bool = false

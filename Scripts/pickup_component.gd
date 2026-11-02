@@ -47,8 +47,5 @@ func _on_inventory_is_grabbing():
 	if is_pickup_able():
 		get_parent().reparent(player.get_player_inventory())
 	
-func _on_inventory_show_sprite() -> void:
-	pass # Replace with function body.
-	
 func get_sprite():
 	return get_parent().get_sprite()

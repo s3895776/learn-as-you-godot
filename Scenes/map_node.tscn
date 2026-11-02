@@ -11,7 +11,10 @@
 [node name="MapNode" type="Node2D" unique_id=1349269865]
 script = ExtResource("1_wp7i3")
 
-[node name="seed_to_tree" parent="." unique_id=114018887 instance=ExtResource("2_4odpq")]
+[node name="seed_to_tree2" parent="." unique_id=114018887 instance=ExtResource("2_4odpq")]
+position = Vector2(129, -1)
+
+[node name="seed_to_tree" parent="." unique_id=1118561773 instance=ExtResource("2_4odpq")]
 position = Vector2(222, -2)
 
 [node name="box" parent="." unique_id=320433613 instance=ExtResource("3_15ahl")]
@@ -27,7 +30,3 @@ scale = Vector2(2, 2)
 
 [node name="SecondBox" parent="." unique_id=2125272134 instance=ExtResource("7_bodeh")]
 position = Vector2(311, -260)
-
-[connection signal="grab_success" from="box" to="Player" method="_on_box_grab_success"]
-[connection signal="grabbing" from="Player" to="seed_to_tree" method="_on_player_grabbing"]
-[connection signal="grabbing" from="Player" to="box" method="_on_player_grabbing"]

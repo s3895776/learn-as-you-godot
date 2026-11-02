@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://i1ykgb0fn06o" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://buefnj0ewoslg" path="res://Scripts/inventory.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://de8xgxydvtrsy" path="res://Scenes/player_ui.gd" id="4_fkybt"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://cxt0mk1f727n" path="res://Godot 2D Platformer - Assets/Sprites/Objects/tile_0044.png" id="5_x3wgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12j5o"]
 radius = 8.0
@@ -11,7 +13,7 @@ height = 18.0
 [node name="Player" type="CharacterBody2D" unique_id=193058604 node_paths=PackedStringArray("inventory", "left_collision_ray", "right_collision_ray")]
 collision_layer = 7
 script = ExtResource("1_6t5aa")
-inventory = NodePath("Inventory")
+inventory = NodePath("inventory")
 left_collision_ray = NodePath("left_collision_ray")
 right_collision_ray = NodePath("right_collision_ray")
 
@@ -51,5 +53,43 @@ sprite_frames = ExtResource("4_vgqql")
 animation = &"NOTHING"
 autoplay = "NOTHING"
 
-[node name="Inventory" type="Node2D" parent="." unique_id=930572507]
+[node name="inventory" type="Node2D" parent="." unique_id=930572507]
 script = ExtResource("3_6t5aa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1874660723 node_paths=PackedStringArray("item_space")]
+script = ExtResource("4_fkybt")
+item_space = NodePath("ItemSpace")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1466130619]
+visible = false
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1178451810]
+layout_mode = 2
+texture = ExtResource("5_x3wgy")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1422998634]
+layout_mode = 2
+texture = ExtResource("5_x3wgy")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1490778901]
+layout_mode = 2
+texture = ExtResource("5_x3wgy")
+
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=843634650]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ItemSpace" type="TextureRect" parent="CanvasLayer" unique_id=227713333]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1.3649902
+offset_top = -2.7249756
+offset_right = 1.3649902
+grow_horizontal = 2
+grow_vertical = 0
