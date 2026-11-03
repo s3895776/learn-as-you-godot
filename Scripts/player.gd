@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const move_speed = 250.0
 var pull_speed = 100.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -325.0
 var acceleration = 50
 var braking = 20
 var direction : float
