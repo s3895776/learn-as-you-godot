@@ -19,6 +19,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAABAAAAAAACAAMAAAACAAAAAAADAAM
 tile_set = ExtResource("2_526to")
 
 [node name="BG" type="Node2D" parent="." unique_id=2008346692]
+z_index = -1
 
 [node name="Buildings 1" type="Parallax2D" parent="BG" unique_id=1856122062]
 z_index = -1
