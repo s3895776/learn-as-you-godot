@@ -1,8 +1,7 @@
 extends TimeSwitchObject
-@export var pickup_component: PickupItemComponent
 @export var seed: Sprite2D
-#@export var vine_platform: Area2D
 @export var vine_platform: StaticBody2D
+@export var pickup_component: PickupItemComponent
 
 #if the seed is planted, tree can be placed in the scene.
 #if not planted, the future will not show this seed. 
