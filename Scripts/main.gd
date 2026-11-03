@@ -9,11 +9,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-# call current_map to find the correct map
-func switch_maps():
-#	unload current map
-	$CurrentMap.switch_maps()
 	
 # load both maps
 func load_maps():

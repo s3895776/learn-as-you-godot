@@ -20,7 +20,6 @@ var can_switch = true
 
 #time travel feature: switch between maps.
 func switch_maps():
-#	from main.gd perform switch maps
 	Events.time_switch.emit()
 			
 
