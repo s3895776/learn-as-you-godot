@@ -5,6 +5,8 @@ signal grabbing
 signal dropping
 signal grab_success
 signal draw_ui
+signal time_switch
+signal dropped_on
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

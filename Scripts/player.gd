@@ -21,7 +21,7 @@ var can_switch = true
 #time travel feature: switch between maps.
 func switch_maps():
 #	from main.gd perform switch maps
-	get_node(get_tree().get_current_scene().get_path()).switch_maps()
+	Events.time_switch.emit()
 			
 
 func _ready():
@@ -105,7 +105,7 @@ func state_changer():
 func on_interact():
 #	emit something to someone
 	if self.has_player_item():
-		inventory.drop_item(get_parent())
+		inventory.drop_item()
 	Events.grabbing.emit()
 	
 

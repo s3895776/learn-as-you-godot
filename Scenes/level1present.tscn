@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="8_le0wf"]
 
 [node name="level1present" type="Node2D" unique_id=1141539653]
+visibility_layer = 2
 script = ExtResource("1_r4gva")
 
 [node name="TreeDecor" type="TileMapLayer" parent="." unique_id=1634298424]
@@ -33,7 +34,6 @@ tile_map_data = PackedByteArray("AAD2//7/AQAOAAkAAAD2////AQAOAAoAAAD2//z/AQAOAAk
 tile_set = ExtResource("2_qehle")
 
 [node name="BG" type="Node2D" parent="." unique_id=813706167]
-z_index = -1
 
 [node name="Buildings 1" type="Parallax2D" parent="BG" unique_id=176680586]
 z_index = -1
