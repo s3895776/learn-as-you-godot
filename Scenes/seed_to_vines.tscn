@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dam8bnpfqy0se"]
+
+[ext_resource type="Script" uid="uid://ddnmj70drsluq" path="res://Scripts/seed_to_tree.gd" id="1_tres3"]
+[ext_resource type="Texture2D" uid="uid://u0es300tfkcm" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/tiles_packed.png" id="2_u6afv"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_q0enr"]
+[ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="5_01r63"]
+[ext_resource type="Texture2D" uid="uid://db2fnlogk84n1" path="res://Sprites/Tiles/MossyConcreteTiles.png" id="5_tres3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+size = Vector2(16, 16)
+
+[node name="seed_to_vines" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed")]
+script = ExtResource("1_tres3")
+pickup_component = NodePath("PickupComponent")
+seed = NodePath("Seed")
+
+[node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
+texture = ExtResource("2_u6afv")
+hframes = 20
+vframes = 10
+frame = 144
+
+[node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1507825665]
+position = Vector2(0, -19)
+sprite_frames = ExtResource("4_q0enr")
+animation = &"QButton"
+autoplay = "NOTHING"
+
+[node name="PickupComponent" type="Area2D" parent="." unique_id=1217087518]
+script = ExtResource("5_01r63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=608704315]
+shape = SubResource("RectangleShape2D_61ot5")
+
+[node name="VinePlatform" type="Sprite2D" parent="." unique_id=1804631974]
+texture = ExtResource("5_tres3")
+hframes = 16
+vframes = 16
+frame = 22
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VinePlatform" unique_id=1097052084]
+shape = SubResource("RectangleShape2D_12j5o")
+
+[connection signal="body_entered" from="PickupComponent" to="." method="_on_pickup_component_body_entered"]
+[connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="PickupComponent" to="." method="_on_pickup_component_body_exited"]
+[connection signal="body_exited" from="PickupComponent" to="PickupComponent" method="_on_body_exited"]
