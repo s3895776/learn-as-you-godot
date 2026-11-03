@@ -1,20 +1,44 @@
-[gd_scene format=4 uid="uid://bvlpo5y60vvrj"]
+[gd_scene format=4 uid="uid://dd0x0jlqy37cn"]
 
-[ext_resource type="Script" uid="uid://ddnmj70drsluq" path="res://Scripts/seed_to_tree.gd" id="1_8yj4w"]
-[ext_resource type="Texture2D" uid="uid://u0es300tfkcm" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/tiles_packed.png" id="2_0hfn8"]
-[ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="3_lyuc6"]
+[ext_resource type="Script" uid="uid://ddnmj70drsluq" path="res://Scripts/seed_to_tree.gd" id="1_pnw0b"]
+[ext_resource type="Texture2D" uid="uid://u0es300tfkcm" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/tiles_packed.png" id="2_eg575"]
+[ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="3_dluji"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_bppr8"]
+[ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="5_1qn2h"]
 
-[node name="seed_to_tree" type="Node2D" unique_id=114018887]
-position = Vector2(51, 0)
-script = ExtResource("1_8yj4w")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
+
+[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed")]
+script = ExtResource("1_pnw0b")
+pickup_component = NodePath("PickupComponent")
+seed = NodePath("Seed")
 
 [node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
-position = Vector2(24, -8)
-texture = ExtResource("2_0hfn8")
+position = Vector2(24, -5)
+texture = ExtResource("2_eg575")
 hframes = 20
 vframes = 10
 frame = 144
 
 [node name="Tree" type="TileMapLayer" parent="." unique_id=1653657133]
+visible = false
 tile_map_data = PackedByteArray("AAABAP3/AAASAAIAAAABAP7/AAARAAUAAAABAP//AAARAAYAAAAAAPv/AAARAAAAAAAAAPz/AAARAAEAAAAAAP3/AAARAAIAAAABAPv/AAASAAAAAAABAPz/AAASAAEAAAACAPv/AAATAAAAAAACAPz/AAATAAEAAAACAP3/AAATAAIAAAA=")
-tile_set = ExtResource("3_lyuc6")
+tile_set = ExtResource("3_dluji")
+
+[node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1507825665]
+position = Vector2(24, -32)
+sprite_frames = ExtResource("4_bppr8")
+animation = &"QButton"
+autoplay = "NOTHING"
+
+[node name="PickupComponent" type="Area2D" parent="." unique_id=1217087518]
+script = ExtResource("5_1qn2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=608704315]
+position = Vector2(24, -6)
+shape = SubResource("RectangleShape2D_61ot5")
+
+[connection signal="body_entered" from="PickupComponent" to="." method="_on_pickup_component_body_entered"]
+[connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="PickupComponent" to="." method="_on_pickup_component_body_exited"]
+[connection signal="body_exited" from="PickupComponent" to="PickupComponent" method="_on_body_exited"]
