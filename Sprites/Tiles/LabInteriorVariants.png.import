@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cijcpiwmei5as"
-path="res://.godot/imported/LabVariants.png-a428c08e285168e5a085c0e0617c18e9.ctex"
+uid="uid://bh3pegg3x5ee6"
+path="res://.godot/imported/LabInteriorVariants.png-5272295a7a4bb38f6a9ceef34231d8ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/LabVariants.png"
-dest_files=["res://.godot/imported/LabVariants.png-a428c08e285168e5a085c0e0617c18e9.ctex"]
+source_file="res://Sprites/Tiles/LabInteriorVariants.png"
+dest_files=["res://.godot/imported/LabInteriorVariants.png-5272295a7a4bb38f6a9ceef34231d8ec.ctex"]
 
 [params]
 
