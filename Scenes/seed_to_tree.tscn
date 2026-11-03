@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="3_lyuc6"]
 
 [node name="seed_to_tree" type="Node2D" unique_id=114018887]
+position = Vector2(51, 0)
 script = ExtResource("1_8yj4w")
 
 [node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
