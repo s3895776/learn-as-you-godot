@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://dav4vko0n7w71"]
 
 [ext_resource type="Script" uid="uid://cnex14bofsfnd" path="res://Scripts/Level_scripts/level_1_present.gd" id="1_r4gva"]
-[ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/PastTiles.tres" id="2_qehle"]
+[ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/TileMap.tres" id="2_qehle"]
 [ext_resource type="Texture2D" uid="uid://dk8xci2mwdkfn" path="res://Sprites/Backgrounds/Past/Layer1.png" id="3_qehle"]
 [ext_resource type="Texture2D" uid="uid://bde5kcxb0un5o" path="res://Sprites/Backgrounds/Past/Layer2.png" id="4_le0wf"]
 [ext_resource type="Texture2D" uid="uid://hun4o3vhdh03" path="res://Sprites/Backgrounds/Past/Layer3.png" id="5_b22n2"]
 [ext_resource type="Texture2D" uid="uid://dctmn53jtsin3" path="res://Sprites/Backgrounds/Past/Layer4.png" id="6_wvmmy"]
 [ext_resource type="Texture2D" uid="uid://5ecmb264eosr" path="res://Sprites/Backgrounds/Past/Sky.png" id="7_ofqom"]
+[ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="8_le0wf"]
 
 [node name="level1present" type="Node2D" unique_id=1141539653]
 script = ExtResource("1_r4gva")
@@ -77,3 +78,7 @@ scroll_scale = Vector2(0.1, 0.1)
 position = Vector2(594.92004, 296.96002)
 scale = Vector2(2.3200002, 2.3200002)
 texture = ExtResource("7_ofqom")
+
+[node name="Node2D" parent="." unique_id=1577474406 instance=ExtResource("8_le0wf")]
+visible = false
+position = Vector2(345, -485)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cg30b4ch4r7gv"]
+
+[ext_resource type="Script" uid="uid://bywjn8nlxm7nl" path="res://Scripts/map_node.gd" id="1_wp7i3"]
+[ext_resource type="PackedScene" uid="uid://bvlpo5y60vvrj" path="res://Scenes/seed_to_tree.tscn" id="2_4odpq"]
+[ext_resource type="PackedScene" uid="uid://dav4vko0n7w71" path="res://Scenes/level1present.tscn" id="2_6ud8w"]
+[ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/box.tscn" id="3_15ahl"]
+[ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/level1future.tscn" id="3_bodeh"]
+[ext_resource type="PackedScene" uid="uid://1kqutksg1dkr" path="res://Scenes/player.tscn" id="6_6ud8w"]
+[ext_resource type="PackedScene" uid="uid://c5l56ssemc5fa" path="res://Scenes/second_box.tscn" id="7_bodeh"]
+
+[node name="MapNode" type="Node2D" unique_id=1349269865]
+script = ExtResource("1_wp7i3")
+
+[node name="seed_to_tree" parent="." unique_id=114018887 instance=ExtResource("2_4odpq")]
+position = Vector2(222, -2)
+
+[node name="box" parent="." unique_id=320433613 instance=ExtResource("3_15ahl")]
+position = Vector2(96, -9)
+
+[node name="level1present" parent="." unique_id=1141539653 instance=ExtResource("2_6ud8w")]
+
+[node name="level1future" parent="." unique_id=1887611081 instance=ExtResource("3_bodeh")]
+visible = false
+
+[node name="Player" parent="." unique_id=193058604 instance=ExtResource("6_6ud8w")]
+scale = Vector2(2, 2)
+
+[node name="SecondBox" parent="." unique_id=2125272134 instance=ExtResource("7_bodeh")]
+position = Vector2(311, -260)
+
+[connection signal="grab_success" from="box" to="Player" method="_on_box_grab_success"]
+[connection signal="grabbing" from="Player" to="box" method="_on_player_grabbing"]
