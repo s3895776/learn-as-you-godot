@@ -41,8 +41,8 @@ func switch_object(future: bool):
 	else:
 		$PickupComponent.visible = true
 		$Seed.visible = true
-		vine_visibility_collision_enabled(false)
 		set_disabled_mode($PickupComponent, true)
+		vine_visibility_collision_enabled(false)
 		
 func _on_pickup_component_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

@@ -77,7 +77,7 @@ func request_node_flip():
 func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable
-	map.enable_TileMapLayer(enable)
+	map.enable_map(enable)
 #	note: any other collisions will not be disabled. 
 
 # box and player interaction

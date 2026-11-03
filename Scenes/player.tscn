@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://i1ykgb0fn06o" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://buefnj0ewoslg" path="res://Scripts/inventory.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://de8xgxydvtrsy" path="res://Scenes/player_ui.gd" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://de8xgxydvtrsy" path="res://Scripts/player_ui.gd" id="4_fkybt"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://cxt0mk1f727n" path="res://Godot 2D Platformer - Assets/Sprites/Objects/tile_0044.png" id="5_x3wgy"]
 

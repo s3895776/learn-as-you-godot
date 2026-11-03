@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/TileMap.tres" id="1_4s25w"]
 
-[node name="Node2D" type="Node2D" unique_id=1577474406]
+[node name="Start_PAST" type="Node2D" unique_id=1577474406]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1117325004]
 scale = Vector2(2, 2)

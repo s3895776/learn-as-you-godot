@@ -1,6 +1,6 @@
 @abstract class_name BaseLevel extends Node2D
 
-var tile_maps : Array[TileMapLayer]
+#var tile_maps : Array[TileMapLayer]
 
 # Called when the node enters the scene tree for the first time.
 @abstract func _ready() -> void
@@ -16,9 +16,14 @@ func _process(delta: float) -> void:
 # alternative: find all child nodes on runtime and check if they are a tilemap 
 # to add to a tilemap array. Docs Notes: could be extremely slow to run find_children().
 # for all tilemap nodes in tile map array, change the visibility of the tilemap.
-func enable_TileMapLayer(enable : bool):
-	for map in tile_maps:
-		map.set_enabled(enable)
+
+func enable_map(enabled : bool):
+#	check any node and call set enabled, if is tilemap will be correct.
+	self.propagate_call("set_enabled", [enabled])		
+
+#func enable_TileMapLayer(enable : bool):
+	#for map in tile_maps:
+		#map.set_enabled(enable)
 
 ## return the next level
 #func next_level

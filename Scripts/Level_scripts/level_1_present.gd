@@ -6,11 +6,8 @@ func _ready() -> void:
 	
 func define_maps():
 #	Remember to add every tile map here by name
-	tile_maps = [$TileMapLayer]
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	super._process(delta)
-
-func enable_TileMapLayer(enable : bool):
-	super.enable_TileMapLayer(enable)

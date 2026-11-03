@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dam8bnpfqy0se"]
 
-[ext_resource type="Script" uid="uid://dys07kuqcduo8" path="res://Scenes/seed_to_vines.gd" id="1_tres3"]
+[ext_resource type="Script" uid="uid://dys07kuqcduo8" path="res://Scripts/seed_to_vines.gd" id="1_tres3"]
 [ext_resource type="Texture2D" uid="uid://u0es300tfkcm" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/tiles_packed.png" id="2_u6afv"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_q0enr"]
 [ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="5_01r63"]
