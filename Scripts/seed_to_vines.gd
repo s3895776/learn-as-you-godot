@@ -21,10 +21,10 @@ func vine_visibility_collision_enabled(enabled : bool):
 	#DISABLE_MODE_MAKE_STATIC = 1
 	#DISABLE_MODE_REMOVE = 0		
 	
-	set_disabled_mode(vine_platform, enabled)
+	set_collision(vine_platform, enabled)
 		
 
-func set_disabled_mode(collision_obj: CollisionObject2D, enabled : bool):
+func set_collision(collision_obj: CollisionObject2D, enabled : bool):
 	if (enabled):
 		collision_obj.process_mode = Node.PROCESS_MODE_ALWAYS   
 	else:
@@ -35,13 +35,11 @@ func switch_object(future: bool):
 	if future:
 		vine_visibility_collision_enabled(true)
 		$Seed.visible = false
-		$PickupComponent.visible = false
-		set_disabled_mode($PickupComponent, false)
+		set_collision(pickup_component, false)
 		
 	else:
-		$PickupComponent.visible = true
 		$Seed.visible = true
-		set_disabled_mode($PickupComponent, true)
+		set_collision(pickup_component, true)
 		vine_visibility_collision_enabled(false)
 		
 func _on_pickup_component_body_entered(body: Node2D) -> void:

@@ -39,9 +39,9 @@ func _on_body_exited(body: Node2D) -> void:
 #func drop_item(parent_node : Node):
 	#Events.dropping.emit(get_parent())
 	
-func on_inventory_drop_item(new_parent : Node):
+func on_inventory_drop_item():
 	if is_pickup_able():
-		get_parent().reparent(new_parent)
+		Events.dropped_on.emit(get_parent())
 	
 func _on_inventory_is_grabbing():
 	if is_pickup_able():

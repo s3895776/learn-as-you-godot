@@ -20,8 +20,8 @@ func _process(delta: float) -> void:
 	#inventory_update.emit()
 
 ## signal to drop the current item. 
-func drop_item(parent_node : Node):
-	Events.dropping.emit(parent_node)
+func drop_item():
+	Events.dropping.emit()
 
 ## show the item in UI
 func show_inventory_item(child : Node2D): 
@@ -30,7 +30,6 @@ func show_inventory_item(child : Node2D):
 	if child.is_in_group("Item"):
 #		get the texture from parent 
 		item_sprite = child.get_pickup_component().get_sprite()
-#		TODO: draw the item_sprite onto UI.
 		Events.draw_ui.emit(item_sprite)
 
 func hide_inventory_item(child : Node2D):
