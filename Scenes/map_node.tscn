@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/box.tscn" id="3_15ahl"]
 [ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/level1future.tscn" id="3_bodeh"]
 [ext_resource type="PackedScene" uid="uid://1kqutksg1dkr" path="res://Scenes/player.tscn" id="6_6ud8w"]
-[ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="8_6urno"]
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="8_voewm"]
 
 [node name="MapNode" type="Node2D" unique_id=1349269865]
@@ -31,11 +30,3 @@ position = Vector2(210, 0)
 
 [node name="seed_to_vines" parent="." unique_id=1665605971 instance=ExtResource("8_voewm")]
 position = Vector2(48, -8)
-
-[node name="Apartments" type="Node2D" parent="." unique_id=894103189]
-
-[node name="PAST" type="Node2D" parent="Apartments" unique_id=1950117637]
-
-[node name="Start_PAST" parent="Apartments/PAST" unique_id=1577474406 instance=ExtResource("8_6urno")]
-
-[node name="FUTURE" type="Node2D" parent="Apartments" unique_id=365506504]
