@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/box.tscn" id="3_15ahl"]
 [ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/level1future.tscn" id="3_bodeh"]
 [ext_resource type="PackedScene" uid="uid://1kqutksg1dkr" path="res://Scenes/player.tscn" id="6_6ud8w"]
-[ext_resource type="PackedScene" uid="uid://c5l56ssemc5fa" path="res://Scenes/second_box.tscn" id="7_bodeh"]
+[ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="8_voewm"]
 
 [node name="MapNode" type="Node2D" unique_id=1349269865]
 script = ExtResource("1_wp7i3")
@@ -22,11 +22,11 @@ visible = false
 [node name="Player" parent="." unique_id=193058604 instance=ExtResource("6_6ud8w")]
 scale = Vector2(2, 2)
 
-[node name="SecondBox" parent="." unique_id=2125272134 instance=ExtResource("7_bodeh")]
-position = Vector2(311, -260)
-
 [node name="seed_to_tree" parent="." unique_id=114018887 instance=ExtResource("2_4odpq")]
 position = Vector2(122, 0)
 
 [node name="seed_to_tree2" parent="." unique_id=1601815864 instance=ExtResource("2_4odpq")]
 position = Vector2(210, 0)
+
+[node name="seed_to_vines" parent="." unique_id=1665605971 instance=ExtResource("8_voewm")]
+position = Vector2(48, -8)

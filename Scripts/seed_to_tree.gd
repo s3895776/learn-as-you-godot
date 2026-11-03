@@ -1,6 +1,7 @@
 extends TimeSwitchObject
 @export var pickup_component: PickupItemComponent
 @export var seed: Sprite2D
+@export var tree: TileMapLayer
 
 #if the seed is planted, tree can be placed in the scene.
 #if not planted, the future will not show this seed. 
@@ -20,14 +21,14 @@ func map_visibility_collision_enabled(map : TileMapLayer, change : bool):
 	
 func switch_object(future: bool):
 	if future:
-		map_visibility_collision_enabled($Tree, true)
+		map_visibility_collision_enabled(tree, true)
 		$Seed.visible = false
 		$PickupComponent.visible = false
 		
 	else:
 		$PickupComponent.visible = true
 		$Seed.visible = true
-		map_visibility_collision_enabled($Tree, false)
+		map_visibility_collision_enabled(tree, false)
 		
 func _on_pickup_component_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

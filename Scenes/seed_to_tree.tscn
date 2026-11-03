@@ -8,10 +8,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
 
-[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed")]
+[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed", "tree")]
 script = ExtResource("1_pnw0b")
 pickup_component = NodePath("PickupComponent")
 seed = NodePath("Seed")
+tree = NodePath("Tree")
 
 [node name="Seed" type="Sprite2D" parent="." unique_id=320740347]
 position = Vector2(24, -5)
@@ -21,7 +22,6 @@ vframes = 10
 frame = 144
 
 [node name="Tree" type="TileMapLayer" parent="." unique_id=1653657133]
-visible = false
 tile_map_data = PackedByteArray("AAABAP3/AAASAAIAAAABAP7/AAARAAUAAAABAP//AAARAAYAAAAAAPv/AAARAAAAAAAAAPz/AAARAAEAAAAAAP3/AAARAAIAAAABAPv/AAASAAAAAAABAPz/AAASAAEAAAACAPv/AAATAAAAAAACAPz/AAATAAEAAAACAP3/AAATAAIAAAA=")
 tile_set = ExtResource("3_dluji")
 
