@@ -7,6 +7,11 @@ var switchable_objects : Array[TimeSwitchObject]
 var present_map_node : Node2D
 var future_map_node : Node2D
 
+#var present_apt_start_node : Node2D
+#var future_apt_start_node : Node2D
+#var present_apt_2_node : Node2D
+#var future_apt_2_node : Node2D
+
 var future = false
 
 # array for grabbed objects: can be a separate class type. 
@@ -27,6 +32,7 @@ func _ready() -> void:
 	
 	present_map_node = $level1present
 	future_map_node = $level1future
+	
 	
 #	set visibility and collision
 	switch_maps()
