@@ -7,10 +7,9 @@ var switchable_objects : Array[TimeSwitchObject]
 var present_map_node : Node2D
 var future_map_node : Node2D
 
-#var present_apt_start_node : Node2D
-#var future_apt_start_node : Node2D
-#var present_apt_2_node : Node2D
-#var future_apt_2_node : Node2D
+#
+var present_apt_node: Node2D
+var future_apt_node: Node2D
 
 var future = false
 
