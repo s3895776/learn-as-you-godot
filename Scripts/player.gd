@@ -1,6 +1,9 @@
 extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @export var inventory: Inventory
+@onready var fade: CanvasLayer = $Fade
+@onready var animation_player: AnimationPlayer = $TimeWarp/ColorRect/AnimationPlayer
+
 
 const move_speed = 250.0
 var pull_speed = 100.0
@@ -119,8 +122,14 @@ func on_ability():
 	animated_sprite.play("Ability")
 	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
+	#fade.fade(1.0, 0.5)
+	
 	await animated_sprite.animation_finished
+	$TimeWarp/ColorRect/AnimationPlayer.play("TIME FADE")
+	await $TimeWarp/ColorRect/AnimationPlayer.animation_finished
 	switch_maps()
+	$TimeWarp/ColorRect/AnimationPlayer.play("TIME FADE OUT")
+	#fade.fade(0.0, 0.5)
 	state = States.IDLE
 		
 func _process(delta: float) -> void:
