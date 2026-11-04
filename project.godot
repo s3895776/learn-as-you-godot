@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Globalscripts="*uid://c8pcpnndlymtg"
 Events="*uid://tawbytpa44ny"
+_2NdFuture="*uid://bnlpnuqohnw4e"
+_2NdPast="*uid://dtrynpat7p8my"
+StartFuture="*uid://ydbtp4ko7dae"
+StartPast="*uid://bgbcfou3gcmr3"
 
 [display]
 

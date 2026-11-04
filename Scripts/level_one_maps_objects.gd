@@ -4,7 +4,8 @@ extends Node2D
 #these should be pointers
 var present_map : Node2D
 var future_map : Node2D
-@export var level_maps_objects: Node2D
+#@export var level_maps_objects: Node2D
+
 
 var present_apt_node: Node2D
 var future_apt_node: Node2D
@@ -24,7 +25,7 @@ func _ready() -> void:
 #	signal player switching time
 	Events.time_switch.connect(switch_maps)
 	Events.dropped_on.connect(reparent_dropped_item)
-	
+	Events.entering_level.connect(change_levels)
 #	set visibility and collision (runs switch object after)
 	switch_maps()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,7 +33,7 @@ func _process(delta: float) -> void:
 	pass
 
 ## go from first level to any level
-func switch_levels(present : PackedScene, future : PackedScene):
+func change_levels(present : PackedScene, future : PackedScene):
 	#present_map = present
 	#future_map = future
 	present_map.change_to_packed_scene(present)
@@ -60,6 +61,7 @@ func switch_objects():
 		if c is TimeSwitchObject:
 			c.switch_object(future)
 		
+	
 func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable

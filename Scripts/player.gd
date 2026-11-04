@@ -22,7 +22,10 @@ var can_switch = true
 func switch_maps():
 	Events.time_switch.emit()
 			
-
+func enter_level():
+#	prefer a variable to enter these levels. 
+	Events.entering_level.emit()
+	
 func _ready():
 #	tag system: group will identify the player.
 	add_to_group("Player")
