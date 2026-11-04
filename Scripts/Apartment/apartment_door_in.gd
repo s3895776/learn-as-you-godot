@@ -1,4 +1,4 @@
-extends Node2D
+extends change_level_component
 
 
 # Called when the node enters the scene tree for the first time.

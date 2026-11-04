@@ -1,7 +1,6 @@
 @abstract class_name change_level_component
 extends Node2D
 @export var area : Area2D
-@export var collision : CollisionObject2D
 @export var buttons : AnimatedSprite2D
 @export var present_level_to_load : PackedScene
 @export var future_level_to_load : PackedScene

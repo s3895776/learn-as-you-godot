@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgsxacdm2somj"]
+
+[ext_resource type="Script" uid="uid://caqa8cc3a08f" path="res://Scripts/Level_One/level_1_in.gd" id="1_dxw27"]
+[ext_resource type="PackedScene" uid="uid://dav4vko0n7w71" path="res://Scenes/LevelOne/level1present.tscn" id="2_orxo0"]
+[ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/LevelOne/level1future.tscn" id="3_3o5re"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+
+[node name="Level1In" type="Node2D" unique_id=663768436 node_paths=PackedStringArray("area", "buttons")]
+script = ExtResource("1_dxw27")
+area = NodePath("Area2D")
+buttons = NodePath("AnimatedSprite2D")
+present_level_to_load = ExtResource("2_orxo0")
+future_level_to_load = ExtResource("3_3o5re")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1689017811]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1880326581]
+shape = SubResource("RectangleShape2D_12j5o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768579409]
