@@ -4,11 +4,6 @@ extends Node2D
 #these should be pointers
 var present_map : Node2D
 var future_map : Node2D
-#@export var level_maps_objects: Node2D
-
-
-var present_apt_node: Node2D
-var future_apt_node: Node2D
 
 var future = false
 
@@ -25,7 +20,7 @@ func _ready() -> void:
 #	signal player switching time
 	Events.time_switch.connect(switch_maps)
 	Events.dropped_on.connect(reparent_dropped_item)
-	Events.entering_level.connect(change_levels)
+	Events.levels_loaded.connect(change_levels)
 #	set visibility and collision (runs switch object after)
 	switch_maps()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,15 +29,24 @@ func _process(delta: float) -> void:
 
 ## go from first level to any level
 func change_levels(present : PackedScene, future : PackedScene):
+	print("change levels!")
 	#present_map = present
 	#future_map = future
-	present_map.change_to_packed_scene(present)
-	future_map.change_to_packed_scene(future)
+	remove_child(present_map)
+	remove_child(future_map)
+	var instance = present.instantiate()
+	add_child(instance)
+	instance = future.instantiate()
+	add_child(instance)
+	#present_map = present
+	#future_map = future
+	#present_map.change_to_packed_scene(present)
+	#future_map.change_to_packed_scene(future)
 	switch_maps()
 	
 ## change the time of the leveL: swap present and future map
 func switch_maps():
-	print("switching time")
+	#print("switching time")
 	future = not future
 	if (future):
 #		careful with the collision as the player may clip into or fall based on the order of ops.

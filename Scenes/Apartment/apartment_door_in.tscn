@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://xl5t1ar133o5"]
 
 [ext_resource type="Script" uid="uid://b16e2q4b772ia" path="res://Scripts/Apartment/apartment_door_in.gd" id="1_avse5"]
+[ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="2_n46rm"]
+[ext_resource type="PackedScene" uid="uid://ydbtp4ko7dae" path="res://Scenes/Apartment/Start_FUTURE.tscn" id="3_nw6dg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avse5"]
 
-[node name="ApartmentDoorIn" type="Node2D" unique_id=983210018]
+[node name="ApartmentDoorIn" type="Node2D" unique_id=983210018 node_paths=PackedStringArray("area", "buttons")]
 script = ExtResource("1_avse5")
+area = NodePath("Area2D")
+buttons = NodePath("AnimatedSprite2D")
+present_level_to_load = ExtResource("2_n46rm")
+future_level_to_load = ExtResource("3_nw6dg")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=61968386]
 

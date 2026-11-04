@@ -6,14 +6,31 @@ extends Node2D
 @export var future_level_to_load : PackedScene
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+var can_enter : bool
+
+#Called when the node enters the scene tree for the first time.
+func _ready() -> void:	
 	pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	pass
+
+func change_level():
+	if (can_enter):
+		Events.levels_loaded.emit(present_level_to_load, future_level_to_load)
+
+# signals
+func _on_body_entered(body: Node2D) -> void:
+	print("yes body level enter")
+	if body.is_in_group("Player"):
+		can_enter = true
+
+func _on_body_exited(body: Node2D) -> void:
+	print("no body level enter ")
+	if body.is_in_group("Player"):
+		can_enter = false
 
 # getters and setters 
 
@@ -23,4 +40,6 @@ func get_present_level_to_load():
 func get_future_level_to_load():
 	return future_level_to_load
 	
-	
+
+## connect signals (they are static)
+@abstract func connect_signals()

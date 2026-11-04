@@ -23,7 +23,7 @@ func switch_maps():
 	Events.time_switch.emit()
 			
 func enter_level():
-#	prefer a variable to enter these levels. 
+#	the collision will have the level pointer. 
 	Events.entering_level.emit()
 	
 func _ready():
@@ -146,10 +146,13 @@ func _physics_process(delta: float) -> void:
 		if (_can_switch_time()):
 			on_ability()
 	
-#	must be on the ground
+#	must be on the ground to interact
 	elif Input.is_action_just_pressed("interact") and is_on_floor():
 		on_interact()
-	
+		
+	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
+		enter_level()
+		
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("move_left", "move_right")
 		
