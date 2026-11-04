@@ -61,6 +61,29 @@ func _manage_animation():
 		animated_sprite.play("PushIdle")
 		$ExtraFX.play("NOTHING")
 			
+func _manage_sound():
+	#if state == States.STOP:
+		#$Footsteps.play()
+	#elif state == States.IDLE:
+		#$Footsteps.play()
+	#elif state == States.CROUCH:
+		#$Footsteps.play()
+	#elif state == States.WALK:
+		#$Footsteps.play()
+	#elif state == States.JUMP:
+		#$Footsteps.play()
+	#elif state == States.PUSH:
+		#$Footsteps.play()
+	#elif state == States.PULL:
+		#$Footsteps.play()
+	#elif state == States.PUSH_IDLE:
+		#$Footsteps.play()
+		
+	if state == States.WALK:
+		$Footsteps.play()
+	elif state == States.JUMP:
+		$Footsteps.play()
+
 func state_changer():
 	if state == States.STOP:
 		pass

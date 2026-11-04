@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://1kqutksg1dkr"]
 
 [ext_resource type="Script" uid="uid://i1ykgb0fn06o" path="res://Scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://cs1m2k15jdb65" path="res://SFX/Footstep1.1.wav" id="2_gymyn"]
 [ext_resource type="Script" uid="uid://buefnj0ewoslg" path="res://Scripts/inventory.gd" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://l0glvyi2i25f" path="res://SFX/Footstep1.2.wav" id="3_pu2lt"]
 [ext_resource type="Script" uid="uid://de8xgxydvtrsy" path="res://Scripts/player_ui.gd" id="4_fkybt"]
+[ext_resource type="AudioStream" uid="uid://sf8luejwu61j" path="res://SFX/Footstep1.3.wav" id="4_ukyrk"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://bsuyoxyx8kv1s" path="res://SFX/Footstep1.4.wav" id="5_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://cxt0mk1f727n" path="res://Godot 2D Platformer - Assets/Sprites/Objects/tile_0044.png" id="5_x3wgy"]
 [ext_resource type="Script" uid="uid://b1psbvkqrqb0" path="res://Scenes/fade.gd" id="6_x3wgy"]
 [ext_resource type="Shader" uid="uid://da467umvi01xd" path="res://Scenes/timecircle.gdshader" id="7_3smsa"]
@@ -11,6 +15,13 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12j5o"]
 radius = 8.0
 height = 18.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3smsa"]
+streams_count = 4
+stream_0/stream = ExtResource("2_gymyn")
+stream_1/stream = ExtResource("3_pu2lt")
+stream_2/stream = ExtResource("4_ukyrk")
+stream_3/stream = ExtResource("5_7dp3o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2dd1r"]
 shader = ExtResource("7_3smsa")
@@ -81,7 +92,9 @@ right_collision_ray = NodePath("right_collision_ray")
 position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_12j5o")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2125407751]
+[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=2125407751]
+stream = SubResource("AudioStreamRandomizer_3smsa")
+max_polyphony = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1489020421]
 offset = Vector2(0, -80)
