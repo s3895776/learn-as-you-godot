@@ -16,11 +16,11 @@ script = ExtResource("1_8r2hl")
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
 visible = false
 
-[node name="ApartmentDoorIn" parent="." unique_id=983210018 instance=ExtResource("7_omwgw")]
+[node name="Objects" type="Node2D" parent="." unique_id=1099503779]
+
+[node name="ApartmentDoorIn" parent="Objects" unique_id=983210018 instance=ExtResource("7_omwgw")]
 position = Vector2(32.000004, -21.999998)
 scale = Vector2(1.48, 2.215)
-
-[node name="Objects" type="Node2D" parent="." unique_id=1099503779]
 
 [node name="seed_to_vines" parent="Objects" unique_id=1679277914 instance=ExtResource("6_tlhqo")]
 position = Vector2(116, -8)
