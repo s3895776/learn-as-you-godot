@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 const move_speed = 250.0
 var pull_speed = 100.0
+var time_speed = 25.0
 const JUMP_VELOCITY = -325.0
 var acceleration = 50
 var braking = 20
@@ -42,12 +43,14 @@ func _manage_animation():
 		$ExtraFX.play("NOTHING")
 	elif state == States.CROUCH:
 		animated_sprite.play("Crouch")
+		$ExtraFX.play("NOTHING")
 	elif state == States.WALK:
 		animated_sprite.play("Walk")
 		$ExtraFX.play("NOTHING")
 		animated_sprite.flip_h = direction < 0
 	elif state == States.JUMP:
 		animated_sprite.play("Jump")
+		$ExtraFX.play("NOTHING")
 	elif state == States.PUSH:
 		animated_sprite.play("Push")
 		$ExtraFX.play("Sweat")
@@ -129,6 +132,7 @@ func on_ability():
 	await $TimeWarp/ColorRect/AnimationPlayer.animation_finished
 	switch_maps()
 	$TimeWarp/ColorRect/AnimationPlayer.play("TIME FADE OUT")
+	
 	#fade.fade(0.0, 0.5)
 	state = States.IDLE
 		
@@ -137,7 +141,10 @@ func _process(delta: float) -> void:
 
 var push_states = [States.PUSH_IDLE, States.PUSH, States.PULL]
 func _physics_process(delta: float) -> void:
-	
+	# Time warp stops all
+	if state == States.STOP:
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -165,6 +172,8 @@ func _physics_process(delta: float) -> void:
 		if (state in push_states):
 			velocity.x = pull_speed * direction
 			print(direction)
+		if state == States.STOP:
+			velocity.x = time_speed * direction
 	else:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		if (state in push_states):
@@ -176,6 +185,9 @@ func _physics_process(delta: float) -> void:
 
 func set_pull_speed(value: float) -> void:
 	pull_speed = value
+	
+func set_time_speed(value: float) -> void:
+	time_speed = value
 	
 func get_box_side() -> float:
 	if left_collision_ray.is_colliding(): return -1.0
