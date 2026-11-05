@@ -1,4 +1,4 @@
-extends change_level_component
+extends ChangeLevelComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,4 +13,8 @@ func connect_signals():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+## implement if lab has objects 
+func load_level():
 	pass

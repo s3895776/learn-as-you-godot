@@ -15,7 +15,8 @@ signal time_switch
 
 # traverse levels
 signal entering_level
-signal levels_loaded
+signal load_level
+signal level_type
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -2,8 +2,9 @@ extends Node2D
 # 
 
 #these should be pointers
-var present_map : Node2D
-var future_map : Node2D
+var present_map : BaseLevel
+var future_map : BaseLevel
+var current_objects: Node2D
 
 var future = false
 
@@ -11,16 +12,28 @@ var future = false
 var grabbed_objects: Array[Node2D]
 var player_grabbing = true
 
+#@export var lab_objects : PackedScene
+#@export var lab_present_map : PackedScene
+#@export var lab_future_map : PackedScene
+#
+#@export var apartment_objects : PackedScene
+#@export var apartment_present_map : PackedScene
+#@export var apartment_future_map : PackedScene
+#
+#@export var level_one_objects : PackedScene
+#@export var level_one_present_map : PackedScene
+#@export var level_one_future_map : PackedScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	present_map = $CurrentPresentLevel
 	future_map = $CurrentFutureLevel
-	
+	objects = $Objects
 #	signal player switching time
 	Events.time_switch.connect(switch_maps)
 	Events.dropped_on.connect(reparent_dropped_item)
-	Events.levels_loaded.connect(change_levels)
+	Events.load_level.connect(change_levels)
 #	set visibility and collision (runs switch object after)
 	switch_maps()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,24 +41,34 @@ func _process(delta: float) -> void:
 	pass
 
 ## go from first level to any level
-func change_levels(present : PackedScene, future : PackedScene):
-	print("change levels!")
-	#present_map = present
-	#future_map = future
+func change_levels(present : PackedScene, future : PackedScene, objects : PackedScene):
+	print("change levels in level_one_maps_objects!")
+#	save first: if saves are needed. 
+	if (get_tree().get_first_node_in_group("Saves")):
+		get_tree().get_first_node_in_group("Saves").save_level
+	
 	remove_child(present_map)
 	remove_child(future_map)
-	var instance = present.instantiate()
-	add_child(instance)
-	instance = future.instantiate()
-	add_child(instance)
-	#present_map = present
-	#future_map = future
-	#present_map.change_to_packed_scene(present)
-	#future_map.change_to_packed_scene(future)
+	remove_child(current_objects)
 	
-#	save objects and delete them. 
+	
+	#var instance = BaseLevel.new(present)
+	#add_child(instance)
+	var instance = load(present)
+	present_map = instance
+	
+	instance = future.instantiate() 
+	add_child(instance)
+	future_map = instance
+	
+	instance = objects.instantiate()
+	# remove objects
+	
+	#objects = new objects in the scene.
+	objects = get_tree().get_first_node_in_group("Objects")
 	switch_maps()
-	
+
+
 ## change the time of the leveL: swap present and future map
 func switch_maps():
 	#print("switching time")

@@ -5,22 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="2_7umgg"]
 [ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/box.tscn" id="3_wnk33"]
 [ext_resource type="PackedScene" uid="uid://dd0x0jlqy37cn" path="res://Scenes/seed_to_tree.tscn" id="4_4otj6"]
+[ext_resource type="Script" uid="uid://bv5dwthlwyu1h" path="res://Scenes/LevelOne/node.gd" id="6_wnk33"]
 
-[node name="Objects" type="Node2D" unique_id=240508750 groups=["Persist"]]
+[node name="level_one_objects" type="Node2D" unique_id=240508750]
 script = ExtResource("1_7umgg")
 
-[node name="ApartmentDoorIn" parent="." unique_id=983210018 instance=ExtResource("1_nm4kl")]
+[node name="ApartmentDoorIn" parent="." unique_id=983210018 groups=["Persist"] instance=ExtResource("1_nm4kl")]
 position = Vector2(32.000004, -21.999998)
 scale = Vector2(1.48, 2.215)
 
-[node name="seed_to_vines" parent="." unique_id=114018887 instance=ExtResource("2_7umgg")]
+[node name="seed_to_vines" parent="." unique_id=114018887 groups=["Persist"] instance=ExtResource("2_7umgg")]
 position = Vector2(116, -8)
 
-[node name="box" parent="." unique_id=1269202155 instance=ExtResource("3_wnk33")]
+[node name="box" parent="." unique_id=1269202155 groups=["Persist"] instance=ExtResource("3_wnk33")]
 position = Vector2(184, -10)
 
-[node name="seed_to_tree" parent="." unique_id=1458833346 instance=ExtResource("4_4otj6")]
+[node name="seed_to_tree" parent="." unique_id=1458833346 groups=["Persist"] instance=ExtResource("4_4otj6")]
 position = Vector2(342, -1)
 
-[node name="seed_to_tree2" parent="." unique_id=1404802038 instance=ExtResource("4_4otj6")]
+[node name="seed_to_tree2" parent="." unique_id=1404802038 groups=["Persist"] instance=ExtResource("4_4otj6")]
 position = Vector2(211, -1)
+
+[node name="save_lvl_one" type="Node" parent="." unique_id=425124751]
+script = ExtResource("6_wnk33")

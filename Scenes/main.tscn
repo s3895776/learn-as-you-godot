@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://hqtusj2re21m"]
 
-[ext_resource type="Script" uid="uid://cbbsupian3sx2" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cg30b4ch4r7gv" path="res://Scenes/map_node.tscn" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://cbbsupian3sx2" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://tawbytpa44ny" path="res://Scripts/events.gd" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://c1n1kw2bo7f2j" path="res://Scripts/saves.gd" id="4_jjvhh"]
 
 [node name="Main" type="Node2D" unique_id=189494304]
-script = ExtResource("1_8gbba")
+script = ExtResource("1_jjvhh")
 
 [node name="CurrentMap" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
 position = Vector2(1, -3)
@@ -13,4 +14,5 @@ position = Vector2(1, -3)
 [node name="Events" type="Node" parent="." unique_id=1088045949]
 script = ExtResource("3_8gbba")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1832913798]
+[node name="Saves" type="Node" parent="." unique_id=889847338]
+script = ExtResource("4_jjvhh")

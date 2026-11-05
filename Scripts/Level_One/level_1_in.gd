@@ -1,4 +1,4 @@
-extends change_level_component
+extends ChangeLevelComponent
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,13 +10,11 @@ func connect_signals():
 	area.body_exited.connect(_on_body_exited)
 	Events.entering_level.connect(change_level)
 
-func save():
-#	load main, save current state
-	Main.save_state_level_one_file
-	pass
+func load_level():
+	Main.load_state(Main.save_state_level_one_file)
 
 func change_level():
-	save()
+	load_level()
 	super.change_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
