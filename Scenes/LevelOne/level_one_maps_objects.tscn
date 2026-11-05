@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dd0x0jlqy37cn" path="res://Scenes/seed_to_tree.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="6_tlhqo"]
 [ext_resource type="PackedScene" uid="uid://xl5t1ar133o5" path="res://Scenes/Apartment/apartment_door_in.tscn" id="7_omwgw"]
+[ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="8_tlhqo"]
+[ext_resource type="PackedScene" uid="uid://ydbtp4ko7dae" path="res://Scenes/Apartment/Start_FUTURE.tscn" id="9_7sesu"]
+[ext_resource type="PackedScene" uid="uid://dtrynpat7p8my" path="res://Scenes/Apartment/2nd_PAST.tscn" id="10_sgrkx"]
+[ext_resource type="PackedScene" uid="uid://bnlpnuqohnw4e" path="res://Scenes/Apartment/2nd_FUTURE.tscn" id="11_n63nb"]
 
 [node name="LevelMapsObjects" type="Node2D" unique_id=1077622127]
 script = ExtResource("1_8r2hl")
@@ -33,3 +37,18 @@ position = Vector2(342, -1)
 
 [node name="seed_to_tree2" parent="Objects" unique_id=668031572 instance=ExtResource("5_ckc7r")]
 position = Vector2(211, -1)
+
+[node name="Start_PAST" parent="." unique_id=1577474406 instance=ExtResource("8_tlhqo")]
+position = Vector2(-192, -960)
+
+[node name="Start_PAST2" parent="." unique_id=1730243153 instance=ExtResource("9_7sesu")]
+visible = false
+position = Vector2(-192, -960)
+
+[node name="apt_past_2" parent="." unique_id=1509722182 instance=ExtResource("10_sgrkx")]
+visible = false
+position = Vector2(-192, -960)
+
+[node name="Start_PAST3" parent="." unique_id=1204020124 instance=ExtResource("11_n63nb")]
+visible = false
+position = Vector2(-192, -960)
