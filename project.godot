@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Globalscripts="*uid://c8pcpnndlymtg"
 Events="*uid://tawbytpa44ny"
+Main="*uid://hqtusj2re21m"
 
 [display]
 
@@ -28,6 +29,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 Player="The player group."
+Persist=""
 
 [input]
 

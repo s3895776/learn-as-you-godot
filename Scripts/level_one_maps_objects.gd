@@ -42,6 +42,8 @@ func change_levels(present : PackedScene, future : PackedScene):
 	#future_map = future
 	#present_map.change_to_packed_scene(present)
 	#future_map.change_to_packed_scene(future)
+	
+#	save objects and delete them. 
 	switch_maps()
 	
 ## change the time of the leveL: swap present and future map

@@ -4,6 +4,7 @@ extends Node2D
 @export var buttons : AnimatedSprite2D
 @export var present_level_to_load : PackedScene
 @export var future_level_to_load : PackedScene
+#@export v
 
 
 var can_enter : bool
@@ -16,6 +17,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	pass
+
+@abstract func load_level()
 
 func change_level():
 	if (can_enter):
@@ -41,5 +44,5 @@ func get_future_level_to_load():
 	return future_level_to_load
 	
 
-## connect signals (they are static)
+## connect signals (they cannot connect through abstract class)
 @abstract func connect_signals()
