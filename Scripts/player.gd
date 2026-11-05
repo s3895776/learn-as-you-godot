@@ -1,9 +1,21 @@
 extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @export var inventory: Inventory
+@onready var fade: CanvasLayer = $Fade
+@onready var time_screen_anim: AnimationPlayer = $TimeWarp/ColorRect/AnimationPlayer
+
+# sounds
+@onready var footsteps: AudioStreamPlayer = $Sounds/Footsteps
+var step_interval: float = 0.5
+var step_timer: float = 0.0
+
+@onready var jump: AudioStreamPlayer2D = $Sounds/Jump
+@onready var time_ability: AudioStreamPlayer2D = $"Sounds/Time Ability"
+
 
 const move_speed = 250.0
 var pull_speed = 100.0
+var time_speed = 25.0
 const JUMP_VELOCITY = -325.0
 var acceleration = 50
 var braking = 20
@@ -42,12 +54,14 @@ func _manage_animation():
 		$ExtraFX.play("NOTHING")
 	elif state == States.CROUCH:
 		animated_sprite.play("Crouch")
+		$ExtraFX.play("NOTHING")
 	elif state == States.WALK:
 		animated_sprite.play("Walk")
 		$ExtraFX.play("NOTHING")
 		animated_sprite.flip_h = direction < 0
 	elif state == States.JUMP:
 		animated_sprite.play("Jump")
+		$ExtraFX.play("NOTHING")
 	elif state == States.PUSH:
 		animated_sprite.play("Push")
 		$ExtraFX.play("Sweat")
@@ -58,12 +72,46 @@ func _manage_animation():
 		animated_sprite.play("PushIdle")
 		$ExtraFX.play("NOTHING")
 			
+func _manage_sound():
+	#if state == States.STOP:
+		#$Footsteps.play()
+	#elif state == States.IDLE:
+		#$Footsteps.play()
+	#elif state == States.CROUCH:
+		#$Footsteps.play()
+	#elif state == States.JUMP:
+		#$Footsteps.play()
+	#elif state == States.PUSH:
+		#$Footsteps.play()
+	#elif state == States.PULL:
+		#$Footsteps.play()
+	#elif state == States.PUSH_IDLE:
+		#$Footsteps.play()
+		
+		# loops footsteps audio
+	if state == States.WALK:
+		await footsteps.finished
+		if not footsteps.playing:
+			footsteps.play()
+		_manage_sound()
+		return
+	
+	elif state == States.IDLE:
+		footsteps.stop()
+	
+	elif state == States.JUMP:
+		footsteps.stop()
+	
+
 func state_changer():
 	if state == States.STOP:
 		pass
 #		to walk states
 	elif state == States.IDLE and direction != 0:
 		state = States.WALK
+		footsteps.play()
+		_manage_sound()
+		
 		
 	elif state == States.CROUCH and direction != 0:
 		state = States.WALK
@@ -120,10 +168,20 @@ func on_ability():
 	state = States.STOP
 #		want to play ability ONCE and prevent animation from playing again
 	animated_sprite.play("Ability")
+	time_ability.play()
 	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
+
+	#fade.fade(1.0, 0.5)
+	
 	await animated_sprite.animation_finished
+	time_screen_anim.play("TIME FADE")
+	await time_screen_anim.animation_finished
 	switch_maps()
+	time_screen_anim.play("TIME FADE OUT")
+	
+	#fade.fade(0.0, 0.5)
+	
 	state = States.IDLE
 		
 func _process(delta: float) -> void:
@@ -131,7 +189,10 @@ func _process(delta: float) -> void:
 
 var push_states = [States.PUSH_IDLE, States.PUSH, States.PULL]
 func _physics_process(delta: float) -> void:
-	
+	# Time warp stops all
+	if state == States.STOP:
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -139,6 +200,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and (state not in push_states):
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 	
 #	perform time switch, can't be in push states.
 	if Input.is_action_just_pressed("switch_map") and (state not in push_states):
@@ -162,6 +224,8 @@ func _physics_process(delta: float) -> void:
 		if (state in push_states):
 			velocity.x = pull_speed * direction
 			print(direction)
+		if state == States.STOP:
+			velocity.x = time_speed * direction
 	else:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 		if (state in push_states):
@@ -173,6 +237,9 @@ func _physics_process(delta: float) -> void:
 
 func set_pull_speed(value: float) -> void:
 	pull_speed = value
+	
+func set_time_speed(value: float) -> void:
+	time_speed = value
 	
 func get_box_side() -> float:
 	if left_collision_ray.is_colliding(): return -1.0
