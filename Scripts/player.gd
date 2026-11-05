@@ -2,7 +2,15 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @export var inventory: Inventory
 @onready var fade: CanvasLayer = $Fade
-@onready var animation_player: AnimationPlayer = $TimeWarp/ColorRect/AnimationPlayer
+@onready var time_screen_anim: AnimationPlayer = $TimeWarp/ColorRect/AnimationPlayer
+
+# sounds
+@onready var footsteps: AudioStreamPlayer = $Sounds/Footsteps
+var step_interval: float = 0.5
+var step_timer: float = 0.0
+
+@onready var jump: AudioStreamPlayer2D = $Sounds/Jump
+@onready var time_ability: AudioStreamPlayer2D = $"Sounds/Time Ability"
 
 
 const move_speed = 250.0
@@ -68,8 +76,6 @@ func _manage_sound():
 		#$Footsteps.play()
 	#elif state == States.CROUCH:
 		#$Footsteps.play()
-	#elif state == States.WALK:
-		#$Footsteps.play()
 	#elif state == States.JUMP:
 		#$Footsteps.play()
 	#elif state == States.PUSH:
@@ -79,10 +85,20 @@ func _manage_sound():
 	#elif state == States.PUSH_IDLE:
 		#$Footsteps.play()
 		
+		# loops footsteps audio
 	if state == States.WALK:
-		$Footsteps.play()
+		await footsteps.finished
+		if not footsteps.playing:
+			footsteps.play()
+		_manage_sound()
+		return
+	
+	elif state == States.IDLE:
+		footsteps.stop()
+	
 	elif state == States.JUMP:
-		$Footsteps.play()
+		footsteps.stop()
+	
 
 func state_changer():
 	if state == States.STOP:
@@ -90,6 +106,9 @@ func state_changer():
 #		to walk states
 	elif state == States.IDLE and direction != 0:
 		state = States.WALK
+		footsteps.play()
+		_manage_sound()
+		
 		
 	elif state == States.CROUCH and direction != 0:
 		state = States.WALK
@@ -146,17 +165,20 @@ func on_ability():
 	state = States.STOP
 #		want to play ability ONCE and prevent animation from playing again
 	animated_sprite.play("Ability")
+	time_ability.play()
 	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
+
 	#fade.fade(1.0, 0.5)
 	
 	await animated_sprite.animation_finished
-	$TimeWarp/ColorRect/AnimationPlayer.play("TIME FADE")
-	await $TimeWarp/ColorRect/AnimationPlayer.animation_finished
+	time_screen_anim.play("TIME FADE")
+	await time_screen_anim.animation_finished
 	switch_maps()
-	$TimeWarp/ColorRect/AnimationPlayer.play("TIME FADE OUT")
+	time_screen_anim.play("TIME FADE OUT")
 	
 	#fade.fade(0.0, 0.5)
+	
 	state = States.IDLE
 		
 func _process(delta: float) -> void:
@@ -175,6 +197,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and (state not in push_states):
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 	
 #	perform time switch, can't be in push states.
 	if Input.is_action_just_pressed("switch_map") and (state not in push_states):

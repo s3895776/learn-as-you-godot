@@ -9,12 +9,10 @@
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://bsuyoxyx8kv1s" path="res://SFX/Footstep1.4.wav" id="5_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://cxt0mk1f727n" path="res://Godot 2D Platformer - Assets/Sprites/Objects/tile_0044.png" id="5_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://dkjite7wleo4x" path="res://SFX/Jump.wav" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://b1psbvkqrqb0" path="res://Scenes/fade.gd" id="6_x3wgy"]
 [ext_resource type="Shader" uid="uid://da467umvi01xd" path="res://Scenes/timecircle.gdshader" id="7_3smsa"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12j5o"]
-radius = 8.0
-height = 18.0
+[ext_resource type="AudioStream" uid="uid://b4xarl1vn8wh1" path="res://SFX/TIMEWARP.wav" id="7_ukyrk"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3smsa"]
 streams_count = 4
@@ -22,6 +20,10 @@ stream_0/stream = ExtResource("2_gymyn")
 stream_1/stream = ExtResource("3_pu2lt")
 stream_2/stream = ExtResource("4_ukyrk")
 stream_3/stream = ExtResource("5_7dp3o")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12j5o"]
+radius = 8.0
+height = 18.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2dd1r"]
 shader = ExtResource("7_3smsa")
@@ -88,13 +90,24 @@ inventory = NodePath("inventory")
 left_collision_ray = NodePath("left_collision_ray")
 right_collision_ray = NodePath("right_collision_ray")
 
+[node name="Sounds" type="Node2D" parent="." unique_id=589402012]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=2125407751]
+stream = SubResource("AudioStreamRandomizer_3smsa")
+pitch_scale = 1.45
+max_polyphony = 2
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" unique_id=837174378]
+stream = ExtResource("6_pu2lt")
+pitch_scale = 0.92
+
+[node name="Time Ability" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1258946221]
+stream = ExtResource("7_ukyrk")
+pitch_scale = 0.87
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1999988202]
 position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_12j5o")
-
-[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=2125407751]
-stream = SubResource("AudioStreamRandomizer_3smsa")
-max_polyphony = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1489020421]
 offset = Vector2(0, -80)
@@ -169,7 +182,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Fade" type="CanvasLayer" parent="." unique_id=689812382]
-visible = false
 script = ExtResource("6_x3wgy")
 
 [node name="ColorRect" type="ColorRect" parent="Fade" unique_id=1468177266]
