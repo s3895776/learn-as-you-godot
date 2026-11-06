@@ -26,12 +26,6 @@ apartment_area = NodePath("Apartment_Area")
 
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
 
-[node name="box" parent="CurrentFutureLevel" index="5" unique_id=1269202155]
-position = Vector2(1514, -18)
-
-[node name="Buttons" parent="CurrentFutureLevel/box" index="3" unique_id=445887059]
-visible = false
-
 [node name="Objects" type="Node2D" parent="." unique_id=1099503779]
 
 [node name="ApartmentDoorIn" parent="Objects" unique_id=983210018 instance=ExtResource("7_omwgw")]
@@ -72,9 +66,6 @@ shape = SubResource("RectangleShape2D_sgrkx")
 [node name="DoorOut" parent="Apartment_Area" unique_id=1954369801 instance=ExtResource("14_n63nb")]
 position = Vector2(38.17, -33.685)
 
-[editable path="CurrentFutureLevel"]
-[editable path="CurrentFutureLevel/box"]
-[editable path="CurrentFutureLevel/box3"]
 [editable path="Apartment_Area/apt_future_2"]
 [editable path="Apartment_Area/apt_future"]
 [editable path="Apartment_Area/apt_past"]
