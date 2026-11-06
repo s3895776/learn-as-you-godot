@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://cbbsupian3sx2" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cg30b4ch4r7gv" path="res://Scenes/map_node.tscn" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://tawbytpa44ny" path="res://Scripts/Global/events.gd" id="3_8gbba"]
-[ext_resource type="Script" uid="uid://be80gh303ubh5" path="res://Scripts/Global/events_manager.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://be80gh303ubh5" path="res://Scripts/Global/state_manager.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://ptccr6wsiqol" path="res://Scripts/Global/position_manager.gd" id="5_kry3j"]
 
 [node name="Main" type="Node2D" unique_id=189494304]
 script = ExtResource("1_8gbba")
@@ -11,10 +12,16 @@ script = ExtResource("1_8gbba")
 [node name="CurrentMap" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
 position = Vector2(1, -3)
 
+[node name="Player" parent="CurrentMap" index="1" unique_id=193058604]
+position = Vector2(343, -404)
+
 [node name="Events" type="Node" parent="." unique_id=1088045949]
 script = ExtResource("3_8gbba")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1832913798]
-
-[node name="EventsManager" type="Node" parent="." unique_id=910365651]
+[node name="State_Manager" type="Node" parent="." unique_id=910365651]
 script = ExtResource("4_jjvhh")
+
+[node name="Position_Manager" type="Node" parent="." unique_id=1438210613]
+script = ExtResource("5_kry3j")
+
+[editable path="CurrentMap"]

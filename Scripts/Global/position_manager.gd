@@ -1,8 +1,7 @@
-class_name EventsManager extends Node
+extends Node
 
-enum Level {
-	LEVEL_ONE
-}
+var apartment_door_out_pos : Vector2
+var apartment_door_in_pos : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

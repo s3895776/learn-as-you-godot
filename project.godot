@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Globalscripts="*uid://c8pcpnndlymtg"
 Events="*uid://tawbytpa44ny"
+PositionManager="*uid://ptccr6wsiqol"
+StateManager="*uid://be80gh303ubh5"
 
 [display]
 

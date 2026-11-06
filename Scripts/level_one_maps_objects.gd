@@ -7,6 +7,9 @@ var future_map : Node2D
 
 var future = false
 
+var apartment_state = StateManager.Apartment.PLANTS
+@export var apartment_area : Area2D
+
 # array for grabbed objects: can be a separate class type. 
 var grabbed_objects: Array[Node2D]
 var player_grabbing = true
@@ -55,17 +58,34 @@ func switch_maps():
 	else:
 		_enable_map(present_map, true)
 		_enable_map(future_map, false)
+	set_state_apartment()
 	switch_objects()
 	
 ## checks all children, not recursive, for the base time switch objects. 
 ## scenes need switchable objects to exist only as children on map node
 func switch_objects():
 #	signal: request switch
-	for c in get_children():
+	for c in $Objects.get_children():
 		if c is TimeSwitchObject:
 			c.switch_object(future)
 		
+## call this on switch maps to set state apartment to the correct thing.
+func set_state_apartment():
+	for child in apartment_area.get_children():
+		if "state_enabled" in child:
+			child.state_enabled = false
+	if future and apartment_state == StateManager.Apartment.PLANTS:
+		print("apt future with plants")
+		$Apartment_Area/apt_future.state_enabled = true
+	elif future and apartment_state == StateManager.Apartment.NO_PLANTS:
+		$Apartment_Area/apt_future_2.state_enabled = true
+	elif not future and apartment_state == StateManager.Apartment.PLANTS:
+		$Apartment_Area/apt_past.state_enabled = true
+	elif future and apartment_state == StateManager.Apartment.PLANTS:
+		$Apartment_Area/apt_past_2.state_enabled = true
 	
+		
+
 func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable

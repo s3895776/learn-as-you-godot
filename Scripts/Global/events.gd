@@ -17,6 +17,9 @@ signal time_switch
 signal entering_level
 signal levels_loaded
 
+# moving player
+signal enter_room
+signal move_player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

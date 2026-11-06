@@ -31,12 +31,7 @@ var state: States = States.IDLE
 var can_switch = true
 
 #time travel feature: switch between maps.
-func switch_maps():
-	Events.time_switch.emit()
-			
-func enter_level():
-#	the collision will have the level pointer. 
-	Events.entering_level.emit()
+
 	
 func _ready():
 #	tag system: group will identify the player.
@@ -45,6 +40,20 @@ func _ready():
 #	set your character to idle
 	state_changer()
 	Events.grab_success.connect(_on_box_grab_success)
+	Events.move_player.connect(move_player)
+
+func move_player(position : Vector2):
+	print('move player in player script')
+	self.position = position
+	
+func switch_maps():
+#	emit signal
+	#print("Switch maps signal player")
+	Events.time_switch.emit()
+			
+func enter_room():
+#	the collision will have the level pointer. 
+	Events.enter_room.emit()
 	
 func _manage_animation():
 	if state == States.STOP:
@@ -213,7 +222,7 @@ func _physics_process(delta: float) -> void:
 		on_interact()
 		
 	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
-		enter_level()
+		enter_room()
 		
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("move_left", "move_right")
