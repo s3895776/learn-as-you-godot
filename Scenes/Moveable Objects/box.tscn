@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://cta7la3qxgfy1"]
 
-[ext_resource type="Script" uid="uid://cirip0emlqilh" path="res://Scripts/box.gd" id="1_ego7h"]
-[ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="2_2jyye"]
-[ext_resource type="Texture2D" uid="uid://hapo8obft86k" path="res://Sprites/Characters/Character_Sprites.png" id="3_y6vpp"]
-[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_y6vpp"]
+[ext_resource type="Script" uid="uid://cirip0emlqilh" path="res://Scripts/box.gd" id="1_lg3h7"]
+[ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="2_g34x6"]
+[ext_resource type="Texture2D" uid="uid://hapo8obft86k" path="res://Sprites/Characters/Character_Sprites.png" id="3_2ldgy"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_b0q68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
 size = Vector2(16, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rs26n"]
-atlas = ExtResource("3_y6vpp")
+atlas = ExtResource("3_2ldgy")
 region = Rect2(144, 80, 16, 16)
 
 [node name="box" type="CharacterBody2D" unique_id=1269202155]
-script = ExtResource("1_ego7h")
+script = ExtResource("1_lg3h7")
 
 [node name="MoveComponent" type="Node2D" parent="." unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
-script = ExtResource("2_2jyye")
+script = ExtResource("2_g34x6")
 right_collision_ray = NodePath("right_collision_ray")
 left_collision_ray = NodePath("left_collision_ray")
 
@@ -38,7 +38,7 @@ texture = SubResource("AtlasTexture_rs26n")
 
 [node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=445887059]
 position = Vector2(0, -25)
-sprite_frames = ExtResource("4_y6vpp")
+sprite_frames = ExtResource("4_b0q68")
 animation = &"QButton"
 autoplay = "NOTHING"
 frame_progress = 0.25298363

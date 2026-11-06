@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dny17paqpch1i" path="res://Scripts/level_one_maps_objects.gd" id="1_8r2hl"]
 [ext_resource type="PackedScene" uid="uid://dav4vko0n7w71" path="res://Scenes/LevelOne/level1present.tscn" id="2_omwgw"]
 [ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/LevelOne/level1future.tscn" id="3_4abun"]
-[ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/box.tscn" id="4_83pca"]
+[ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/Moveable Objects/box.tscn" id="4_83pca"]
 [ext_resource type="PackedScene" uid="uid://dd0x0jlqy37cn" path="res://Scenes/seed_to_tree.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="6_tlhqo"]
 [ext_resource type="PackedScene" uid="uid://xl5t1ar133o5" path="res://Scenes/Apartment/apartment_door_in.tscn" id="7_omwgw"]
@@ -26,6 +26,12 @@ apartment_area = NodePath("Apartment_Area")
 
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
 
+[node name="box" parent="CurrentFutureLevel" index="5" unique_id=1269202155]
+position = Vector2(1514, -18)
+
+[node name="Buttons" parent="CurrentFutureLevel/box" index="3" unique_id=445887059]
+visible = false
+
 [node name="Objects" type="Node2D" parent="." unique_id=1099503779]
 
 [node name="ApartmentDoorIn" parent="Objects" unique_id=983210018 instance=ExtResource("7_omwgw")]
@@ -35,7 +41,7 @@ scale = Vector2(1.48, 2.215)
 [node name="seed_to_vines" parent="Objects" unique_id=1679277914 instance=ExtResource("6_tlhqo")]
 position = Vector2(116, -8)
 
-[node name="box" parent="Objects" unique_id=1269202155 instance=ExtResource("4_83pca")]
+[node name="box" parent="Objects" unique_id=1560527058 instance=ExtResource("4_83pca")]
 position = Vector2(184, -10)
 
 [node name="seed_to_tree" parent="Objects" unique_id=114018887 instance=ExtResource("5_ckc7r")]
@@ -71,6 +77,8 @@ position = Vector2(38.17, -33.685)
 scale = Vector2(1.595, 3.075)
 
 [editable path="CurrentFutureLevel"]
+[editable path="CurrentFutureLevel/box"]
+[editable path="CurrentFutureLevel/box3"]
 [editable path="Apartment_Area/apt_future_2"]
 [editable path="Apartment_Area/apt_future"]
 [editable path="Apartment_Area/apt_past"]
