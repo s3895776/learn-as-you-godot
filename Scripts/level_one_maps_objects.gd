@@ -35,36 +35,37 @@ func _ready() -> void:
 #	signal player switching time
 	Events.time_switch.connect(switch_maps)
 	Events.dropped_on.connect(reparent_dropped_item)
-	Events.load_level.connect(change_levels)
 #	set visibility and collision (runs switch object after)
 	switch_maps()
 
-## go from first level to any level
-func change_levels(present : PackedScene, future : PackedScene, objects : PackedScene):
-	print("change levels in level_one_maps_objects!")
-#	save first: if saves are needed. 
-	if (get_tree().get_first_node_in_group("Saves")):
-		get_tree().get_first_node_in_group("Saves").save_level
 	
-	remove_child(present_map)
-	remove_child(future_map)
-	remove_child(current_objects)
-	
-	
-	#var instance = BaseLevel.new(present)
+
+### go from first level to any level
+#func change_levels(present : PackedScene, future : PackedScene, objects : PackedScene):
+	#print("change levels in level_one_maps_objects!")
+##	save first: if saves are needed. 
+	#if (get_tree().get_first_node_in_group("Saves")):
+		#get_tree().get_first_node_in_group("Saves").save_level
+	#
+	#remove_child(present_map)
+	#remove_child(future_map)
+	#remove_child(current_objects)
+	#
+	#
+	##var instance = BaseLevel.new(present)
+	##add_child(instance)
+	#var instance = present.instantiate()	
+	#present_map = instance
+	#
+	#instance = future.instantiate() 
 	#add_child(instance)
-	var instance = present.instantiate()	
-	present_map = instance
-	
-	instance = future.instantiate() 
-	add_child(instance)
-	future_map = instance
-	
-	instance = objects.instantiate()
-	# remove objects
-	
-	#objects = new objects in the scene.
-	switch_maps()
+	#future_map = instance
+	#
+	#instance = objects.instantiate()
+	## remove objects
+	#
+	##objects = new objects in the scene.
+	#switch_maps()
 
 
 ## change the time of the leveL: swap present and future map

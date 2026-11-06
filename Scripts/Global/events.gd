@@ -15,8 +15,6 @@ signal time_switch
 
 # traverse levels
 signal entering_level
-signal load_level
-signal level_type
 
 # moving player
 signal enter_room

@@ -5,12 +5,6 @@ var save_state_level_one_file = "user://savestatelevelonefile.save"
 
 var saves = [generic_save_state_file, save_state_level_one_file]
 
-enum Levels { 
-	LEVEL_ONE,
-	APARTMENT,
-	LAB	
-}
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
@@ -38,12 +32,15 @@ func _process(delta: float) -> void:
 # save states and load states: read godot engine docs on saving games.
  
 ## while running, save the persistent objects from root. 
-func save_state(save_type : Levels, root : Node):
+func save_state(level_type: StateManager.Level, root : Node):
+	print("I'm B.A, go to C")
 	var save_state_file : String
-	if save_type == Levels.LEVEL_ONE:
-		save_state_file = save_state_level_one_file
-	
+#	currently empty :(
+	if level_type == StateManager.Level.LEVEL_ONE:
+		pass
+		
 	var save_file = FileAccess.open(save_state_file, FileAccess.WRITE)
+	
 	var save_nodes = root.get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 #		check the node is an instance scene to instance during load. 
@@ -63,6 +60,8 @@ func save_state(save_type : Levels, root : Node):
 		save_file.store_line(json_string)
 		
 func load_state(save_state_file : String):
+	print("I'm C.A, go to D")
+	
 	if not FileAccess.file_exists(save_state_file):
 #		load a new scene. 
 		

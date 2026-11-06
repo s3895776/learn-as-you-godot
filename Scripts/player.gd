@@ -167,6 +167,9 @@ func on_interact():
 		inventory.drop_item()
 	Events.grabbing.emit()
 	
+func reload_level():
+	Events.entering_level.emit()
+	
 
 func _can_switch_time():
 	if (state != States.STOP and not has_player_item()):
@@ -223,7 +226,10 @@ func _physics_process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
 		enter_room()
-		
+	
+	elif Input.is_action_just_pressed("reload"):
+		reload_level()
+	
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("move_left", "move_right")
 		

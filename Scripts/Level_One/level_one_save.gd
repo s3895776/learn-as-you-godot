@@ -15,5 +15,4 @@ func _process(delta: float) -> void:
 	pass
 
 func save_level():
-#	give both file name and root
-	Saves.save_state(Saves.Levels.LEVEL_ONE, get_parent())
+	pass
