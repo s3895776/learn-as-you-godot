@@ -15,10 +15,6 @@ func _ready() -> void:
 	Events.dropping.connect(on_inventory_drop_item)
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func is_pickup_able():
 	if (self.visible == false):
 		return false

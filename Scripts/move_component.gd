@@ -72,10 +72,6 @@ func _get_collider_player_node() -> bool:
 			Events.grab_success.emit()
 			return true
 	return false
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _apply_gravity(delta: float) -> void:
 	if not parent.is_on_floor():

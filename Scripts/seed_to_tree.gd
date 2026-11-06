@@ -1,6 +1,6 @@
 extends TimeSwitchObject
 @export var pickup_component: PickupItemComponent
-@export var seed: Sprite2D
+@export var seed_sprite: Sprite2D
 @export var tree: TileMapLayer
 
 #if the seed is planted, tree can be placed in the scene.
@@ -10,10 +10,6 @@ var planted = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func map_visibility_collision_enabled(map : TileMapLayer, change : bool):
 	map.visible = change
@@ -41,7 +37,7 @@ func _on_pickup_component_body_exited(body: Node2D) -> void:
 
 ## gets the sprite of the tree
 func get_sprite():
-	return seed.texture
+	return seed_sprite.texture
 
 ## get pickupcomponent variable
 func get_pickup_component():

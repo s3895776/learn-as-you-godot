@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ds6budlmir4wu"]
+
+[ext_resource type="Script" uid="uid://rsbp5ny7jbni" path="res://Scripts/Apartment/apartment_door_out.gd" id="1_5elma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i8u6"]
+
+[node name="Area2D" type="Area2D" unique_id=1954369801]
+script = ExtResource("1_5elma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=806348735]
+shape = SubResource("RectangleShape2D_1i8u6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=638629082]
