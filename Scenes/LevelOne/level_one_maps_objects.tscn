@@ -30,7 +30,6 @@ apartment_area = NodePath("Apartment_Area")
 
 [node name="ApartmentDoorIn" parent="Objects" unique_id=983210018 instance=ExtResource("7_omwgw")]
 position = Vector2(32.000004, -21.999998)
-scale = Vector2(1.48, 2.215)
 
 [node name="seed_to_vines" parent="Objects" unique_id=1679277914 instance=ExtResource("6_tlhqo")]
 position = Vector2(116, -8)
@@ -66,9 +65,6 @@ shape = SubResource("RectangleShape2D_sgrkx")
 
 [node name="DoorOut" parent="Apartment_Area" unique_id=1954369801 instance=ExtResource("14_n63nb")]
 position = Vector2(38.17, -33.685)
-
-[node name="CollisionShape2D" parent="Apartment_Area/DoorOut" index="0" unique_id=806348735]
-scale = Vector2(1.595, 3.075)
 
 [editable path="CurrentFutureLevel"]
 [editable path="Apartment_Area/apt_future_2"]

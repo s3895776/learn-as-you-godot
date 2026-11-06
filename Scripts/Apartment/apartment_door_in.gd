@@ -1,4 +1,5 @@
 extends Area2D
+@onready var up_button: AnimatedSprite2D = $UpButton
 
 var can_move : bool
 
@@ -22,10 +23,12 @@ func move_player():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		can_move = true
+		up_button.play("UpButton")
 		pass
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		can_move = false
+		up_button.play("NOTHING")
 		pass
 		
