@@ -11,9 +11,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
 size = Vector2(16, 16)
 
-[node name="seed_to_vines" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("seed", "vine_platform", "pickup_component")]
+[node name="seed_to_vines" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("seed_sprite", "vine_platform", "pickup_component")]
 script = ExtResource("1_tres3")
-seed = NodePath("Seed")
+seed_sprite = NodePath("Seed")
 vine_platform = NodePath("VinePlatform")
 pickup_component = NodePath("PickupComponent")
 

@@ -5,10 +5,6 @@
 # Called when the node enters the scene tree for the first time.
 @abstract func _ready() -> void
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 ## check all nodes and call set enabled
 func enable_map(enabled : bool):
 	self.propagate_call("set_enabled", [enabled])		

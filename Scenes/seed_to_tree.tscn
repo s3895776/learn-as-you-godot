@@ -8,10 +8,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
 
-[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed", "tree")]
+[node name="seed_to_tree" type="Node2D" unique_id=114018887 node_paths=PackedStringArray("pickup_component", "seed_sprite", "tree")]
 script = ExtResource("1_pnw0b")
 pickup_component = NodePath("PickupComponent")
-seed = NodePath("Seed")
+seed_sprite = NodePath("Seed")
 tree = NodePath("Tree")
 
 [node name="Seed" type="Sprite2D" parent="." unique_id=320740347]

@@ -11,10 +11,6 @@ func connect_signals():
 	self.body_entered.connect(_on_body_entered)
 	self.body_exited.connect(_on_body_exited)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func set_visibility(can_see : bool):
 	self.visible = can_see
 	

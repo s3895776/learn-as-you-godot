@@ -23,6 +23,7 @@ script = ExtResource("1_8r2hl")
 apartment_area = NodePath("Apartment_Area")
 
 [node name="CurrentPresentLevel" parent="." unique_id=1141539653 instance=ExtResource("2_omwgw")]
+visible = false
 
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
 visible = false

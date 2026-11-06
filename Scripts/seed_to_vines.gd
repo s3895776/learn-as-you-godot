@@ -1,5 +1,5 @@
 extends TimeSwitchObject
-@export var seed: Sprite2D
+@export var seed_sprite: Sprite2D
 @export var vine_platform: StaticBody2D
 @export var pickup_component: PickupItemComponent
 
@@ -11,16 +11,8 @@ var planted = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func vine_visibility_collision_enabled(enabled : bool):
-	vine_platform.visible = enabled
-		
-	#DISABLE_MODE_MAKE_STATIC = 1
-	#DISABLE_MODE_REMOVE = 0		
-	
+	vine_platform.visible = enabled	
 	set_collision(vine_platform, enabled)
 		
 
@@ -53,7 +45,7 @@ func _on_pickup_component_body_exited(body: Node2D) -> void:
 
 ## gets the sprite of the tree
 func get_sprite():
-	return seed.texture
+	return seed_sprite.texture
 
 ## get pickupcomponent variable
 func get_pickup_component():

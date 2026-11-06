@@ -5,7 +5,7 @@ extends Node2D
 var present_map : Node2D
 var future_map : Node2D
 
-var future = false
+var is_future = false
 
 var apartment_state = StateManager.Apartment.PLANTS
 @export var apartment_area : Area2D
@@ -26,9 +26,6 @@ func _ready() -> void:
 	Events.levels_loaded.connect(change_levels)
 #	set visibility and collision (runs switch object after)
 	switch_maps()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 ## go from first level to any level
 func change_levels(present : PackedScene, future : PackedScene):
@@ -50,8 +47,8 @@ func change_levels(present : PackedScene, future : PackedScene):
 ## change the time of the leveL: swap present and future map
 func switch_maps():
 	#print("switching time")
-	future = not future
-	if (future):
+	is_future = not is_future
+	if (is_future):
 #		careful with the collision as the player may clip into or fall based on the order of ops.
 		_enable_map(future_map, true)
 		_enable_map(present_map, false)
@@ -67,27 +64,26 @@ func switch_objects():
 #	signal: request switch
 	for c in $Objects.get_children():
 		if c is TimeSwitchObject:
-			c.switch_object(future)
+			c.switch_object(is_future)
 		
 ## call this on switch maps to set state apartment to the correct thing.
 func set_state_apartment():
 	for child in apartment_area.get_children():
 		if "state_enabled" in child:
 			child.state_enabled = false
-	if future and apartment_state == StateManager.Apartment.PLANTS:
+	if is_future and apartment_state == StateManager.Apartment.PLANTS:
 		$Apartment_Area/apt_future.state_enabled = true
-	elif future and apartment_state == StateManager.Apartment.NO_PLANTS:
+	elif is_future and apartment_state == StateManager.Apartment.NO_PLANTS:
 		$Apartment_Area/apt_future_2.state_enabled = true
-	elif not future and apartment_state == StateManager.Apartment.PLANTS:
+	elif not is_future and apartment_state == StateManager.Apartment.PLANTS:
 		$Apartment_Area/apt_past.state_enabled = true
-	elif future and apartment_state == StateManager.Apartment.PLANTS:
+	elif is_future and apartment_state == StateManager.Apartment.PLANTS:
 		$Apartment_Area/apt_past_2.state_enabled = true
 		
 	for child in apartment_area.get_children():
 		if child.has_method("set_enabled"):
 			child.set_enabled()
 		
-
 func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.
 	map.visible = enable
