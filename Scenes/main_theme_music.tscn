@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ce3di5bokwm1a"]
+
+[ext_resource type="AudioStream" uid="uid://de8itdkhvqtxx" path="res://MUSIC/thatgamejam#02_theme.mp3" id="1_f0c52"]
+
+[node name="Main Theme Music" type="AudioStreamPlayer" unique_id=1469271855]
+stream = ExtResource("1_f0c52")
+volume_db = -15.0
+autoplay = true
