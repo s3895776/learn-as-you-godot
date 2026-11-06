@@ -12,7 +12,7 @@ var step_timer: float = 0.0
 @onready var jump: AudioStreamPlayer2D = $Sounds/Jump
 @onready var time_ability_forward: AudioStreamPlayer2D = $"Sounds/Time Ability Forward"
 @onready var time_ability_backward: AudioStreamPlayer2D = $"Sounds/Time Ability Backward"
-
+@onready var drag: AudioStreamPlayer2D = $Sounds/Drag
 
 # tracks whether player is in past (1) or future (0)
 var timeline: bool = 0
@@ -97,14 +97,13 @@ func _manage_sound():
 		#$Footsteps.play()
 	#elif state == States.PUSH:
 		#$Footsteps.play()
-	#elif state == States.PULL:
-		#$Footsteps.play()
-	#elif state == States.PUSH_IDLE:
-		#$Footsteps.play()
+
 		
 		# loops footsteps audio
 	if state == States.WALK:
-		await footsteps.finished
+		drag.stop()
+		if footsteps.playing:
+			await footsteps.finished
 		if not footsteps.playing:
 			footsteps.play()
 		_manage_sound()
@@ -112,10 +111,24 @@ func _manage_sound():
 	
 	elif state == States.IDLE:
 		footsteps.stop()
+		drag.stop()
 	
 	elif state == States.JUMP:
 		footsteps.stop()
+		drag.stop()
 	
+	elif state == States.PULL:
+		if drag.playing:
+			await drag.finished
+		if not drag.playing:
+			drag.play()
+	elif state == States.PUSH:
+		if drag.playing:
+			await drag.finished
+		if not drag.playing:
+			drag.play()
+	elif state == States.PUSH_IDLE:
+		drag.stop()
 
 func state_changer():
 	if state == States.STOP:
@@ -255,6 +268,7 @@ func _physics_process(delta: float) -> void:
 		
 	state_changer()
 	_manage_animation()
+	_manage_sound()
 	move_and_slide()
 
 func set_pull_speed(value: float) -> void:
