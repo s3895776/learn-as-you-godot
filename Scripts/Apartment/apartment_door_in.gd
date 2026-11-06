@@ -15,7 +15,6 @@ func connect_signals():
 
 func move_player():
 	if can_move:
-#		i don't like hard coded values
 		var position = PositionManager.apartment_door_out_pos
 		Events.move_player.emit(position)
 		

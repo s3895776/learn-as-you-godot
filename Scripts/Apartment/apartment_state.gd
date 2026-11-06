@@ -14,9 +14,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_enabled(toggle : bool):
+func set_enabled():
 	
-	if state_enabled and toggle:
+	if state_enabled:
 		self.show()
 		$TileMapLayer.collision_enabled = true
 	else:

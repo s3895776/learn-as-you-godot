@@ -75,7 +75,6 @@ func set_state_apartment():
 		if "state_enabled" in child:
 			child.state_enabled = false
 	if future and apartment_state == StateManager.Apartment.PLANTS:
-		print("apt future with plants")
 		$Apartment_Area/apt_future.state_enabled = true
 	elif future and apartment_state == StateManager.Apartment.NO_PLANTS:
 		$Apartment_Area/apt_future_2.state_enabled = true
@@ -83,7 +82,10 @@ func set_state_apartment():
 		$Apartment_Area/apt_past.state_enabled = true
 	elif future and apartment_state == StateManager.Apartment.PLANTS:
 		$Apartment_Area/apt_past_2.state_enabled = true
-	
+		
+	for child in apartment_area.get_children():
+		if child.has_method("set_enabled"):
+			child.set_enabled()
 		
 
 func _enable_map(map : BaseLevel, enable : bool):
