@@ -10,7 +10,12 @@ var step_interval: float = 0.5
 var step_timer: float = 0.0
 
 @onready var jump: AudioStreamPlayer2D = $Sounds/Jump
-@onready var time_ability: AudioStreamPlayer2D = $"Sounds/Time Ability"
+@onready var time_ability_forward: AudioStreamPlayer2D = $"Sounds/Time Ability Forward"
+@onready var time_ability_backward: AudioStreamPlayer2D = $"Sounds/Time Ability Backward"
+
+
+# tracks whether player is in past (1) or future (0)
+var timeline: bool = 0
 
 
 const move_speed = 250.0
@@ -87,10 +92,6 @@ func _manage_animation():
 			
 func _manage_sound():
 	#if state == States.STOP:
-		#$Footsteps.play()
-	#elif state == States.IDLE:
-		#$Footsteps.play()
-	#elif state == States.CROUCH:
 		#$Footsteps.play()
 	#elif state == States.JUMP:
 		#$Footsteps.play()
@@ -182,15 +183,26 @@ func on_ability():
 	state = States.STOP
 #		want to play ability ONCE and prevent animation from playing again
 	animated_sprite.play("Ability")
-	time_ability.play()
-	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
+	
+	# checks the whether in past (1) or future (0)
+	if timeline:
+		time_ability_forward.play()
+	else:
+		time_ability_backward.play()
+		
+	$ExtraFX.play("Shine")
 
 	await animated_sprite.animation_finished
 	time_screen_anim.play("TIME FADE")
 	await time_screen_anim.animation_finished
+	
 	switch_maps()
+	
 	time_screen_anim.play("TIME FADE OUT")
+	
+	# swaps timeline for past or future
+	timeline = not timeline
 	
 	state = States.IDLE
 		
