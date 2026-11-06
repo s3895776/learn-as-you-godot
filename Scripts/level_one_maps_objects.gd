@@ -32,7 +32,6 @@ var player_grabbing = true
 func _ready() -> void:
 	present_map = $CurrentPresentLevel
 	future_map = $CurrentFutureLevel
-	objects = $Objects
 #	signal player switching time
 	Events.time_switch.connect(switch_maps)
 	Events.dropped_on.connect(reparent_dropped_item)
@@ -54,7 +53,7 @@ func change_levels(present : PackedScene, future : PackedScene, objects : Packed
 	
 	#var instance = BaseLevel.new(present)
 	#add_child(instance)
-	var instance = load(present)
+	var instance = present.instantiate()	
 	present_map = instance
 	
 	instance = future.instantiate() 
@@ -65,7 +64,6 @@ func change_levels(present : PackedScene, future : PackedScene, objects : Packed
 	# remove objects
 	
 	#objects = new objects in the scene.
-	objects = get_tree().get_first_node_in_group("Objects")
 	switch_maps()
 
 

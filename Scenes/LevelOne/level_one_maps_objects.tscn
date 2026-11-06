@@ -70,7 +70,6 @@ position = Vector2(38.17, -33.685)
 [node name="CollisionShape2D" parent="Apartment_Area/DoorOut" index="0" unique_id=806348735]
 scale = Vector2(1.595, 3.075)
 
-[editable path="CurrentFutureLevel"]
 [editable path="Apartment_Area/apt_future_2"]
 [editable path="Apartment_Area/apt_future"]
 [editable path="Apartment_Area/apt_past"]
