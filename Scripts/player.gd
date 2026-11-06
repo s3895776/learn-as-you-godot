@@ -53,7 +53,11 @@ func switch_maps():
 			
 func enter_room():
 #	the collision will have the level pointer. 
+	#fade.fade(1.0, 0.5)
+	#await fade.fade(1.0, 0.5).finished
 	Events.enter_room.emit()
+	#fade.fade(0.0, 0.5)
+	
 	
 func _manage_animation():
 	if state == States.STOP:
@@ -181,15 +185,11 @@ func on_ability():
 	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
 
-	#fade.fade(1.0, 0.5)
-	
 	await animated_sprite.animation_finished
 	time_screen_anim.play("TIME FADE")
 	await time_screen_anim.animation_finished
 	switch_maps()
 	time_screen_anim.play("TIME FADE OUT")
-	
-	#fade.fade(0.0, 0.5)
 	
 	state = States.IDLE
 		
