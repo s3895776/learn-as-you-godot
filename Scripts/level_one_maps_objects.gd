@@ -1,7 +1,9 @@
 extends Node2D
 # 
 
-#these should be pointers
+var level_state = StateManager.Level.LEVEL_ONE
+
+#these should be references, not instantiated. 
 var present_map : BaseLevel
 var future_map : BaseLevel
 var current_objects: Node2D
@@ -14,6 +16,12 @@ var apartment_state = StateManager.Apartment.PLANTS
 # array for grabbed objects: can be a separate class type. 
 var grabbed_objects: Array[Node2D]
 var player_grabbing = true
+
+func get_objects():
+	return current_objects
+
+func set_objects(objects: Node2D):
+	current_objects = objects
 
 #@export var lab_objects : PackedScene
 #@export var lab_present_map : PackedScene
@@ -32,41 +40,14 @@ var player_grabbing = true
 func _ready() -> void:
 	present_map = $CurrentPresentLevel
 	future_map = $CurrentFutureLevel
+	set_objects($Objects)
 #	signal player switching time
 	Events.time_switch.connect(switch_maps)
 	Events.dropped_on.connect(reparent_dropped_item)
+	
+	print("readying switch maps")
 #	set visibility and collision (runs switch object after)
 	switch_maps()
-
-	
-
-### go from first level to any level
-#func change_levels(present : PackedScene, future : PackedScene, objects : PackedScene):
-	#print("change levels in level_one_maps_objects!")
-##	save first: if saves are needed. 
-	#if (get_tree().get_first_node_in_group("Saves")):
-		#get_tree().get_first_node_in_group("Saves").save_level
-	#
-	#remove_child(present_map)
-	#remove_child(future_map)
-	#remove_child(current_objects)
-	#
-	#
-	##var instance = BaseLevel.new(present)
-	##add_child(instance)
-	#var instance = present.instantiate()	
-	#present_map = instance
-	#
-	#instance = future.instantiate() 
-	#add_child(instance)
-	#future_map = instance
-	#
-	#instance = objects.instantiate()
-	## remove objects
-	#
-	##objects = new objects in the scene.
-	#switch_maps()
-
 
 ## change the time of the leveL: swap present and future map
 func switch_maps():
@@ -88,6 +69,7 @@ func switch_objects():
 #	signal: request switch
 	for c in $Objects.get_children():
 		if c is TimeSwitchObject:
+			print(c)
 			c.switch_object(is_future)
 		
 ## call this on switch maps to set state apartment to the correct thing.
@@ -114,4 +96,4 @@ func _enable_map(map : BaseLevel, enable : bool):
 	map.enable_map(enable)
 	
 func reparent_dropped_item(child: Node2D):
-	child.reparent(self)
+	child.reparent($Objects)

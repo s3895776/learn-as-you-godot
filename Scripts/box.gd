@@ -7,6 +7,7 @@ extends CharacterBody2D
 var can_grab: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("Persist")
 	#Events.grabbing.connect(_on_player_grabbing)
 	pass # Replace with function body.
 

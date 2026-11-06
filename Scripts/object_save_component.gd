@@ -1,5 +1,5 @@
 ## use as reference only
-class_name ObjectSaveComponent extends Node
+extends Node
 
 
 # Called when the node enters the scene tree for the first time.

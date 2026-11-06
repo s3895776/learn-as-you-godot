@@ -5,6 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_q0enr"]
 [ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="5_01r63"]
 [ext_resource type="Texture2D" uid="uid://db2fnlogk84n1" path="res://Sprites/Tiles/MossyConcreteTiles.png" id="5_tres3"]
+[ext_resource type="Script" uid="uid://bayqx431womxv" path="res://Scripts/object_save_component.gd" id="6_u6afv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
 
@@ -46,6 +47,9 @@ texture = ExtResource("5_tres3")
 hframes = 16
 vframes = 16
 frame = 22
+
+[node name="SaveComponent" type="Node" parent="." unique_id=1936904815]
+script = ExtResource("6_u6afv")
 
 [connection signal="body_entered" from="PickupComponent" to="." method="_on_pickup_component_body_entered"]
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]

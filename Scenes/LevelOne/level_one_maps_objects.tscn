@@ -32,7 +32,7 @@ apartment_area = NodePath("Apartment_Area")
 position = Vector2(32.000004, -21.999998)
 scale = Vector2(1.48, 2.215)
 
-[node name="seed_to_vines" parent="Objects" unique_id=1679277914 instance=ExtResource("6_tlhqo")]
+[node name="seed_to_vines" parent="Objects" unique_id=1679277914 groups=["Persist"] instance=ExtResource("6_tlhqo")]
 position = Vector2(116, -8)
 
 [node name="box" parent="Objects" unique_id=1269202155 instance=ExtResource("4_83pca")]

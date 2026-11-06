@@ -168,7 +168,8 @@ func on_interact():
 	Events.grabbing.emit()
 	
 func reload_level():
-	Events.entering_level.emit()
+#	only applies for first level
+	Events.entering_level.emit(StateManager.Level.LEVEL_ONE)
 	
 
 func _can_switch_time():

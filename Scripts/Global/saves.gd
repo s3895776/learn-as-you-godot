@@ -37,40 +37,52 @@ func save_state(level_type: StateManager.Level, root : Node):
 	var save_state_file : String
 #	currently empty :(
 	if level_type == StateManager.Level.LEVEL_ONE:
-		pass
+		save_state_file = save_state_level_one_file
 		
 	var save_file = FileAccess.open(save_state_file, FileAccess.WRITE)
 	
 	var save_nodes = root.get_tree().get_nodes_in_group("Persist")
-	for node in save_nodes:
+	for node : Node in save_nodes:
 #		check the node is an instance scene to instance during load. 
 		if node.scene_file_path.is_empty():
 			print("node '%s' is not instanced, skipped" % node.name)
 			continue
 		
-		if !node.has_method("save"):
+		if !node.has_node("SaveComponent"):
 			print("persistent node '%s' is missing a save() function, skipped" % node.name)
 			continue
 		
 #		call save function
-		var node_data = node.call("save")
+		var node_data = node.get_node("SaveComponent").call("save_object")
 		
 		var json_string = JSON.stringify(node_data)
 		
 		save_file.store_line(json_string)
 		
-func load_state(save_state_file : String):
-	print("I'm C.A, go to D")
+func load_state(level_type : StateManager.Level):
+	print("I'm D")
 	
+	var save_state_file : String
+#	currently empty :(
+	if level_type == StateManager.Level.LEVEL_ONE:
+		save_state_file = save_state_level_one_file
+		
 	if not FileAccess.file_exists(save_state_file):
 #		load a new scene. 
-		
 		return # Error! We don't have a save to load.
+	
 
+	
 	# We need to revert the game state so we're not cloning objects
 	# during loading. This will vary wildly depending on the needs of a
 	# project, so take care with this step.
 	# For our example, we will accomplish this by deleting saveable objects.
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	for i in save_nodes:
+		i.queue_free()
+	
+	# Load the file line by line and process that dictionary to restore
+	# the object it represents.
 	var save_file = FileAccess.open(save_state_file, FileAccess.READ)
 	while save_file.get_position() < save_file.get_length():
 		var json_string = save_file.get_line()

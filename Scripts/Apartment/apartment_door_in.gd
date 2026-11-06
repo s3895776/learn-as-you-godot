@@ -4,6 +4,7 @@ var can_move : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	connect_signals()
 	PositionManager.apartment_door_in_pos = global_position
 	pass # Replace with function body.
