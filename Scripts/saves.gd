@@ -2,11 +2,8 @@ extends Node
 
 var generic_save_state_file = "user://genericsavefile.save"
 var save_state_level_one_file = "user://savestatelevelonefile.save"
-var save_state_lab_file = "user://savestatelabfile.save"
-var save_state_apartment_file = "user://savestateapartmentfile.save"
 
-var saves = [generic_save_state_file, save_state_level_one_file, 
-save_state_lab_file, save_state_apartment_file]
+var saves = [generic_save_state_file, save_state_level_one_file]
 
 enum Levels { 
 	LEVEL_ONE,
@@ -45,10 +42,6 @@ func save_state(save_type : Levels, root : Node):
 	var save_state_file : String
 	if save_type == Levels.LEVEL_ONE:
 		save_state_file = save_state_level_one_file
-	elif save_type == Levels.APARTMENT:
-		save_state_file = save_state_apartment_file
-	elif  save_type == Levels.LAB:
-		save_state_file = save_state_lab_file
 	
 	var save_file = FileAccess.open(save_state_file, FileAccess.WRITE)
 	var save_nodes = root.get_tree().get_nodes_in_group("Persist")
