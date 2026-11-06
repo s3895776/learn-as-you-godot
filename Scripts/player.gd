@@ -142,6 +142,7 @@ func state_changer():
 		
 	elif state == States.JUMP and is_on_floor():
 		state = States.IDLE
+		footsteps.play()
 		
 #			to jump states 
 	elif state == States.IDLE and velocity.y != 0:
