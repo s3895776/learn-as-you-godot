@@ -9,7 +9,6 @@ extends TimeSwitchObject
 var planted = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("Persist")
 	pass # Replace with function body.
 
 func vine_visibility_collision_enabled(enabled : bool):
@@ -43,6 +42,7 @@ func _on_pickup_component_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		$Buttons.play("NOTHING")
 
+
 ## gets the sprite of the tree
 func get_sprite():
 	return seed_sprite.texture
@@ -50,12 +50,3 @@ func get_sprite():
 ## get pickupcomponent variable
 func get_pickup_component():
 	return pickup_component
-
-func save():
-	var save_dict = {
-		"filename" : get_scene_file_path(),
-		"parent" : get_parent().get_path(),
-		"pos_x" : position.x, # Vector2 is not supported by JSON
-		"pos_y" : position.y
-	}
-	return save_dict
