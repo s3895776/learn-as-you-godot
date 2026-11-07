@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://yo0dsbuvip53"]
 
+[ext_resource type="Script" uid="uid://dg02j3hmuw0cs" path="res://Scripts/base_level.gd" id="1_8v8kj"]
 [ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/TileMap.tres" id="1_d0j07"]
 
-[node name="PastLab" type="Node2D" unique_id=73980454]
+[node name="FutureLab" type="Node2D" unique_id=73980454]
+script = ExtResource("1_8v8kj")
 
 [node name="Lab_Initial" type="TileMapLayer" parent="." unique_id=1754726083]
 visible = false
