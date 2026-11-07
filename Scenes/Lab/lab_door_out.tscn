@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvg5hdsbtiasl"]
+
+[ext_resource type="Script" uid="uid://be2w4d3enhhml" path="res://Scenes/Lab/lab_door_out.gd" id="1_pw36f"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="2_a6dms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc02f"]
+
+[node name="LabDoorOut" type="Area2D" unique_id=325784448]
+script = ExtResource("1_pw36f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1391801067]
+scale = Vector2(1.48, 2.215)
+shape = SubResource("RectangleShape2D_cc02f")
+
+[node name="UpButton" type="AnimatedSprite2D" parent="." unique_id=1751683633]
+position = Vector2(0, -35)
+sprite_frames = ExtResource("2_a6dms")
+animation = &"UpButton"
+autoplay = "NOTHING"
