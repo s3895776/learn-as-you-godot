@@ -155,9 +155,9 @@ scale = Vector2(1.72, 1.72)
 sprite_frames = ExtResource("8_almbu")
 animation = &"RunningWater_1"
 autoplay = "RunningWater_1"
-frame_progress = 0.7303998
+frame_progress = 0.006717644
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1988364358]
+[node name="Rain" type="GPUParticles2D" parent="." unique_id=1988364358]
 material = SubResource("CanvasItemMaterial_almbu")
 position = Vector2(2300, -181)
 amount = 3000
