@@ -3,35 +3,42 @@
 [ext_resource type="Script" uid="uid://dny17paqpch1i" path="res://Scripts/level_one_maps_objects.gd" id="1_8r2hl"]
 [ext_resource type="PackedScene" uid="uid://dav4vko0n7w71" path="res://Scenes/LevelOne/level1present.tscn" id="2_omwgw"]
 [ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/LevelOne/level1future.tscn" id="3_4abun"]
-[ext_resource type="PackedScene" uid="uid://xl5t1ar133o5" path="res://Scenes/LevelOne/apartment_door_in.tscn" id="4_4abun"]
 [ext_resource type="PackedScene" uid="uid://cta7la3qxgfy1" path="res://Scenes/Moveable Objects/box.tscn" id="4_83pca"]
-[ext_resource type="PackedScene" uid="uid://cdljmul4as5y0" path="res://Scenes/LevelOne/apartment_door_in_window.tscn" id="5_83pca"]
+[ext_resource type="Script" uid="uid://k35attj17vuf" path="res://Scripts/Level_One/level_1_future.gd" id="4_ruble"]
 [ext_resource type="PackedScene" uid="uid://dd0x0jlqy37cn" path="res://Scenes/seed_to_tree.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="6_tlhqo"]
+[ext_resource type="PackedScene" path="res://Scenes/Apartment/apartment_door_in.tscn" id="7_omwgw"]
 [ext_resource type="PackedScene" uid="uid://w4ni7hboaj2q" path="res://Scenes/Moveable Objects/Largepot.tscn" id="8_1s2vj"]
+[ext_resource type="Script" uid="uid://b4s2c8ttngoo3" path="res://Scripts/Level_One/observable_area.gd" id="8_7sesu"]
+[ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="8_tlhqo"]
+[ext_resource type="PackedScene" uid="uid://ydbtp4ko7dae" path="res://Scenes/Apartment/Start_FUTURE.tscn" id="9_7sesu"]
 [ext_resource type="PackedScene" uid="uid://d11froe1h2ok4" path="res://Scenes/Moveable Objects/SmallPot.tscn" id="9_24y1s"]
+[ext_resource type="Script" uid="uid://idc1i86cljtk" path="res://Scripts/Apartment/apartment_state.gd" id="10_n63nb"]
+[ext_resource type="PackedScene" uid="uid://dtrynpat7p8my" path="res://Scenes/Apartment/2nd_PAST.tscn" id="10_sgrkx"]
+[ext_resource type="PackedScene" uid="uid://bnlpnuqohnw4e" path="res://Scenes/Apartment/2nd_FUTURE.tscn" id="11_n63nb"]
+[ext_resource type="PackedScene" uid="uid://ds6budlmir4wu" path="res://Scenes/Apartment/apartment_door_out.tscn" id="14_n63nb"]
 
-[node name="LevelOneMapsObjects" type="Node2D" unique_id=1077622127]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgrkx"]
+size = Vector2(353, 129)
+
+[node name="LevelMapsObjects" type="Node2D" unique_id=1077622127 node_paths=PackedStringArray("apartment_area")]
 script = ExtResource("1_8r2hl")
+apartment_area = NodePath("Apartment_Area")
 
 [node name="CurrentPresentLevel" parent="." unique_id=1141539653 instance=ExtResource("2_omwgw")]
 position = Vector2(1, 0)
 
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
+script = ExtResource("4_ruble")
 
 [node name="Objects" type="Node2D" parent="." unique_id=1099503779]
-
-[node name="ApartmentDoorIn" parent="Objects" unique_id=61968386 instance=ExtResource("4_4abun")]
-position = Vector2(32, -20)
-scale = Vector2(1.04, 1.095)
-
-[node name="ApartmentDoorInWindow" parent="Objects" unique_id=1064802036 instance=ExtResource("5_83pca")]
-position = Vector2(146, -440)
-scale = Vector2(1.435, 1.54)
 
 [node name="SmallPot" parent="Objects" unique_id=815715610 instance=ExtResource("9_24y1s")]
 position = Vector2(1902, -14)
 scale = Vector2(1.8, 1.8)
+
+[node name="ApartmentDoorIn" parent="Objects" unique_id=983210018 instance=ExtResource("7_omwgw")]
+position = Vector2(32.000004, -21.999998)
 
 [node name="seed_to_vines" parent="Objects" unique_id=1679277914 instance=ExtResource("6_tlhqo")]
 position = Vector2(116, -8)
@@ -48,3 +55,32 @@ position = Vector2(211, -1)
 [node name="LargePot" parent="Objects" unique_id=455924749 instance=ExtResource("8_1s2vj")]
 position = Vector2(1722, -14)
 scale = Vector2(1.4799805, 1.4799805)
+
+[node name="Apartment_Area" type="Area2D" parent="." unique_id=980959783]
+position = Vector2(-192, -400)
+script = ExtResource("8_7sesu")
+
+[node name="apt_future_2" parent="Apartment_Area" unique_id=1577474406 instance=ExtResource("11_n63nb")]
+script = ExtResource("10_n63nb")
+
+[node name="apt_future" parent="Apartment_Area" unique_id=1091545248 instance=ExtResource("9_7sesu")]
+script = ExtResource("10_n63nb")
+
+[node name="apt_past" parent="Apartment_Area" unique_id=478705752 instance=ExtResource("8_tlhqo")]
+script = ExtResource("10_n63nb")
+
+[node name="apt_past_2" parent="Apartment_Area" unique_id=1509722182 instance=ExtResource("10_sgrkx")]
+script = ExtResource("10_n63nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Apartment_Area" unique_id=174735263]
+position = Vector2(176.5, -64.5)
+shape = SubResource("RectangleShape2D_sgrkx")
+
+[node name="DoorOut" parent="Apartment_Area" unique_id=1954369801 instance=ExtResource("14_n63nb")]
+position = Vector2(38.17, -33.685)
+
+[editable path="Apartment_Area/apt_future_2"]
+[editable path="Apartment_Area/apt_future"]
+[editable path="Apartment_Area/apt_past"]
+[editable path="Apartment_Area/apt_past_2"]
+[editable path="Apartment_Area/DoorOut"]

@@ -13,21 +13,22 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# checks raycasts to see if player is near
-	if Lraycast.is_colliding():
-		var Lhit_object = Lraycast.get_collider()
-		if Lhit_object.is_in_group("Player"):
-			$Buttons.play("QButton")
-		else:
-			$Buttons.play("NOTHING")
-	
-	elif Rraycast.is_colliding():
-		var Rhit_object = Rraycast.get_collider()
-		if Rhit_object.is_in_group("Player"):
-			$Buttons.play("QButton")
-		else:
-			$Buttons.play("NOTHING")
-	else:
-		$Buttons.play("NOTHING")
+	#if Lraycast.is_colliding():
+		#var Lhit_object = Lraycast.get_collider()
+		#if Lhit_object.is_in_group("Player"):
+			#$Buttons.play("QButton")
+		#else:
+			#$Buttons.play("NOTHING")
+	#
+	#elif Rraycast.is_colliding():
+		#var Rhit_object = Rraycast.get_collider()
+		#if Rhit_object.is_in_group("Player"):
+			#$Buttons.play("QButton")
+		#else:
+			#$Buttons.play("NOTHING")
+	#else:
+		#$Buttons.play("NOTHING")
+	return 
 
 func save():
 	var save_dict = {
