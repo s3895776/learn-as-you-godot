@@ -13,6 +13,55 @@
 [ext_resource type="PackedScene" uid="uid://b7g873j1lv07j" path="res://Scenes/Moveable Objects/MoveBlock1.tscn" id="11_4tok7"]
 [ext_resource type="PackedScene" uid="uid://c06kqylrya5oo" path="res://Scenes/Moveable Objects/MoveBlock2.tscn" id="12_j0ag8"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j0ag8"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_l5tkf"]
+_data = [Vector2(0.04379562, 1), 0.0, 0.0, 0, 0, Vector2(0.5060827, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_a8mni"]
+curve = SubResource("Curve_l5tkf")
+
+[sub_resource type="Gradient" id="Gradient_n0ov3"]
+colors = PackedColorArray(0.13910934, 0.45259702, 0.38467243, 1, 6.016344e-08, 0.100093596, 0.31129757, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g0ncu"]
+gradient = SubResource("Gradient_n0ov3")
+
+[sub_resource type="Curve" id="Curve_m7fvw"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hd7yf"]
+_limits = [0.0, 50.0, 0.0, 100.0]
+_data = [Vector2(1.7031627, 31.818184), 0.0, 1.8681825, 0, 0, Vector2(25.060825, 50), 0.0, 0.0, 0, 0, Vector2(100, 50), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 100
+
+[sub_resource type="Curve" id="Curve_ymep0"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_un55m"]
+curve_x = SubResource("Curve_m7fvw")
+curve_y = SubResource("Curve_hd7yf")
+curve_z = SubResource("Curve_ymep0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hpsg2"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2700, -700, 1)
+angle_min = -9.9999895
+angle_max = 10.0000105
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.099999994
+scale_over_velocity_curve = SubResource("CurveXYZTexture_un55m")
+color_initial_ramp = SubResource("GradientTexture1D_g0ncu")
+alpha_curve = SubResource("CurveTexture_a8mni")
+
 [node name="level1future" type="Node2D" unique_id=1141539653]
 script = ExtResource("1_j0ag8")
 
@@ -143,3 +192,11 @@ scale = Vector2(1.5864707, 1.5864707)
 [node name="SmallBlock" parent="." unique_id=726912748 instance=ExtResource("12_j0ag8")]
 position = Vector2(1287, -9)
 scale = Vector2(1.88, 1.88)
+
+[node name="Rain" type="GPUParticles2D" parent="." unique_id=124355641]
+material = SubResource("CanvasItemMaterial_j0ag8")
+position = Vector2(2300, -181)
+amount = 2500
+preprocess = 0.5
+visibility_rect = Rect2(-2700, -500, 5400, 1000)
+process_material = SubResource("ParticleProcessMaterial_hpsg2")
