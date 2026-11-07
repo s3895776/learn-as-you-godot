@@ -9,6 +9,54 @@
 [ext_resource type="Texture2D" uid="uid://5ecmb264eosr" path="res://Sprites/Backgrounds/Past/Sky.png" id="7_bo0n7"]
 [ext_resource type="SpriteFrames" uid="uid://bl8an0axnabuv" path="res://Sprites/Tiles/FountainAnimation.tres" id="8_almbu"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_almbu"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_bo0n7"]
+_data = [Vector2(0.0014598537, 0.024242401), 0.0, 0.0, 0, 0, Vector2(0.09975669, 0.17575765), 0.88961077, 0.88961077, 0, 0, Vector2(0.5, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.7792194, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_vc62m"]
+curve = SubResource("Curve_bo0n7")
+
+[sub_resource type="Gradient" id="Gradient_almbu"]
+offsets = PackedFloat32Array(0, 0.9974026)
+colors = PackedColorArray(1, 1, 1, 0.078431375, 1.0039216, 1.0039216, 1.0039216, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cgpt2"]
+gradient = SubResource("Gradient_almbu")
+
+[sub_resource type="Curve" id="Curve_almbu"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_sveff"]
+_limits = [0.0, 50.0, 0.0, 100.0]
+_data = [Vector2(0.9732356, 43.333336), 0.0, 0.0, 0, 0, Vector2(38.68613, 50), 0.0, 0.0, 0, 0, Vector2(66.666664, 50), 0.0, 0.0, 0, 0, Vector2(100, 50), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_count = 100
+
+[sub_resource type="Curve" id="Curve_gf14c"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_almbu"]
+curve_x = SubResource("Curve_almbu")
+curve_y = SubResource("Curve_sveff")
+curve_z = SubResource("Curve_gf14c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3xd07"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2700, -700, 1)
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.19999999
+scale_over_velocity_curve = SubResource("CurveXYZTexture_almbu")
+color_initial_ramp = SubResource("GradientTexture1D_cgpt2")
+alpha_curve = SubResource("CurveTexture_vc62m")
+
 [node name="level1present" type="Node2D" unique_id=1141539653]
 visibility_layer = 2
 script = ExtResource("1_8wr7c")
@@ -107,4 +155,12 @@ scale = Vector2(1.72, 1.72)
 sprite_frames = ExtResource("8_almbu")
 animation = &"RunningWater_1"
 autoplay = "RunningWater_1"
-frame_progress = 0.23305534
+frame_progress = 0.7303998
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1988364358]
+material = SubResource("CanvasItemMaterial_almbu")
+position = Vector2(2300, -181)
+amount = 3000
+preprocess = 0.5
+visibility_rect = Rect2(-2700, -500, 5400, 1000)
+process_material = SubResource("ParticleProcessMaterial_3xd07")
