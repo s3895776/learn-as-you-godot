@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dejt8gmwngwt0" path="res://Scenes/Moveable Objects/largepot.gd" id="1_eu4gc"]
 [ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="2_yjc7j"]
 [ext_resource type="Texture2D" uid="uid://bujrufov87m6b" path="res://Sprites/Tiles/PotsAndTrees.png" id="3_gt3lb"]
+[ext_resource type="SpriteFrames" uid="uid://lyp4b3w33oq" path="res://Sprites/Tiles/TreeAnimations.tres" id="3_yjc7j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24y1s"]
 atlas = ExtResource("3_gt3lb")
@@ -38,6 +39,13 @@ shape = SubResource("RectangleShape2D_jq8tk")
 
 [node name="Sprite2D" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=97037634]
 texture = SubResource("AtlasTexture_cust4")
+
+[node name="LeavesForeground" type="AnimatedSprite2D" parent="OriginPoint/FutureObject" unique_id=230929114]
+position = Vector2(2.4526215, -23.218122)
+sprite_frames = ExtResource("3_yjc7j")
+animation = &"SmallTree"
+autoplay = "SmallTree"
+frame_progress = 0.67292625
 
 [node name="MoveComponent" type="Node2D" parent="OriginPoint" unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
 position = Vector2(-0.06303978, 1.575983)

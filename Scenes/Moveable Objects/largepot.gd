@@ -23,6 +23,8 @@ func switch_object(future):
 				child.visible = true 	
 			if child is CollisionShape2D:
 				child.disabled = false
+			if child is AnimatedSprite2D:
+				child.visible = true
 	else:
 		pastCollider.disabled = false
 		for child in moveComponent.get_children():
@@ -36,6 +38,8 @@ func switch_object(future):
 				child.visible = false 	
 			if child is CollisionShape2D:
 				child.disabled = true
+			if child is AnimatedSprite2D:
+				child.visible = false
 
 	return 
 	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dejt8gmwngwt0" path="res://Scenes/Moveable Objects/largepot.gd" id="1_ekluf"]
 [ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="2_cust4"]
+[ext_resource type="SpriteFrames" uid="uid://dd6tg8ak0whv7" path="res://Sprites/Tiles/BigTreeAnimations.tres" id="3_cust4"]
 [ext_resource type="Texture2D" uid="uid://bujrufov87m6b" path="res://Sprites/Tiles/PotsAndTrees.png" id="3_njbl8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24y1s"]
@@ -46,8 +47,16 @@ position = Vector2(-0.594574, -23.33704)
 position = Vector2(-0.07836628, -5.283621)
 shape = SubResource("RectangleShape2D_jq8tk")
 
-[node name="Sprite2D" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=97037634]
+[node name="Tree" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=97037634]
 texture = SubResource("AtlasTexture_cust4")
+
+[node name="TreeForeground" type="AnimatedSprite2D" parent="OriginPoint/FutureObject" unique_id=615748667]
+z_index = 4
+position = Vector2(-6.6785126, -19.223995)
+sprite_frames = ExtResource("3_cust4")
+animation = &"BigBreezy"
+autoplay = "BigBreezy"
+frame_progress = 0.21668582
 
 [node name="MoveComponent" type="Node2D" parent="OriginPoint" unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
 position = Vector2(-0.06303978, 1.575983)
