@@ -1,13 +1,18 @@
 extends Node
 
 enum Level {
-	LEVEL_ONE
+	LEVEL_ONE,
+	Apartment,
+	Lab
 }
 
 enum Apartment {
 	PLANTS, 
 	NO_PLANTS	
 }
+
+var is_future = true
+var ApartmentState = Apartment.PLANTS
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

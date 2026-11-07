@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://v0b7jeqkuk2p"]
+
+[ext_resource type="Script" uid="uid://dny17paqpch1i" path="res://Scripts/level_one_maps_objects.gd" id="1_rl1hx"]
+[ext_resource type="PackedScene" uid="uid://dav4vko0n7w71" path="res://Scenes/LevelOne/level1present.tscn" id="2_eh6n7"]
+[ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/LevelOne/level1future.tscn" id="3_ylpks"]
+[ext_resource type="PackedScene" uid="uid://dxsyt23hy6rw3" path="res://Scenes/LevelOne/level_one_save_node.tscn" id="4_ic6cb"]
+[ext_resource type="PackedScene" uid="uid://b2epqyqg0doto" path="res://Scenes/LevelOne/Level_One_objects.tscn" id="5_w4421"]
+[ext_resource type="Script" uid="uid://cx21bv4fpx2ty" path="res://Scripts/Level_One/level_one_save.gd" id="6_eh6n7"]
+
+[node name="LevelMapsObjects" type="Node2D" unique_id=1077622127]
+script = ExtResource("1_rl1hx")
+
+[node name="CurrentPresentLevel" parent="." unique_id=1141539653 instance=ExtResource("2_eh6n7")]
+
+[node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_ylpks")]
+visible = false
+
+[node name="SaveData" parent="." unique_id=1867821980 instance=ExtResource("4_ic6cb")]
+
+[node name="CurrentObjects" parent="." unique_id=240508750 instance=ExtResource("5_w4421")]
+
+[node name="save_lvl_one" parent="CurrentObjects" index="5" unique_id=425124751]
+script = ExtResource("6_eh6n7")
+
+[editable path="CurrentObjects"]

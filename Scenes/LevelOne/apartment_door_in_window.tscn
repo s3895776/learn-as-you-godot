@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdljmul4as5y0"]
+
+[ext_resource type="Script" uid="uid://7rve3hnig6n1" path="res://Scripts/Level_One/apartment_door_in_window.gd" id="1_42f51"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="2_nvpxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avse5"]
+
+[node name="ApartmentDoorInWindow" type="Area2D" unique_id=61968386]
+script = ExtResource("1_42f51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1050314177]
+scale = Vector2(1.48, 2.215)
+shape = SubResource("RectangleShape2D_avse5")
+
+[node name="UpButton" type="AnimatedSprite2D" parent="." unique_id=44113810]
+position = Vector2(0, -35)
+sprite_frames = ExtResource("2_nvpxf")
+animation = &"UpButton"
+autoplay = "NOTHING"

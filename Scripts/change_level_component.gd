@@ -1,10 +1,9 @@
-@abstract class_name change_level_component
+@abstract class_name ChangeLevelComponent
 extends Node2D
 @export var area : Area2D
 @export var buttons : AnimatedSprite2D
 @export var present_level_to_load : PackedScene
 @export var future_level_to_load : PackedScene
-
 
 var can_enter : bool
 
@@ -14,12 +13,11 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	pass
 
-func change_level():
-	if (can_enter):
-		Events.levels_loaded.emit(present_level_to_load, future_level_to_load)
+
+@abstract func change_level()
+
 
 # signals
 func _on_body_entered(body: Node2D) -> void:
@@ -41,5 +39,5 @@ func get_future_level_to_load():
 	return future_level_to_load
 	
 
-## connect signals (they are static)
+## connect signals (they cannot connect through abstract class)
 @abstract func connect_signals()

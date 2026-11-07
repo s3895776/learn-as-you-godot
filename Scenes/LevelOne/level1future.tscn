@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c6u17flb7yqes"]
 
-[ext_resource type="Script" uid="uid://k35attj17vuf" path="res://Scripts/Level_One/level_1_future.gd" id="1_he66m"]
+[ext_resource type="Script" uid="uid://dg02j3hmuw0cs" path="res://Scripts/base_level.gd" id="1_j0ag8"]
 [ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/TileMap.tres" id="2_4tok7"]
 [ext_resource type="TileSet" uid="uid://q45bbspslko" path="res://Sprites/Tiles/FutureTiles.tres" id="3_j0ag8"]
 [ext_resource type="Texture2D" uid="uid://c4g4yb3dj5toa" path="res://Sprites/Backgrounds/Future/Layer1.png" id="4_l5tkf"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c06kqylrya5oo" path="res://Scenes/Moveable Objects/MoveBlock2.tscn" id="12_j0ag8"]
 
 [node name="level1future" type="Node2D" unique_id=1141539653]
-script = ExtResource("1_he66m")
+script = ExtResource("1_j0ag8")
 
 [node name="Buildings" type="TileMapLayer" parent="." unique_id=1032874701]
 scale = Vector2(4, 4)

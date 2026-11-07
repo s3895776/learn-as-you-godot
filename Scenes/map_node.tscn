@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://cg30b4ch4r7gv"]
 
-[ext_resource type="Script" uid="uid://bywjn8nlxm7nl" path="res://Scripts/map_node.gd" id="1_wp7i3"]
+[ext_resource type="Script" uid="uid://bywjn8nlxm7nl" path="res://Scripts/map_manager.gd" id="1_wp7i3"]
 [ext_resource type="PackedScene" uid="uid://d3w41tqa0qaxj" path="res://Scenes/LevelOne/level_one_maps_objects.tscn" id="2_khgya"]
+[ext_resource type="PackedScene" uid="uid://c5u8ah6scrhmt" path="res://Scenes/Apartment/apartment_maps_objects.tscn" id="3_4odpq"]
 [ext_resource type="PackedScene" uid="uid://1kqutksg1dkr" path="res://Scenes/player.tscn" id="6_6ud8w"]
 
-[node name="MapNode" type="Node2D" unique_id=1349269865]
+[node name="MapManager" type="Node2D" unique_id=1349269865]
 script = ExtResource("1_wp7i3")
+level_one_maps_objects = ExtResource("2_khgya")
+apartment = ExtResource("3_4odpq")
 
-[node name="LevelMapsObjects" parent="." unique_id=1077622127 instance=ExtResource("2_khgya")]
+[node name="LevelOneMapsObjects" parent="." unique_id=1077622127 instance=ExtResource("2_khgya")]
 
 [node name="Player" parent="." unique_id=193058604 instance=ExtResource("6_6ud8w")]
 scale = Vector2(2, 2)
