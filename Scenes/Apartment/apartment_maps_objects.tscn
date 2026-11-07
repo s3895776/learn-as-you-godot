@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c5u8ah6scrhmt"]
+
+[ext_resource type="Script" uid="uid://5m1v34e1mcxv" path="res://Scenes/Apartment/apartment_maps_objects.gd" id="1_yyutc"]
+[ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="2_4j831"]
+[ext_resource type="PackedScene" uid="uid://ydbtp4ko7dae" path="res://Scenes/Apartment/Start_FUTURE.tscn" id="3_mpvpe"]
+[ext_resource type="PackedScene" uid="uid://dtrynpat7p8my" path="res://Scenes/Apartment/2nd_PAST.tscn" id="4_mpvpe"]
+[ext_resource type="PackedScene" uid="uid://bnlpnuqohnw4e" path="res://Scenes/Apartment/2nd_FUTURE.tscn" id="5_gwsso"]
+[ext_resource type="PackedScene" uid="uid://ds6budlmir4wu" path="res://Scenes/Apartment/apartment_door_out.tscn" id="6_6wjjt"]
+[ext_resource type="PackedScene" uid="uid://cxgn73owaqq8y" path="res://Scenes/Apartment/apartment_door_out_window.tscn" id="7_bwc2o"]
+
+[node name="ApartmentMapsObjects" type="Node2D" unique_id=1738210408]
+script = ExtResource("1_yyutc")
+
+[node name="apt_past" parent="." unique_id=1577474406 instance=ExtResource("2_4j831")]
+
+[node name="apt_future" parent="." unique_id=1795142684 instance=ExtResource("3_mpvpe")]
+
+[node name="apt_past_2" parent="." unique_id=644775075 instance=ExtResource("4_mpvpe")]
+
+[node name="apt_future_2" parent="." unique_id=186784801 instance=ExtResource("5_gwsso")]
+
+[node name="Objects" type="Node2D" parent="." unique_id=1382400436]
+
+[node name="ApartmentDoorOut" parent="Objects" unique_id=1954369801 instance=ExtResource("6_6wjjt")]
+position = Vector2(37, -32)
+
+[node name="ApartmentDoorOutWindow" parent="Objects" unique_id=715858135 instance=ExtResource("7_bwc2o")]
+position = Vector2(288.245, -36)
+scale = Vector2(1.395, 1.15)
+
+[editable path="apt_past"]
+[editable path="apt_future"]
+[editable path="apt_past_2"]
+[editable path="apt_future_2"]

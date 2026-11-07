@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://dtrynpat7p8my"]
 
 [ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/TileMap.tres" id="1_tpm1x"]
+[ext_resource type="Script" uid="uid://dg02j3hmuw0cs" path="res://Scripts/base_level.gd" id="1_xv13j"]
 
 [node name="apt_past_2" type="Node2D" unique_id=1577474406]
+script = ExtResource("1_xv13j")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1117325004]
 scale = Vector2(2, 2)

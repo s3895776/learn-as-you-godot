@@ -5,7 +5,6 @@
 [ext_resource type="TileSet" uid="uid://24qpl4cs5tu5" path="res://Godot 2D Platformer - Assets/Sprites/Tiles/example_tile_set_resource.tres" id="3_dluji"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_bppr8"]
 [ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="5_1qn2h"]
-[ext_resource type="Script" uid="uid://bayqx431womxv" path="res://Scripts/object_save_component.gd" id="6_nbxvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
 
@@ -38,9 +37,6 @@ script = ExtResource("5_1qn2h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=608704315]
 position = Vector2(24, -6)
 shape = SubResource("RectangleShape2D_61ot5")
-
-[node name="SaveComponent" type="Node" parent="." unique_id=798740785]
-script = ExtResource("6_nbxvh")
 
 [connection signal="body_entered" from="PickupComponent" to="." method="_on_pickup_component_body_entered"]
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]

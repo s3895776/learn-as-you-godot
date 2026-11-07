@@ -51,7 +51,7 @@ func move_player(position : Vector2):
 	print('move player in player script')
 	self.position = position
 	
-func switch_maps():
+func switch_time():
 #	emit signal
 	#print("Switch maps signal player")
 	Events.time_switch.emit()
@@ -60,7 +60,7 @@ func enter_room():
 #	the collision will have the level pointer. 
 	#fade.fade(1.0, 0.5)
 	#await fade.fade(1.0, 0.5).finished
-	Events.enter_room.emit()
+	Events.player_enter_level.emit()
 	#fade.fade(0.0, 0.5)
 	
 	
@@ -188,7 +188,7 @@ func on_interact():
 	
 func reload_level():
 #	only applies for first level
-	Events.entering_level.emit(StateManager.Level.LEVEL_ONE)
+	Events.load_level.emit(StateManager.Level.LEVEL_ONE)
 	
 
 func _can_switch_time():
@@ -214,7 +214,7 @@ func on_ability():
 	time_screen_anim.play("TIME FADE")
 	await time_screen_anim.animation_finished
 	
-	switch_maps()
+	switch_time()
 	
 	time_screen_anim.play("TIME FADE OUT")
 	

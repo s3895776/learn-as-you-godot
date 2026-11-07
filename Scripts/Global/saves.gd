@@ -33,12 +33,16 @@ func _process(delta: float) -> void:
  
 ## while running, save the persistent objects from root. 
 func save_state(level_type: StateManager.Level, root : Node):
-	print("I'm B.A, go to C")
 	var save_state_file : String
 #	currently empty :(
 	if level_type == StateManager.Level.LEVEL_ONE:
 		save_state_file = save_state_level_one_file
-		
+	
+#	do not write a save if unnecessary
+	if (save_state_file == ""):
+		return
+#	delete first, then save.
+	delete_save_files(save_state_file)
 	var save_file = FileAccess.open(save_state_file, FileAccess.WRITE)
 	
 	var save_nodes = root.get_tree().get_nodes_in_group("Persist")
@@ -48,19 +52,18 @@ func save_state(level_type: StateManager.Level, root : Node):
 			print("node '%s' is not instanced, skipped" % node.name)
 			continue
 		
-		if !node.has_node("SaveComponent"):
+		if !node.has_method("save"):
 			print("persistent node '%s' is missing a save() function, skipped" % node.name)
 			continue
 		
 #		call save function
-		var node_data = node.get_node("SaveComponent").call("save_object")
+		var node_data = node.call("save")
 		
 		var json_string = JSON.stringify(node_data)
 		
 		save_file.store_line(json_string)
 		
 func load_state(level_type : StateManager.Level):
-	print("I'm D")
 	
 	var save_state_file : String
 #	currently empty :(
@@ -68,10 +71,8 @@ func load_state(level_type : StateManager.Level):
 		save_state_file = save_state_level_one_file
 		
 	if not FileAccess.file_exists(save_state_file):
-#		load a new scene. 
+#		loading a new scene. 
 		return # Error! We don't have a save to load.
-	
-
 	
 	# We need to revert the game state so we're not cloning objects
 	# during loading. This will vary wildly depending on the needs of a

@@ -43,6 +43,14 @@ func _on_pickup_component_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		$Buttons.play("NOTHING")
 
+## gets the sprite of the tree
+func get_sprite():
+	return seed_sprite.texture
+
+## get pickupcomponent variable
+func get_pickup_component():
+	return pickup_component
+
 func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
@@ -51,11 +59,3 @@ func save():
 		"pos_y" : position.y
 	}
 	return save_dict
-
-## gets the sprite of the tree
-func get_sprite():
-	return seed_sprite.texture
-
-## get pickupcomponent variable
-func get_pickup_component():
-	return pickup_component

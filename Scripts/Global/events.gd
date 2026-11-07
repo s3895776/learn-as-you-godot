@@ -14,10 +14,11 @@ signal draw_ui
 signal time_switch
 
 # traverse levels
-signal entering_level
+signal player_enter_level
+signal load_level
 
 # moving player
-signal enter_room
+#signal enter_room
 signal move_player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

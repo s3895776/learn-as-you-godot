@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i8u6"]
 
-[node name="Area2D" type="Area2D" unique_id=1954369801]
+[node name="ApartmentDoorOut" type="Area2D" unique_id=1954369801]
 script = ExtResource("1_5elma")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=806348735]

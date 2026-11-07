@@ -1,24 +1,48 @@
 extends Node2D
 
 @export var level_one_maps_objects : PackedScene
+@export var apartment : PackedScene
+@export var lab : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Events.entering_level.connect(change_levels)
+#	TODO: ensure signal matches load_level
+	Events.load_level.connect(change_levels)
 
 
+#change to current_level + next_level
 func change_levels(next_level : StateManager.Level):
-	print("At B, go to B.A")
-	Saves.save_state($LevelMapsObjects.level_state, $LevelMapsObjects.get_objects())
-	print("B.A complete, go to C")
+	print("At B")
+	var level_node : Node2D
+	for child in get_children():
+		if child.has_method("save_level"):
+			level_node = child
+	if (level_node != null):
+		level_node.save_level()
+		print("Save success")
 	
-	print("At C, go to D")
+	remove_child(level_node)
 	
-	remove_child($LevelMapsObjects)
-	var instance = level_one_maps_objects.instantiate()
+#	calling queue free removes signals. 
+	level_node.queue_free()
+	var instance : Node2D
+	if (next_level == StateManager.Level.LEVEL_ONE):
+		instance = level_one_maps_objects.instantiate()
+	elif next_level == StateManager.Level.Apartment:
+		instance = apartment.instantiate()
+	elif next_level == StateManager.Level.Lab:
+		instance = lab.instantiate()
+	else:
+#		only works in editor.
+		assert(false, "Level Type incorrectly entered")
+		
+	print("AT C")
 	add_child(instance)
-	print("At D, now go to D.A")
+	print("At D")
 	Saves.load_state(next_level)
-#	saves will reload some objects which need to return to normal.
-
-	$LevelMapsObjects.switch_objects()
+	print("Load finished")
+	for child in get_children():
+		if child.has_method("switch_objects"):
+			level_node = child
+#	saves will reload some objects which need to return to normal
+	level_node.switch_objects()
