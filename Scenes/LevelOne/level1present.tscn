@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://hun4o3vhdh03" path="res://Sprites/Backgrounds/Past/Layer3.png" id="5_cgpt2"]
 [ext_resource type="Texture2D" uid="uid://dctmn53jtsin3" path="res://Sprites/Backgrounds/Past/Layer4.png" id="6_vc62m"]
 [ext_resource type="Texture2D" uid="uid://5ecmb264eosr" path="res://Sprites/Backgrounds/Past/Sky.png" id="7_bo0n7"]
+[ext_resource type="SpriteFrames" uid="uid://bl8an0axnabuv" path="res://Sprites/Tiles/FountainAnimation.tres" id="8_almbu"]
 
 [node name="level1present" type="Node2D" unique_id=1141539653]
 visibility_layer = 2
@@ -98,3 +99,12 @@ scroll_scale = Vector2(0.1, 0.1)
 position = Vector2(594.92004, 296.96002)
 scale = Vector2(2.3200002, 2.3200002)
 texture = ExtResource("7_bo0n7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1347203993]
+modulate = Color(1, 1, 1, 0.5372549)
+position = Vector2(1961.9999, -90)
+scale = Vector2(1.72, 1.72)
+sprite_frames = ExtResource("8_almbu")
+animation = &"RunningWater_1"
+autoplay = "RunningWater_1"
+frame_progress = 0.23305534

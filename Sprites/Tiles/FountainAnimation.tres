@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bl8an0axnabuv"]
+
+[ext_resource type="Texture2D" uid="uid://60trahqu4qp1" path="res://Sprites/Tiles/FountainAnimation.png" id="1_fl2kn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl2kn"]
+atlas = ExtResource("1_fl2kn")
+region = Rect2(16, 0, 80, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv8qt"]
+atlas = ExtResource("1_fl2kn")
+region = Rect2(96, 0, 80, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s16e7"]
+atlas = ExtResource("1_fl2kn")
+region = Rect2(16, 79, 80, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovdkt"]
+atlas = ExtResource("1_fl2kn")
+region = Rect2(96, 79, 80, 79)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fl2kn")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qv8qt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_s16e7")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ovdkt")
+}],
+"loop": 1,
+"name": &"RunningWater_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
