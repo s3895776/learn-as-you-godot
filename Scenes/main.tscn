@@ -5,15 +5,17 @@
 [ext_resource type="Script" uid="uid://tawbytpa44ny" path="res://Scripts/Global/events.gd" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://be80gh303ubh5" path="res://Scripts/Global/state_manager.gd" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://ptccr6wsiqol" path="res://Scripts/Global/position_manager.gd" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://c1n1kw2bo7f2j" path="res://Scripts/Global/saves.gd" id="6_21xkr"]
 
 [node name="Main" type="Node2D" unique_id=189494304]
 script = ExtResource("1_8gbba")
 
-[node name="CurrentMap" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
+[node name="MapManager" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
 position = Vector2(1, -3)
 
-[node name="Player" parent="CurrentMap" index="1" unique_id=193058604]
-position = Vector2(1808, -12)
+[node name="Player" parent="MapManager" index="1" unique_id=193058604]
+z_index = 1
+position = Vector2(240, -412)
 
 [node name="Events" type="Node" parent="." unique_id=1088045949]
 script = ExtResource("3_8gbba")
@@ -24,4 +26,7 @@ script = ExtResource("4_jjvhh")
 [node name="Position_Manager" type="Node" parent="." unique_id=1438210613]
 script = ExtResource("5_kry3j")
 
-[editable path="CurrentMap"]
+[node name="Saves" type="Node" parent="." unique_id=278500872]
+script = ExtResource("6_21xkr")
+
+[editable path="MapManager"]
