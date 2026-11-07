@@ -65,6 +65,23 @@ func switch_objects():
 	for c in $Objects.get_children():
 		if c is TimeSwitchObject:
 			c.switch_object(is_future)
+			
+	if is_future:
+		for c in future_map.get_children():
+			if c is CollisionShape2D:
+				c.disabled = false 
+		for c in present_map.get_children():
+			if c is CollisionShape2D:
+				c.disabled = true 
+	else:
+		for c in future_map.get_children():
+			if c is CollisionShape2D:
+				c.disabled = true 
+		for c in present_map.get_children():
+			if c is CollisionShape2D:
+				c.disabled = false 
+		
+	
 		
 ## call this on switch maps to set state apartment to the correct thing.
 func set_state_apartment():
