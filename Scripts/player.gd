@@ -33,7 +33,9 @@ var direction : float
 enum States {IDLE, WALK, JUMP, STOP, PUSH, PULL, PUSH_IDLE, CROUCH}
 
 var state: States = States.IDLE
-var can_switch = true
+
+# set this variable in build version.
+var picked_up_watch = true
 
 #time travel feature: switch between maps.
 
@@ -173,11 +175,9 @@ func state_changer():
 		state = States.PUSH_IDLE
 #		TODO: if pushing a box (box location and direction are same), 
 	elif (state in push_states) and direction == get_box_side():
-		print("Push")
 		state = States.PUSH
 #		TODO: if pulling a box ( box to player is not the same)
 	elif (state in push_states) and direction != get_box_side():
-		print("Pull")
 		state = States.PULL
 	
 func on_interact():
@@ -265,7 +265,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction * move_speed, acceleration * delta)
 		if (state in push_states):
 			velocity.x = pull_speed * direction
-			print(direction)
 		if state == States.STOP:
 			velocity.x = time_speed * direction
 	else:

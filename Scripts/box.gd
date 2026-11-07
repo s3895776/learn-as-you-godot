@@ -30,10 +30,16 @@ func _physics_process(delta: float) -> void:
 		#$Buttons.play("NOTHING")
 	return 
 
+func disable_collision():
+#	TODO:
+	pass
+
 func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
+		"scale_x": scale.x,
+		"scale_y": scale.y,
 		"pos_x" : position.x, # Vector2 is not supported by JSON
 		"pos_y" : position.y
 	}

@@ -104,7 +104,8 @@ func load_state(level_type : StateManager.Level):
 		var new_object = load(node_data["filename"]).instantiate()
 		get_node(node_data["parent"]).add_child(new_object)
 		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-
+		new_object.scale = Vector2(node_data["scale_x"], node_data["scale_y"])
+		
 		# Set the remaining variables if needed for save state. 
 		#for i in node_data.keys():
 			#if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
