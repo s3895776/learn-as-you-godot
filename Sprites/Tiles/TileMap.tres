@@ -3464,6 +3464,7 @@ texture = ExtResource("7_yerqq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irywa"]
 texture = ExtResource("8_p4f70")
+margins = Vector2i(1, 1)
 7:0/0 = 0
 3:1/0 = 0
 6:1/0 = 0
