@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dd0x0jlqy37cn" path="res://Scenes/seed_to_tree.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="6_tlhqo"]
 [ext_resource type="PackedScene" uid="uid://xl5t1ar133o5" path="res://Scenes/Apartment/apartment_door_in.tscn" id="7_omwgw"]
+[ext_resource type="PackedScene" uid="uid://w4ni7hboaj2q" path="res://Scenes/Moveable Objects/Largepot.tscn" id="8_1s2vj"]
 [ext_resource type="Script" uid="uid://b4s2c8ttngoo3" path="res://Scripts/Level_One/observable_area.gd" id="8_7sesu"]
 [ext_resource type="PackedScene" uid="uid://bgbcfou3gcmr3" path="res://Scenes/Apartment/Start_PAST.tscn" id="8_tlhqo"]
 [ext_resource type="PackedScene" uid="uid://ydbtp4ko7dae" path="res://Scenes/Apartment/Start_FUTURE.tscn" id="9_7sesu"]
@@ -23,6 +24,7 @@ script = ExtResource("1_8r2hl")
 apartment_area = NodePath("Apartment_Area")
 
 [node name="CurrentPresentLevel" parent="." unique_id=1141539653 instance=ExtResource("2_omwgw")]
+position = Vector2(1, 0)
 
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
 
@@ -42,6 +44,10 @@ position = Vector2(342, -1)
 
 [node name="seed_to_tree2" parent="Objects" unique_id=668031572 instance=ExtResource("5_ckc7r")]
 position = Vector2(211, -1)
+
+[node name="LargePot" parent="Objects" unique_id=1269202155 instance=ExtResource("8_1s2vj")]
+position = Vector2(1645, -10)
+scale = Vector2(1.4399903, 1.4399903)
 
 [node name="Apartment_Area" type="Area2D" parent="." unique_id=980959783]
 position = Vector2(-192, -400)

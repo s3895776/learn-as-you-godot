@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://d11froe1h2ok4"]
+
+[ext_resource type="Script" uid="uid://cirip0emlqilh" path="res://Scripts/box.gd" id="1_eu4gc"]
+[ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="2_yjc7j"]
+[ext_resource type="Texture2D" uid="uid://bujrufov87m6b" path="res://Sprites/Tiles/PotsAndTrees.png" id="3_gt3lb"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_yjc7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
+size = Vector2(10.02824, 6.087524)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24y1s"]
+atlas = ExtResource("3_gt3lb")
+region = Rect2(35, 75, 10, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu4gc"]
+atlas = ExtResource("3_gt3lb")
+region = Rect2(70, 75, 5, 5)
+
+[node name="SmallPot" type="CharacterBody2D" unique_id=1269202155]
+script = ExtResource("1_eu4gc")
+
+[node name="MoveComponent" type="Node2D" parent="." unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
+position = Vector2(-0.06303978, 1.575983)
+scale = Vector2(0.6800004, 0.6800004)
+script = ExtResource("2_yjc7j")
+right_collision_ray = NodePath("right_collision_ray")
+left_collision_ray = NodePath("left_collision_ray")
+
+[node name="left_collision_ray" type="RayCast2D" parent="MoveComponent" unique_id=632731859]
+scale = Vector2(0.6470575, 0.6470575)
+target_position = Vector2(-20, 0)
+collision_mask = 4
+
+[node name="right_collision_ray" type="RayCast2D" parent="MoveComponent" unique_id=1347349083]
+scale = Vector2(0.6470575, 0.6470575)
+target_position = Vector2(20, 0)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=864603308]
+position = Vector2(-0.0027980804, 1.5203602)
+shape = SubResource("RectangleShape2D_61ot5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1561191468]
+position = Vector2(0, 2)
+texture = SubResource("AtlasTexture_24y1s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2063708375]
+z_index = -1
+position = Vector2(0.39142418, -3.284236)
+texture = SubResource("AtlasTexture_eu4gc")
+
+[node name="LeftSideButton" type="RayCast2D" parent="." unique_id=915939070]
+position = Vector2(-0.06303978, 1.575983)
+rotation = 3.1415927
+scale = Vector2(0.38353318, 0.38353318)
+target_position = Vector2(-30, 0)
+collision_mask = 4
+
+[node name="RightSideButton" type="RayCast2D" parent="." unique_id=2138473914]
+position = Vector2(-0.06303978, 1.575983)
+rotation = 3.1415927
+scale = Vector2(0.38353318, 0.38353318)
+target_position = Vector2(30, 0)
+collision_mask = 4
+
+[node name="Buttons" type="AnimatedSprite2D" parent="." unique_id=1558949340]
+position = Vector2(0, -25)
+sprite_frames = ExtResource("4_yjc7j")
+animation = &"QButton"
+autoplay = "NOTHING"
+frame_progress = 0.25298363

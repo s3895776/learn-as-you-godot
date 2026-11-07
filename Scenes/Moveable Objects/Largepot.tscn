@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://w4ni7hboaj2q"]
+
+[ext_resource type="Script" uid="uid://cirip0emlqilh" path="res://Scripts/box.gd" id="1_ekluf"]
+[ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="2_cust4"]
+[ext_resource type="Texture2D" uid="uid://bujrufov87m6b" path="res://Sprites/Tiles/PotsAndTrees.png" id="3_njbl8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24y1s"]
+atlas = ExtResource("3_njbl8")
+region = Rect2(15, 68, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekluf"]
+atlas = ExtResource("3_njbl8")
+region = Rect2(53, 69, 5, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8tk"]
+size = Vector2(59.65675, 2.1815395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cust4"]
+atlas = ExtResource("3_njbl8")
+region = Rect2(128, 16, 61, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
+size = Vector2(16, 13.09494)
+
+[node name="LargePot" type="Node2D" unique_id=455924749]
+script = ExtResource("1_ekluf")
+
+[node name="OriginPoint" type="CharacterBody2D" parent="." unique_id=11465970]
+
+[node name="PastObject" type="Node2D" parent="OriginPoint" unique_id=152680794]
+
+[node name="Pot Sprite" type="Sprite2D" parent="OriginPoint/PastObject" unique_id=1561191468]
+position = Vector2(0, 2)
+texture = SubResource("AtlasTexture_24y1s")
+
+[node name="Plant Sprite" type="Sprite2D" parent="OriginPoint/PastObject" unique_id=1698823191]
+z_index = -1
+position = Vector2(0.03642273, -9.606097)
+scale = Vector2(0.960002, 0.960002)
+texture = SubResource("AtlasTexture_ekluf")
+
+[node name="FutureObject" type="StaticBody2D" parent="OriginPoint" unique_id=1083607141]
+visible = false
+position = Vector2(-0.594574, -23.33704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint/FutureObject" unique_id=1812526908]
+position = Vector2(-0.07836628, -5.283621)
+shape = SubResource("RectangleShape2D_jq8tk")
+
+[node name="Sprite2D" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=97037634]
+texture = SubResource("AtlasTexture_cust4")
+
+[node name="MoveComponent" type="Node2D" parent="OriginPoint" unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
+position = Vector2(-0.06303978, 1.575983)
+scale = Vector2(0.8976001, 0.6800004)
+script = ExtResource("2_cust4")
+right_collision_ray = NodePath("right_collision_ray")
+left_collision_ray = NodePath("left_collision_ray")
+
+[node name="left_collision_ray" type="RayCast2D" parent="OriginPoint/MoveComponent" unique_id=632731859]
+target_position = Vector2(-20, 0)
+collision_mask = 4
+
+[node name="right_collision_ray" type="RayCast2D" parent="OriginPoint/MoveComponent" unique_id=1347349083]
+target_position = Vector2(20, 0)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint" unique_id=864603308]
+position = Vector2(0, 2.0406485)
+shape = SubResource("RectangleShape2D_61ot5")
