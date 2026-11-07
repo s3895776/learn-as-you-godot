@@ -45,4 +45,4 @@ func change_levels(next_level : StateManager.Level):
 		if child.has_method("switch_objects"):
 			level_node = child
 #	saves will reload some objects which need to return to normal
-	level_node.switch_objects()
+	level_node.switch_maps()

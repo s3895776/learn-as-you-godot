@@ -10,4 +10,4 @@ func _ready() -> void:
 ## check all nodes and call set enabled
 func enable_map(enabled : bool):
 	self.propagate_call("set_enabled", [enabled])
-	self.propagate_call("disable_collision", [enabled])
+	self.propagate_call("set_collision", [enabled])

@@ -15,4 +15,5 @@ lab = ExtResource("4_15ahl")
 [node name="LevelOneMapsObjects" parent="." unique_id=1077622127 instance=ExtResource("2_khgya")]
 
 [node name="Player" parent="." unique_id=193058604 instance=ExtResource("6_6ud8w")]
+position = Vector2(1220, -10)
 scale = Vector2(2, 2)

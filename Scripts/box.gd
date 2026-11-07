@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var collision_obj = $CollisionShape2D
 
 # Raycast for Button
 #@onready var Lraycast: RayCast2D = $LeftSideButton
@@ -30,10 +31,12 @@ func _physics_process(delta: float) -> void:
 		#$Buttons.play("NOTHING")
 	return 
 
-func disable_collision():
-#	TODO:
-	pass
-
+func set_collision(enabled : bool):
+	if (enabled):
+		collision_obj.disabled = false
+	else:
+		collision_obj.disabled = true
+		
 func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
