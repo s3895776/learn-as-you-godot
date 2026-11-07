@@ -17,7 +17,7 @@ atlas = ExtResource("3_gt3lb")
 region = Rect2(196, 42, 25, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
-size = Vector2(10.107138, 11.617999)
+size = Vector2(10.107138, 6.7318573)
 
 [node name="SmallPot" type="Node2D" unique_id=455924749]
 script = ExtResource("1_eu4gc")
@@ -45,7 +45,7 @@ position = Vector2(2.4526215, -23.218122)
 sprite_frames = ExtResource("3_yjc7j")
 animation = &"SmallTree"
 autoplay = "SmallTree"
-frame_progress = 0.33510986
+frame_progress = 0.7760186
 
 [node name="MoveComponent" type="Node2D" parent="OriginPoint" unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
 position = Vector2(-0.06303978, 1.575983)
@@ -65,5 +65,5 @@ target_position = Vector2(20, 0)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint" unique_id=864603308]
-position = Vector2(-0.01779461, 1.8287148)
+position = Vector2(-0.01779461, 4.2717857)
 shape = SubResource("RectangleShape2D_61ot5")
