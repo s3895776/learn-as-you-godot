@@ -15,19 +15,6 @@ func get_objects():
 func set_objects(objects: Node2D):
 	current_objects = objects
 
-#@export var lab_objects : PackedScene
-#@export var lab_present_map : PackedScene
-#@export var lab_future_map : PackedScene
-#
-#@export var apartment_objects : PackedScene
-#@export var apartment_present_map : PackedScene
-#@export var apartment_future_map : PackedScene
-#
-#@export var level_one_objects : PackedScene
-#@export var level_one_present_map : PackedScene
-#@export var level_one_future_map : PackedScene
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	present_map = $CurrentPresentLevel

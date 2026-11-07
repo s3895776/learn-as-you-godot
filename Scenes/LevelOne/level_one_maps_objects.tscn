@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cdljmul4as5y0" path="res://Scenes/LevelOne/apartment_door_in_window.tscn" id="5_83pca"]
 [ext_resource type="PackedScene" uid="uid://dd0x0jlqy37cn" path="res://Scenes/seed_to_tree.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://dam8bnpfqy0se" path="res://Scenes/seed_to_vines.tscn" id="6_tlhqo"]
+[ext_resource type="PackedScene" uid="uid://w4ni7hboaj2q" path="res://Scenes/Moveable Objects/Largepot.tscn" id="8_1s2vj"]
+[ext_resource type="PackedScene" uid="uid://d11froe1h2ok4" path="res://Scenes/Moveable Objects/SmallPot.tscn" id="9_24y1s"]
 
 [node name="LevelOneMapsObjects" type="Node2D" unique_id=1077622127]
 script = ExtResource("1_8r2hl")
@@ -16,22 +18,22 @@ script = ExtResource("1_8r2hl")
 position = Vector2(1, 0)
 
 [node name="CurrentFutureLevel" parent="." unique_id=1628813036 instance=ExtResource("3_4abun")]
-position = Vector2(1, 0)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1099503779]
+
+[node name="ApartmentDoorIn" parent="Objects" unique_id=61968386 instance=ExtResource("4_4abun")]
+position = Vector2(32, -20)
+scale = Vector2(1.04, 1.095)
+
+[node name="ApartmentDoorInWindow" parent="Objects" unique_id=1064802036 instance=ExtResource("5_83pca")]
+position = Vector2(146, -440)
+scale = Vector2(1.435, 1.54)
 
 [node name="SmallPot" parent="Objects" unique_id=815715610 instance=ExtResource("9_24y1s")]
 position = Vector2(1902, -14)
 scale = Vector2(1.8, 1.8)
 
-[node name="ApartmentDoorIn" parent="Objects" unique_id=61968386 instance=ExtResource("4_4abun")]
-position = Vector2(33, -20)
-
-[node name="ApartmentDoorInWindow" parent="Objects" unique_id=1556751012 instance=ExtResource("5_83pca")]
-position = Vector2(144, -447)
-scale = Vector2(1.22, 1.22)
-
-[node name="seed_to_vines" parent="Objects" unique_id=1679277914 groups=["Persist"] instance=ExtResource("6_tlhqo")]
+[node name="seed_to_vines" parent="Objects" unique_id=1679277914 instance=ExtResource("6_tlhqo")]
 position = Vector2(116, -8)
 
 [node name="box" parent="Objects" unique_id=1560527058 instance=ExtResource("4_83pca")]
@@ -46,7 +48,3 @@ position = Vector2(211, -1)
 [node name="LargePot" parent="Objects" unique_id=455924749 instance=ExtResource("8_1s2vj")]
 position = Vector2(1722, -14)
 scale = Vector2(1.4799805, 1.4799805)
-
-[editable path="CurrentFutureLevel"]
-[editable path="CurrentFutureLevel/box"]
-[editable path="CurrentFutureLevel/box3"]
