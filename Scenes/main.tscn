@@ -13,7 +13,7 @@ script = ExtResource("1_8gbba")
 position = Vector2(1, -3)
 
 [node name="Player" parent="CurrentMap" index="1" unique_id=193058604]
-position = Vector2(1755, -12)
+position = Vector2(1807, -24)
 
 [node name="Events" type="Node" parent="." unique_id=1088045949]
 script = ExtResource("3_8gbba")
