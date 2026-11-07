@@ -102,23 +102,26 @@ right_collision_ray = NodePath("right_collision_ray")
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=2125407751]
 stream = SubResource("AudioStreamRandomizer_3smsa")
+volume_db = -3.0
 pitch_scale = 1.45
 max_polyphony = 2
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" unique_id=837174378]
 stream = SubResource("AudioStreamRandomizer_tas3u")
-pitch_scale = 0.92
+pitch_scale = 1.2
 
 [node name="Time Ability Forward" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1258946221]
 stream = ExtResource("8_h4iuc")
+volume_db = -5.0
 pitch_scale = 0.8
 
 [node name="Time Ability Backward" type="AudioStreamPlayer2D" parent="Sounds" unique_id=658643916]
 stream = ExtResource("9_fd4e3")
+volume_db = -5.0
 
 [node name="Drag" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1720845775]
 stream = ExtResource("10_fd4e3")
-volume_db = 12.0
+volume_db = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1999988202]
 position = Vector2(0, -9)
