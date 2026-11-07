@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://c5f5gbuvwmi3s"]
 
 [ext_resource type="Texture2D" uid="uid://hapo8obft86k" path="res://Sprites/Characters/Character_Sprites.png" id="1_tlju3"]
+[ext_resource type="Texture2D" uid="uid://di0j2jvysx1r" path="res://Sprites/Tiles/Character_Sprites.png" id="2_rs26n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wtdj"]
 atlas = ExtResource("1_tlju3")
@@ -141,6 +142,14 @@ region = Rect2(128, 173, 16, 15)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6b4pr"]
 atlas = ExtResource("1_tlju3")
 region = Rect2(112, 173, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fvao"]
+atlas = ExtResource("2_rs26n")
+region = Rect2(160, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21bfx"]
+atlas = ExtResource("2_rs26n")
+region = Rect2(176, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlju3"]
 atlas = ExtResource("1_tlju3")
@@ -365,6 +374,17 @@ animations = [{
 "loop": 1,
 "name": &"Sweat",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fvao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21bfx")
+}],
+"loop": 1,
+"name": &"UpButton",
+"speed": 1.5
 }, {
 "frames": [{
 "duration": 1.0,

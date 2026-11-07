@@ -10,7 +10,12 @@ var step_interval: float = 0.5
 var step_timer: float = 0.0
 
 @onready var jump: AudioStreamPlayer2D = $Sounds/Jump
-@onready var time_ability: AudioStreamPlayer2D = $"Sounds/Time Ability"
+@onready var time_ability_forward: AudioStreamPlayer2D = $"Sounds/Time Ability Forward"
+@onready var time_ability_backward: AudioStreamPlayer2D = $"Sounds/Time Ability Backward"
+@onready var drag: AudioStreamPlayer2D = $Sounds/Drag
+
+# tracks whether player is in past (1) or future (0)
+var timeline: bool = 0
 
 
 const move_speed = 250.0
@@ -53,7 +58,11 @@ func switch_maps():
 			
 func enter_room():
 #	the collision will have the level pointer. 
+	#fade.fade(1.0, 0.5)
+	#await fade.fade(1.0, 0.5).finished
 	Events.enter_room.emit()
+	#fade.fade(0.0, 0.5)
+	
 	
 func _manage_animation():
 	if state == States.STOP:
@@ -84,22 +93,17 @@ func _manage_animation():
 func _manage_sound():
 	#if state == States.STOP:
 		#$Footsteps.play()
-	#elif state == States.IDLE:
-		#$Footsteps.play()
-	#elif state == States.CROUCH:
-		#$Footsteps.play()
 	#elif state == States.JUMP:
 		#$Footsteps.play()
 	#elif state == States.PUSH:
 		#$Footsteps.play()
-	#elif state == States.PULL:
-		#$Footsteps.play()
-	#elif state == States.PUSH_IDLE:
-		#$Footsteps.play()
+
 		
 		# loops footsteps audio
 	if state == States.WALK:
-		await footsteps.finished
+		drag.stop()
+		if footsteps.playing:
+			await footsteps.finished
 		if not footsteps.playing:
 			footsteps.play()
 		_manage_sound()
@@ -107,10 +111,24 @@ func _manage_sound():
 	
 	elif state == States.IDLE:
 		footsteps.stop()
+		drag.stop()
 	
 	elif state == States.JUMP:
 		footsteps.stop()
+		drag.stop()
 	
+	elif state == States.PULL:
+		if drag.playing:
+			await drag.finished
+		if not drag.playing:
+			drag.play()
+	elif state == States.PUSH:
+		if drag.playing:
+			await drag.finished
+		if not drag.playing:
+			drag.play()
+	elif state == States.PUSH_IDLE:
+		drag.stop()
 
 func state_changer():
 	if state == States.STOP:
@@ -138,6 +156,7 @@ func state_changer():
 		
 	elif state == States.JUMP and is_on_floor():
 		state = States.IDLE
+		footsteps.play()
 		
 #			to jump states 
 	elif state == States.IDLE and velocity.y != 0:
@@ -181,19 +200,26 @@ func on_ability():
 	state = States.STOP
 #		want to play ability ONCE and prevent animation from playing again
 	animated_sprite.play("Ability")
-	time_ability.play()
-	$ExtraFX.play("Shine")
 #		animation is never finish and this will wait forever for the call. 
-
-	#fade.fade(1.0, 0.5)
 	
+	# checks the whether in past (1) or future (0)
+	if timeline:
+		time_ability_forward.play()
+	else:
+		time_ability_backward.play()
+		
+	$ExtraFX.play("Shine")
+
 	await animated_sprite.animation_finished
 	time_screen_anim.play("TIME FADE")
 	await time_screen_anim.animation_finished
+	
 	switch_maps()
+	
 	time_screen_anim.play("TIME FADE OUT")
 	
-	#fade.fade(0.0, 0.5)
+	# swaps timeline for past or future
+	timeline = not timeline
 	
 	state = States.IDLE
 		
@@ -249,6 +275,7 @@ func _physics_process(delta: float) -> void:
 		
 	state_changer()
 	_manage_animation()
+	_manage_sound()
 	move_and_slide()
 
 func set_pull_speed(value: float) -> void:
