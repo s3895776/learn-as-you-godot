@@ -45,7 +45,7 @@ position = Vector2(2.4526215, -23.218122)
 sprite_frames = ExtResource("3_yjc7j")
 animation = &"SmallTree"
 autoplay = "SmallTree"
-frame_progress = 0.67292625
+frame_progress = 0.33510986
 
 [node name="MoveComponent" type="Node2D" parent="OriginPoint" unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
 position = Vector2(-0.06303978, 1.575983)
