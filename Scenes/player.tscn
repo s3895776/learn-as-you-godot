@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://sf8luejwu61j" path="res://SFX/Footstep1.3.wav" id="4_ukyrk"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://bsuyoxyx8kv1s" path="res://SFX/Footstep1.4.wav" id="5_7dp3o"]
-[ext_resource type="Texture2D" uid="uid://cxt0mk1f727n" path="res://Godot 2D Platformer - Assets/Sprites/Objects/tile_0044.png" id="5_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://dkjite7wleo4x" path="res://SFX/Jump1.wav" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://b1psbvkqrqb0" path="res://Scenes/fade.gd" id="6_x3wgy"]
 [ext_resource type="Shader" uid="uid://da467umvi01xd" path="res://Scenes/timecircle.gdshader" id="7_3smsa"]
@@ -164,28 +163,6 @@ script = ExtResource("3_6t5aa")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1874660723 node_paths=PackedStringArray("item_space")]
 script = ExtResource("4_fkybt")
 item_space = NodePath("ItemSpace")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1466130619]
-visible = false
-offset_right = 18.0
-offset_bottom = 18.0
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1178451810]
-layout_mode = 2
-texture = ExtResource("5_x3wgy")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1422998634]
-layout_mode = 2
-texture = ExtResource("5_x3wgy")
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1490778901]
-layout_mode = 2
-texture = ExtResource("5_x3wgy")
-
-[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=843634650]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="ItemSpace" type="TextureRect" parent="CanvasLayer" unique_id=227713333]
 anchors_preset = 7
