@@ -1,0 +1,77 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://lyp4b3w33oq"]
+
+[ext_resource type="Texture2D" uid="uid://bujrufov87m6b" path="res://Sprites/Tiles/PotsAndTrees.png" id="1_oloar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oloar"]
+atlas = ExtResource("1_oloar")
+region = Rect2(16, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sruit"]
+atlas = ExtResource("1_oloar")
+region = Rect2(64, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i50je"]
+atlas = ExtResource("1_oloar")
+region = Rect2(176, 192, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrdkx"]
+atlas = ExtResource("1_oloar")
+region = Rect2(192, 192, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3arh6"]
+atlas = ExtResource("1_oloar")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n274m"]
+atlas = ExtResource("1_oloar")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw67g"]
+atlas = ExtResource("1_oloar")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc2sj"]
+atlas = ExtResource("1_oloar")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_oloar")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_sruit")
+}],
+"loop": 1,
+"name": &"BigBreezy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_i50je")
+}, {
+"duration": 5.5,
+"texture": SubResource("AtlasTexture_xrdkx")
+}],
+"loop": 1,
+"name": &"SmallTree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3arh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n274m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw67g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc2sj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]

@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://b4xarl1vn8wh1" path="res://SFX/TIMEWARP1.wav" id="8_h4iuc"]
 [ext_resource type="AudioStream" uid="uid://fgjy416xrek4" path="res://SFX/TIMEWARP2.wav" id="9_fd4e3"]
 [ext_resource type="AudioStream" uid="uid://dvdcyfrdbgfdh" path="res://SFX/DRAGGING.wav" id="10_fd4e3"]
+[ext_resource type="Shader" uid="uid://bxtr1tx0886vj" path="res://Scenes/Vignette.gdshader" id="16_fd4e3"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3smsa"]
 streams_count = 4
@@ -89,6 +90,12 @@ _data = {
 &"TIME FADE": SubResource("Animation_8erm5"),
 &"TIME FADE OUT": SubResource("Animation_f1ek2")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fd4e3"]
+shader = ExtResource("16_fd4e3")
+shader_parameter/alpha = 0.7
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [node name="Player" type="CharacterBody2D" unique_id=193058604 node_paths=PackedStringArray("inventory", "left_collision_ray", "right_collision_ray")]
 collision_layer = 7
@@ -198,3 +205,17 @@ color = Color(0.75021523, 0.63646805, 0.8949914, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimeWarp/ColorRect" unique_id=174349930]
 libraries/ = SubResource("AnimationLibrary_f1ek2")
+
+[node name="Vignette" type="CanvasLayer" parent="." unique_id=1400156954]
+
+[node name="ColorRect" type="ColorRect" parent="Vignette" unique_id=1866376813]
+material = SubResource("ShaderMaterial_fd4e3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

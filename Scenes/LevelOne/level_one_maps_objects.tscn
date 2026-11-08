@@ -20,6 +20,7 @@ position = Vector2(1, 0)
 script = ExtResource("4_ruble")
 
 [node name="Objects" type="Node2D" parent="." unique_id=1099503779]
+position = Vector2(526, 5)
 
 [node name="ApartmentDoorIn" parent="Objects" unique_id=1679168397 instance=ExtResource("4_4abun")]
 position = Vector2(32, -22)
@@ -29,12 +30,12 @@ position = Vector2(137, -447)
 scale = Vector2(1.39, 1.295)
 
 [node name="SmallPot" parent="Objects" unique_id=815715610 instance=ExtResource("9_24y1s")]
-position = Vector2(1902, -14)
-scale = Vector2(1.8, 1.8)
+position = Vector2(1947, -34)
+scale = Vector2(4.212481, 4.212481)
 
 [node name="LargePot" parent="Objects" unique_id=455924749 instance=ExtResource("8_1s2vj")]
-position = Vector2(1722, -14)
-scale = Vector2(1.4799805, 1.4799805)
+position = Vector2(1700, -30.000002)
+scale = Vector2(3.5599806, 3.5599806)
 
 [node name="LabDoorIn" parent="Objects" unique_id=325784448 instance=ExtResource("9_83pca")]
 position = Vector2(2936, -21)
