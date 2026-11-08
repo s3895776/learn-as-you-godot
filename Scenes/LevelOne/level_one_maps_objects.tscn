@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bbemgds2cxus0" path="res://Scenes/LevelOne/lab_window_in.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://w4ni7hboaj2q" path="res://Scenes/Moveable Objects/Largepot.tscn" id="8_1s2vj"]
 [ext_resource type="PackedScene" uid="uid://d11froe1h2ok4" path="res://Scenes/Moveable Objects/SmallPot.tscn" id="9_24y1s"]
-[ext_resource type="PackedScene" uid="uid://rn2pkhebbltc" path="res://Scenes/Lab/lab_door_in.tscn" id="9_83pca"]
+[ext_resource type="PackedScene" uid="uid://rn2pkhebbltc" path="res://Scenes/LevelOne/lab_door_in.tscn" id="9_83pca"]
 [ext_resource type="PackedScene" uid="uid://b4ab1c2a8mttm" path="res://Scenes/Moveable Objects/Pots/BluePot.tscn" id="10_tlhqo"]
 [ext_resource type="PackedScene" uid="uid://bugv7rtlksu3q" path="res://Scenes/Moveable Objects/Pots/PurplePot.tscn" id="11_7sesu"]
 [ext_resource type="PackedScene" uid="uid://cip0gomtq685e" path="res://Scenes/Moveable Objects/Pots/YellowPot.tscn" id="12_7sesu"]
