@@ -13,9 +13,9 @@ script = ExtResource("1_8gbba")
 [node name="MapManager" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
 position = Vector2(1, -3)
 
-[node name="Player" parent="MapManager" index="1" unique_id=193058604]
+[node name="Player" parent="MapManager" index="3" unique_id=193058604]
 z_index = 1
-position = Vector2(233, -418)
+position = Vector2(-129, 847)
 
 [node name="Events" type="Node" parent="." unique_id=1088045949]
 script = ExtResource("3_8gbba")

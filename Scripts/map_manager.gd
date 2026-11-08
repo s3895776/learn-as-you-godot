@@ -9,7 +9,6 @@ func _ready() -> void:
 #	TODO: ensure signal matches load_level
 	Events.load_level.connect(change_levels)
 
-
 #change to current_level + next_level
 func change_levels(next_level : StateManager.Level):
 	print("At B")
@@ -28,10 +27,13 @@ func change_levels(next_level : StateManager.Level):
 	var instance : Node2D
 	if (next_level == StateManager.Level.LEVEL_ONE):
 		instance = level_one_maps_objects.instantiate()
+		StateManager.current_level = StateManager.Level.LEVEL_ONE
 	elif next_level == StateManager.Level.Apartment:
 		instance = apartment.instantiate()
+		StateManager.current_level = StateManager.Level.Apartment
 	elif next_level == StateManager.Level.Lab:
 		instance = lab.instantiate()
+		StateManager.current_level = StateManager.Level.Lab
 	else:
 #		only works in editor.
 		assert(false, "Level Type incorrectly entered")

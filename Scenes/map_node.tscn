@@ -12,8 +12,14 @@ level_one_maps_objects = ExtResource("2_khgya")
 apartment = ExtResource("3_4odpq")
 lab = ExtResource("4_15ahl")
 
-[node name="LevelOneMapsObjects" parent="." unique_id=1077622127 instance=ExtResource("2_khgya")]
+[node name="LevelOneMapsObjectsPlaceholder" parent="." unique_id=1077622127 instance_placeholder="res://Scenes/LevelOne/level_one_maps_objects.tscn"]
+
+[node name="LabMapsObjectsPlaceholder" parent="." unique_id=688724956 instance_placeholder="res://Scenes/Lab/lab_maps_objects.tscn"]
+position = Vector2(-210, 1250)
+
+[node name="ApartmentMapsObjects" parent="." unique_id=1738210408 instance=ExtResource("3_4odpq")]
+position = Vector2(-232, 900)
 
 [node name="Player" parent="." unique_id=193058604 instance=ExtResource("6_6ud8w")]
-position = Vector2(2665, -185)
+position = Vector2(-135, 879)
 scale = Vector2(2, 2)

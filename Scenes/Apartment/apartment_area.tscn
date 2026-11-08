@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://tdlbl2tc8gqs"]
+[gd_scene format=3 uid="uid://c8fxrqk76tktp"]
 
 [ext_resource type="Script" uid="uid://b4s2c8ttngoo3" path="res://Scripts/Level_One/observable_area.gd" id="1_splw2"]
 [ext_resource type="PackedScene" uid="uid://bnlpnuqohnw4e" path="res://Scenes/Apartment/2nd_FUTURE.tscn" id="2_0dyev"]

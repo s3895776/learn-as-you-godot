@@ -10,16 +10,16 @@
 script = ExtResource("1_vb2wj")
 
 [node name="PastLab" parent="." unique_id=565451442 instance=ExtResource("3_1k03a")]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="FutureLab" parent="." unique_id=73980454 instance=ExtResource("2_5mp3c")]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="Objects" type="Node2D" parent="." unique_id=507598037]
 
 [node name="LabDoorOut" parent="Objects" unique_id=325784448 instance=ExtResource("4_5mp3c")]
-position = Vector2(20.999998, -17)
+position = Vector2(40, -30)
 scale = Vector2(0.63, 0.72)
 
 [node name="LabWindowOut" parent="Objects" unique_id=1954369801 instance=ExtResource("5_1k03a")]
-position = Vector2(422, -178)
+position = Vector2(283, -114)

@@ -17,6 +17,7 @@ var step_timer: float = 0.0
 # tracks whether player is in past (1) or future (0)
 var timeline: bool = 0
 
+var default_zoom : float = 2.0
 
 const move_speed = 250.0
 var pull_speed = 100.0
@@ -48,10 +49,12 @@ func _ready():
 	state_changer()
 	Events.grab_success.connect(_on_box_grab_success)
 	Events.move_player.connect(move_player)
-
+	set_zoom()
+	
 func move_player(position : Vector2):
 	print('move player in player script')
 	self.position = position
+	set_zoom()
 	
 func switch_time():
 #	emit signal
@@ -300,3 +303,20 @@ func get_player_inventory():
 
 func has_player_item():
 	return inventory.has_item()
+
+func get_camera():
+	return $Camera2D
+
+func set_zoom():
+	var new_zoom = 1.0
+	if (StateManager.current_level == StateManager.Level.Apartment or
+	StateManager.current_level == StateManager.Level.Lab):
+		new_zoom = 1.5
+	#var center = global_position + offset
+	# Zoom toward the player's current position
+	#var player_pos = global_position
+	#var current_center = get_camera().global_position + get_camera().offset
+	
+	# Interpolate position and zoom (simplified for direct assignment)
+	#get_camera().offset = player_pos - global_position
+	get_camera().zoom = Vector2(new_zoom * default_zoom, new_zoom * default_zoom)
