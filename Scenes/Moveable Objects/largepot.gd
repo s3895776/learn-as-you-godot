@@ -1,4 +1,4 @@
-extends TimeSwitchObject
+class_name LargePot extends TimeSwitchObject
 
 @onready var pastObject = $OriginPoint/PastObject
 @onready var futureObject = $OriginPoint/FutureObject
