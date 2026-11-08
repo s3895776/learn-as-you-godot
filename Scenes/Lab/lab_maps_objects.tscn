@@ -22,4 +22,4 @@ position = Vector2(20.999998, -17)
 scale = Vector2(0.63, 0.72)
 
 [node name="LabWindowOut" parent="Objects" unique_id=1954369801 instance=ExtResource("5_1k03a")]
-position = Vector2(140, -56)
+position = Vector2(422, -178)
