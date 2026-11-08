@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 	Events.grabbing.connect(_on_inventory_is_grabbing)
 	Events.dropping.connect(on_inventory_drop_item)
+	
 	pass # Replace with function body.
 
 func is_pickup_able():
@@ -26,7 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = body
 		pickup_able = true
-
+		
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = null

@@ -15,10 +15,12 @@ script = ExtResource("1_yyutc")
 [node name="apt_past" parent="." unique_id=1577474406 instance=ExtResource("2_4j831")]
 
 [node name="apt_future" parent="." unique_id=1795142684 instance=ExtResource("3_mpvpe")]
+visible = false
 
 [node name="apt_past_2" parent="." unique_id=644775075 instance=ExtResource("4_mpvpe")]
 
 [node name="apt_future_2" parent="." unique_id=186784801 instance=ExtResource("5_gwsso")]
+visible = false
 
 [node name="Objects" type="Node2D" parent="." unique_id=1382400436]
 
