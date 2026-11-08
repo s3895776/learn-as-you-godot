@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func plant_seed(future):
 	if (future): 
-		$OriginPoint/FutureObject/BigVines.visible = is_planted
+		$OriginPoint/FutureObject.visible = is_planted
 	else:
 		$OriginPoint/PastObject/PlantedFlower.visible = is_planted
 	

@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func swap_is_future():
 	StateManager.is_future = not StateManager.is_future
-	switch_maps()
+	set_state_apartment()
 
 ## change the time of the leveL: swap present and future map
 func switch_maps():
