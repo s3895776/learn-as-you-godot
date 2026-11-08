@@ -3,10 +3,17 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if (StateManager.ApartmentState == StateManager.Apartment.NO_PLANTS):
+		queue_free()
 	add_to_group("Persist")
 	$PickupComponent.body_entered.connect(_on_body_entered)
 	$PickupComponent.body_exited.connect(_on_body_exited)
+	child_entered_tree.connect(player_picks_up)
 	pass # Replace with function body.
+
+func player_picks_up(inventory: Node2D):
+	if inventory is Inventory:
+		StateManager.ApartmentState = StateManager.Apartment.NO_PLANTS
 
 func _on_body_entered(body : Node2D):
 	if body.is_in_group("Player"):
