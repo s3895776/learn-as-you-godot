@@ -28,4 +28,8 @@ func _on_body_exited(body: Node2D) -> void:
 		can_move = false
 		up_button.play("NOTHING")
 		pass
-		
+
+## ensure collision shape2d is named CollisionShape2D
+func set_collision(enabled : bool):
+	
+	monitoring = enabled

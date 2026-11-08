@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dctmn53jtsin3" path="res://Sprites/Backgrounds/Past/Layer4.png" id="6_vc62m"]
 [ext_resource type="Texture2D" uid="uid://5ecmb264eosr" path="res://Sprites/Backgrounds/Past/Sky.png" id="7_bo0n7"]
 [ext_resource type="SpriteFrames" uid="uid://bl8an0axnabuv" path="res://Sprites/Tiles/FountainAnimation.tres" id="8_almbu"]
+[ext_resource type="PackedScene" uid="uid://rn2pkhebbltc" path="res://Scenes/LevelOne/lab_door_in.tscn" id="9_sveff"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_almbu"]
 blend_mode = 1
@@ -164,3 +165,6 @@ amount = 3000
 preprocess = 0.5
 visibility_rect = Rect2(-2700, -500, 5400, 1000)
 process_material = SubResource("ParticleProcessMaterial_3xd07")
+
+[node name="LabDoorIn" parent="." unique_id=325784448 instance=ExtResource("9_sveff")]
+position = Vector2(2761, -19)
