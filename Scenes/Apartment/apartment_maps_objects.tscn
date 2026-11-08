@@ -22,11 +22,11 @@ script = ExtResource("1_yyutc")
 [node name="Objects" type="Node2D" parent="." unique_id=1382400436]
 
 [node name="ApartmentDoorOut" parent="Objects" unique_id=1954369801 instance=ExtResource("6_6wjjt")]
-position = Vector2(38, -33)
+position = Vector2(39.000004, -31.000004)
+scale = Vector2(0.635, 0.635)
 
 [node name="ApartmentDoorOutWindow" parent="Objects" unique_id=715858135 instance=ExtResource("7_bwc2o")]
-position = Vector2(289, -36.000004)
-scale = Vector2(1.395, 1.15)
+position = Vector2(287, -39)
 
 [editable path="apt_past"]
 [editable path="apt_future"]
