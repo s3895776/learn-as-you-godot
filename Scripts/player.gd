@@ -189,11 +189,18 @@ func on_interact():
 		inventory.drop_item()
 	Events.grabbing.emit()
 	
-func reload_level():
+func load_apartment():
 #	only applies for first level
 	Events.load_level.emit(StateManager.Level.Apartment)
 	move_player(PositionManager.apartment_door_out_pos)
-	
+
+func load_lab():
+	Events.load_level.emit(StateManager.Level.Lab)
+	move_player(PositionManager.lab_window_out)
+
+func load_level_one():
+	Events.load_level.emit(StateManager.Level.LEVEL_ONE)
+	move_player(PositionManager.apartment_door_in_window)
 
 func _can_switch_time():
 	if (state != States.STOP and not has_player_item()):
@@ -258,8 +265,15 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
 		enter_room()
 	
-	elif Input.is_action_just_pressed("reload"):
-		reload_level()
+	elif Input.is_action_just_pressed("load_apartment"):
+		load_apartment()
+	
+	elif Input.is_action_just_pressed("load_lab"):
+		load_lab()
+	
+	elif Input.is_action_just_pressed("load_level_one"):
+		load_level_one()
+		
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("move_left", "move_right")
 		
