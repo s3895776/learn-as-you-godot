@@ -3,7 +3,8 @@ extends Node
 enum Level {
 	LEVEL_ONE,
 	Apartment,
-	Lab
+	Lab,
+	FIN
 }
 
 enum Apartment {

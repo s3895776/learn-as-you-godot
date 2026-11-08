@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://w3p8wkjiso71" path="res://Sprites/Backgrounds/Future/Sky.png" id="10_ymep0"]
 [ext_resource type="PackedScene" uid="uid://b7g873j1lv07j" path="res://Scenes/Moveable Objects/MoveBlock1.tscn" id="11_4tok7"]
 [ext_resource type="PackedScene" uid="uid://c06kqylrya5oo" path="res://Scenes/Moveable Objects/MoveBlock2.tscn" id="12_j0ag8"]
+[ext_resource type="Script" uid="uid://dllbnuigyahra" path="res://Scenes/LevelOne/end_game.gd" id="13_l5tkf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j0ag8"]
 blend_mode = 1
@@ -61,6 +62,9 @@ scale_min = 0.099999994
 scale_over_velocity_curve = SubResource("CurveXYZTexture_un55m")
 color_initial_ramp = SubResource("GradientTexture1D_g0ncu")
 alpha_curve = SubResource("CurveTexture_a8mni")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+size = Vector2(67, 67)
 
 [node name="level1future" type="Node2D" unique_id=1141539653]
 script = ExtResource("1_j0ag8")
@@ -208,3 +212,13 @@ amount = 2500
 preprocess = 0.5
 visibility_rect = Rect2(-2700, -500, 5400, 1000)
 process_material = SubResource("ParticleProcessMaterial_hpsg2")
+
+[node name="EndGame" type="Area2D" parent="." unique_id=676437186]
+position = Vector2(3860, -285)
+script = ExtResource("13_l5tkf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndGame" unique_id=333542730]
+position = Vector2(13.5, -3.5)
+shape = SubResource("RectangleShape2D_12j5o")
+
+[connection signal="body_entered" from="EndGame" to="EndGame" method="_on_body_entered"]

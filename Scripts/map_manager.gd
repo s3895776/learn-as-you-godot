@@ -3,7 +3,7 @@ extends Node2D
 @export var level_one_maps_objects : PackedScene
 @export var apartment : PackedScene
 @export var lab : PackedScene
-
+@export var sewer : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	TODO: ensure signal matches load_level
@@ -34,6 +34,8 @@ func change_levels(next_level : StateManager.Level):
 	elif next_level == StateManager.Level.Lab:
 		instance = lab.instantiate()
 		StateManager.current_level = StateManager.Level.Lab
+	elif next_level == StateManager.Level.FIN:
+		instance = sewer.instantiate()
 	else:
 #		only works in editor.
 		assert(false, "Level Type incorrectly entered")
