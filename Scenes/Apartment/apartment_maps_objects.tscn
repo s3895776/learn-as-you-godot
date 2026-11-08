@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrynpat7p8my" path="res://Scenes/Apartment/2nd_PAST.tscn" id="4_mpvpe"]
 [ext_resource type="PackedScene" uid="uid://bnlpnuqohnw4e" path="res://Scenes/Apartment/2nd_FUTURE.tscn" id="5_gwsso"]
 [ext_resource type="PackedScene" uid="uid://ds6budlmir4wu" path="res://Scenes/Apartment/apartment_door_out.tscn" id="6_6wjjt"]
-[ext_resource type="PackedScene" uid="uid://cxgn73owaqq8y" path="res://Scenes/Apartment/apartment_door_out_window.tscn" id="7_bwc2o"]
+[ext_resource type="PackedScene" uid="uid://cxgn73owaqq8y" path="res://Scenes/Apartment/apartment_window_out.tscn" id="7_bwc2o"]
 
 [node name="ApartmentMapsObjects" type="Node2D" unique_id=1738210408]
 script = ExtResource("1_yyutc")
@@ -25,7 +25,7 @@ script = ExtResource("1_yyutc")
 position = Vector2(38, -33)
 
 [node name="ApartmentDoorOutWindow" parent="Objects" unique_id=715858135 instance=ExtResource("7_bwc2o")]
-position = Vector2(287, -35.999996)
+position = Vector2(289, -36.000004)
 scale = Vector2(1.395, 1.15)
 
 [editable path="apt_past"]

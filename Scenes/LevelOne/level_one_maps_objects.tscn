@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c6u17flb7yqes" path="res://Scenes/LevelOne/level1future.tscn" id="3_4abun"]
 [ext_resource type="PackedScene" uid="uid://xl5t1ar133o5" path="res://Scenes/LevelOne/apartment_door_in.tscn" id="4_4abun"]
 [ext_resource type="Script" uid="uid://k35attj17vuf" path="res://Scripts/Level_One/level_1_future.gd" id="4_ruble"]
-[ext_resource type="PackedScene" uid="uid://cdljmul4as5y0" path="res://Scenes/LevelOne/apartment_door_in_window.tscn" id="5_83pca"]
+[ext_resource type="PackedScene" uid="uid://cdljmul4as5y0" path="res://Scenes/LevelOne/apartment_window_in.tscn" id="5_83pca"]
+[ext_resource type="PackedScene" uid="uid://bbemgds2cxus0" path="res://Scenes/LevelOne/lab_window_in.tscn" id="5_ckc7r"]
 [ext_resource type="PackedScene" uid="uid://w4ni7hboaj2q" path="res://Scenes/Moveable Objects/Largepot.tscn" id="8_1s2vj"]
 [ext_resource type="PackedScene" uid="uid://d11froe1h2ok4" path="res://Scenes/Moveable Objects/SmallPot.tscn" id="9_24y1s"]
 [ext_resource type="PackedScene" uid="uid://rn2pkhebbltc" path="res://Scenes/Lab/lab_door_in.tscn" id="9_83pca"]
@@ -26,10 +27,13 @@ script = ExtResource("4_ruble")
 [node name="Objects" type="Node2D" parent="." unique_id=1099503779]
 position = Vector2(526, 5)
 
+[node name="LabWindowIn" parent="Objects" unique_id=61968386 instance=ExtResource("5_ckc7r")]
+position = Vector2(2386, -254)
+
 [node name="ApartmentDoorIn" parent="Objects" unique_id=1679168397 instance=ExtResource("4_4abun")]
 position = Vector2(-494, -26)
 
-[node name="ApartmentDoorInWindow" parent="Objects" unique_id=61968386 instance=ExtResource("5_83pca")]
+[node name="ApartmentDoorInWindow" parent="Objects" unique_id=823757902 instance=ExtResource("5_83pca")]
 position = Vector2(-380, -454)
 scale = Vector2(1.39, 1.295)
 

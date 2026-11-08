@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rn2pkhebbltc"]
 
-[ext_resource type="Script" uid="uid://cfptld7sghbbl" path="res://Scenes/Lab/lab_door_in.gd" id="1_cc02f"]
+[ext_resource type="Script" uid="uid://cfptld7sghbbl" path="res://Scripts/Level_One/lab_door_in.gd" id="1_cc02f"]
 [ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="1_gjrq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc02f"]
