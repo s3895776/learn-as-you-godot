@@ -266,14 +266,14 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
 		enter_room()
 	
-	elif Input.is_action_just_pressed("load_apartment"):
-		load_apartment()
-	
-	elif Input.is_action_just_pressed("load_lab"):
-		load_lab()
-	
-	elif Input.is_action_just_pressed("load_level_one"):
-		load_level_one()
+	#elif Input.is_action_just_pressed("load_apartment"):
+		#load_apartment()
+	#
+	#elif Input.is_action_just_pressed("load_lab"):
+		#load_lab()
+	#
+	#elif Input.is_action_just_pressed("load_level_one"):
+		#load_level_one()
 		
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("move_left", "move_right")
