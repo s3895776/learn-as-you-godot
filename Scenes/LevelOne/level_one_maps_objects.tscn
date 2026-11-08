@@ -23,10 +23,10 @@ script = ExtResource("4_ruble")
 position = Vector2(526, 5)
 
 [node name="ApartmentDoorIn" parent="Objects" unique_id=1679168397 instance=ExtResource("4_4abun")]
-position = Vector2(32, -22)
+position = Vector2(-494, -26)
 
 [node name="ApartmentDoorInWindow" parent="Objects" unique_id=61968386 instance=ExtResource("5_83pca")]
-position = Vector2(137, -447)
+position = Vector2(-380, -454)
 scale = Vector2(1.39, 1.295)
 
 [node name="SmallPot" parent="Objects" unique_id=815715610 instance=ExtResource("9_24y1s")]
