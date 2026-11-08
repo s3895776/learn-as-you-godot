@@ -18,7 +18,6 @@ func _notification(what):
 		
 func delete_save_files(save_file : String):
 	# needs testing 
-	print("on delete")
 	if FileAccess.file_exists(save_file):
 		DirAccess.remove_absolute(save_file)
 		print("Save file deleted.")

@@ -47,7 +47,6 @@ func switch_objects():
 #	signal: request switch
 	for c in $Objects.get_children():
 		if c is TimeSwitchObject:
-			print(c)
 			c.switch_object(StateManager.is_future)
 		
 		
