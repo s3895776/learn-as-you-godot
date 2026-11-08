@@ -191,7 +191,8 @@ func on_interact():
 	
 func reload_level():
 #	only applies for first level
-	Events.load_level.emit(StateManager.Level.LEVEL_ONE)
+	Events.load_level.emit(StateManager.Level.Apartment)
+	move_player(PositionManager.apartment_door_out_pos)
 	
 
 func _can_switch_time():
@@ -259,7 +260,6 @@ func _physics_process(delta: float) -> void:
 	
 	elif Input.is_action_just_pressed("reload"):
 		reload_level()
-	
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("move_left", "move_right")
 		
