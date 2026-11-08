@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d3w41tqa0qaxj" path="res://Scenes/LevelOne/level_one_maps_objects.tscn" id="2_khgya"]
 [ext_resource type="PackedScene" uid="uid://c5u8ah6scrhmt" path="res://Scenes/Apartment/apartment_maps_objects.tscn" id="3_4odpq"]
 [ext_resource type="PackedScene" uid="uid://bh4y3hhi80ekm" path="res://Scenes/Lab/lab_maps_objects.tscn" id="4_15ahl"]
+[ext_resource type="PackedScene" uid="uid://detrsoewd41t0" path="res://Scenes/Sewer/Sewer.tscn" id="5_6ud8w"]
 [ext_resource type="PackedScene" uid="uid://1kqutksg1dkr" path="res://Scenes/player.tscn" id="6_6ud8w"]
 
 [node name="MapManager" type="Node2D" unique_id=1349269865]
@@ -11,6 +12,7 @@ script = ExtResource("1_wp7i3")
 level_one_maps_objects = ExtResource("2_khgya")
 apartment = ExtResource("3_4odpq")
 lab = ExtResource("4_15ahl")
+sewer = ExtResource("5_6ud8w")
 
 [node name="LevelOneMapsObjectsPlaceholder" parent="." unique_id=1077622127 instance_placeholder="res://Scenes/LevelOne/level_one_maps_objects.tscn"]
 

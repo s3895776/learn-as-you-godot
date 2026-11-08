@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dafkyftcsv55i" path="res://Sprites/Tiles/GrowingPlant.png" id="2_nibr8"]
 [ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="4_d24a5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xd07"]
 atlas = ExtResource("2_nibr8")
 region = Rect2(17, 93, 6, 6)
@@ -33,6 +35,11 @@ script = ExtResource("1_04cvp")
 
 [node name="PastObject" type="Node2D" parent="OriginPoint" unique_id=152680794]
 
+[node name="plant_area" type="Area2D" parent="OriginPoint/PastObject" unique_id=1754938412]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint/PastObject/plant_area" unique_id=1110642576]
+shape = SubResource("RectangleShape2D_12j5o")
+
 [node name="EmptyPot" type="Sprite2D" parent="OriginPoint/PastObject" unique_id=710165481]
 position = Vector2(0, 2)
 texture = SubResource("AtlasTexture_3xd07")
@@ -42,6 +49,7 @@ position = Vector2(0, -3.426262)
 texture = SubResource("AtlasTexture_jq8tk")
 
 [node name="FutureObject" type="StaticBody2D" parent="OriginPoint" unique_id=1083607141]
+visible = false
 position = Vector2(-0.594574, -23.33704)
 
 [node name="BigVines" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=630839574]
@@ -82,3 +90,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint" unique_id=864603308]
 position = Vector2(-0.029132843, 1.9902067)
 shape = SubResource("RectangleShape2D_61ot5")
+
+[connection signal="body_entered" from="OriginPoint/PastObject/plant_area" to="." method="_on_plant_area_body_entered"]
+[connection signal="body_exited" from="OriginPoint/PastObject/plant_area" to="." method="_on_plant_area_body_exited"]

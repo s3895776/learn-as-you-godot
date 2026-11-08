@@ -200,7 +200,7 @@ func load_lab():
 
 func load_level_one():
 	Events.load_level.emit(StateManager.Level.LEVEL_ONE)
-	move_player(PositionManager.apartment_door_in_window)
+	move_player(PositionManager.end_game)
 
 func _can_switch_time():
 	if (state != States.STOP and not has_player_item() and picked_up_watch):
