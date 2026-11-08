@@ -36,7 +36,7 @@ enum States {IDLE, WALK, JUMP, STOP, PUSH, PULL, PUSH_IDLE, CROUCH}
 var state: States = States.IDLE
 
 # set this variable in build version.
-var picked_up_watch = true
+var picked_up_watch = false
 
 #time travel feature: switch between maps.
 
@@ -200,39 +200,41 @@ func load_lab():
 
 func load_level_one():
 	Events.load_level.emit(StateManager.Level.LEVEL_ONE)
-	move_player(PositionManager.lab_door_in)
+	move_player(PositionManager.apartment_door_in_window)
 
 func _can_switch_time():
-	if (state != States.STOP and not has_player_item()):
+	if (state != States.STOP and not has_player_item() and picked_up_watch):
 		return true
 	return false
 	
 func on_ability():
-	state = States.STOP
-#		want to play ability ONCE and prevent animation from playing again
-	animated_sprite.play("Ability")
-#		animation is never finish and this will wait forever for the call. 
-	
-	# checks the whether in past (1) or future (0)
-	if timeline:
-		time_ability_forward.play()
-	else:
-		time_ability_backward.play()
+	if (_can_switch_time()):
+		state = States.STOP
 		
-	$ExtraFX.play("Shine")
+	#		want to play ability ONCE and prevent animation from playing again
+		animated_sprite.play("Ability")
+	#		animation is never finish and this will wait forever for the call. 
+		
+		# checks the whether in past (1) or future (0)
+		if timeline:
+			time_ability_forward.play()
+		else:
+			time_ability_backward.play()
+			
+		$ExtraFX.play("Shine")
 
-	await animated_sprite.animation_finished
-	time_screen_anim.play("TIME FADE")
-	await time_screen_anim.animation_finished
-	
-	switch_time()
-	
-	time_screen_anim.play("TIME FADE OUT")
-	
-	# swaps timeline for past or future
-	timeline = not timeline
-	
-	state = States.IDLE
+		await animated_sprite.animation_finished
+		time_screen_anim.play("TIME FADE")
+		await time_screen_anim.animation_finished
+		
+		switch_time()
+		
+		time_screen_anim.play("TIME FADE OUT")
+		
+		# swaps timeline for past or future
+		timeline = not timeline
+		
+		state = States.IDLE
 		
 func _process(delta: float) -> void:
 	pass
@@ -255,8 +257,7 @@ func _physics_process(delta: float) -> void:
 #	perform time switch, can't be in push states.
 	if Input.is_action_just_pressed("switch_map") and (state not in push_states):
 #		conditions for getting stop state
-		if (_can_switch_time()):
-			on_ability()
+		on_ability()
 	
 #	must be on the ground to interact
 	elif Input.is_action_just_pressed("interact") and is_on_floor():

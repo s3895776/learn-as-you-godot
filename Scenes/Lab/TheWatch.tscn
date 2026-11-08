@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://n2jq8aolbpee"]
+
+[ext_resource type="Script" uid="uid://bnp642cfv056r" path="res://Scenes/Lab/the_watch.gd" id="1_yvged"]
+[ext_resource type="Texture2D" uid="uid://b811po0icgu08" path="res://Sprites/Tiles/TheWatch.png" id="2_suf3d"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="3_suf3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+size = Vector2(26, 46)
+
+[node name="TheWatch" type="Node2D" unique_id=46796192]
+script = ExtResource("1_yvged")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=396984634]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=461919560]
+shape = SubResource("RectangleShape2D_12j5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=313883861]
+texture = ExtResource("2_suf3d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=4051612]
+position = Vector2(0, -11)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_suf3d")
+animation = &"FButton"
