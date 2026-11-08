@@ -50,7 +50,6 @@ func switch_objects():
 	for c in $Objects.get_children():
 		if c is TimeSwitchObject:
 			c.switch_object(StateManager.is_future)
-		
 	
 func _enable_map(map : BaseLevel, enable : bool):
 #	set visibility of the node in addition to collisions of the tilemap.

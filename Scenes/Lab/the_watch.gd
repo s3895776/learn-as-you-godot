@@ -4,7 +4,7 @@ var player : Node2D
 var pickup_able = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if (StateManager.picked_up_watch):
+	if (StateManager.player_picked_up_watch):
 		queue_free()
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 
 func pickup():
 	if pickup_able:
-		StateManager.picked_up_watch = true
+		StateManager.player_picked_up_watch = true
 		player.picked_up_watch = true
 #		force on ability, will not overlap with state management. 
 		player.on_ability()
