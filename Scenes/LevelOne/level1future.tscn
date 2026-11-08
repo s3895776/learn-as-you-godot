@@ -190,7 +190,7 @@ scale = Vector2(2.3200002, 2.3200002)
 texture = ExtResource("10_ymep0")
 
 [node name="SlimBlock" parent="." unique_id=1269202155 instance=ExtResource("11_4tok7")]
-position = Vector2(1861.0001, -15)
+position = Vector2(2956, -17.000002)
 scale = Vector2(1.5864707, 1.5864707)
 
 [node name="SmallBlock" parent="." unique_id=726912748 instance=ExtResource("12_j0ag8")]

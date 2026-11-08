@@ -42,7 +42,6 @@ position = Vector2(0, -3.426262)
 texture = SubResource("AtlasTexture_jq8tk")
 
 [node name="FutureObject" type="StaticBody2D" parent="OriginPoint" unique_id=1083607141]
-visible = false
 position = Vector2(-0.594574, -23.33704)
 
 [node name="BigVines" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=630839574]

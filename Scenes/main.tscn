@@ -13,6 +13,9 @@ script = ExtResource("1_8gbba")
 [node name="MapManager" parent="." unique_id=1349269865 instance=ExtResource("1_bo1nx")]
 position = Vector2(1, -3)
 
+[node name="LevelOneMapsObjectsPlaceholder" parent="MapManager" index="0" unique_id=1077622127]
+position = Vector2(7, 0)
+
 [node name="Player" parent="MapManager" index="3" unique_id=193058604]
 z_index = 1
 position = Vector2(-129, 847)
