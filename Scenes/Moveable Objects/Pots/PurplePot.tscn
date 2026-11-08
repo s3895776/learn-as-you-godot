@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bugv7rtlksu3q"]
+
+[ext_resource type="Script" uid="uid://dejt8gmwngwt0" path="res://Scenes/Moveable Objects/largepot.gd" id="1_phn72"]
+[ext_resource type="Texture2D" uid="uid://dafkyftcsv55i" path="res://Sprites/Tiles/GrowingPlant.png" id="2_207eo"]
+[ext_resource type="Script" uid="uid://7ulff51nek4n" path="res://Scripts/move_component.gd" id="4_jcr73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24y1s"]
+atlas = ExtResource("2_207eo")
+region = Rect2(17, 128, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cust4"]
+atlas = ExtResource("2_207eo")
+region = Rect2(14, 159, 15, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ot5"]
+size = Vector2(6.157112, 6.16337)
+
+[node name="PurplePot" type="Node2D" unique_id=455924749]
+script = ExtResource("1_phn72")
+
+[node name="OriginPoint" type="CharacterBody2D" parent="." unique_id=11465970]
+
+[node name="PastObject" type="Node2D" parent="OriginPoint" unique_id=152680794]
+
+[node name="Pot Sprite" type="Sprite2D" parent="OriginPoint/PastObject" unique_id=1561191468]
+position = Vector2(0, 2)
+texture = SubResource("AtlasTexture_24y1s")
+
+[node name="FutureObject" type="StaticBody2D" parent="OriginPoint" unique_id=1083607141]
+position = Vector2(-1.2702179, -11.580687)
+
+[node name="Sprite2D" type="Sprite2D" parent="OriginPoint/FutureObject" unique_id=97037634]
+position = Vector2(1.7543869, 4.7292137)
+texture = SubResource("AtlasTexture_cust4")
+
+[node name="MoveComponent" type="Node2D" parent="OriginPoint" unique_id=1591413341 node_paths=PackedStringArray("right_collision_ray", "left_collision_ray")]
+position = Vector2(0.031686798, 4.607178)
+scale = Vector2(0.8976001, 0.6800004)
+script = ExtResource("4_jcr73")
+right_collision_ray = NodePath("right_collision_ray")
+left_collision_ray = NodePath("left_collision_ray")
+
+[node name="left_collision_ray" type="RayCast2D" parent="OriginPoint/MoveComponent" unique_id=632731859]
+scale = Vector2(0.5543672, 1)
+target_position = Vector2(-20, 0)
+collision_mask = 4
+
+[node name="right_collision_ray" type="RayCast2D" parent="OriginPoint/MoveComponent" unique_id=1347349083]
+scale = Vector2(0.5543672, 1)
+target_position = Vector2(20, 0)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint" unique_id=864603308]
+position = Vector2(-0.016828537, 4.5560293)
+shape = SubResource("RectangleShape2D_61ot5")

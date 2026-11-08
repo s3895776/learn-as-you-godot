@@ -41,6 +41,7 @@ scale = Vector2(0.960002, 0.960002)
 texture = SubResource("AtlasTexture_ekluf")
 
 [node name="FutureObject" type="StaticBody2D" parent="OriginPoint" unique_id=1083607141]
+visible = false
 position = Vector2(-0.594574, -23.33704)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OriginPoint/FutureObject" unique_id=1812526908]

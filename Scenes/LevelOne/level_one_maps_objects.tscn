@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://w4ni7hboaj2q" path="res://Scenes/Moveable Objects/Largepot.tscn" id="8_1s2vj"]
 [ext_resource type="PackedScene" uid="uid://d11froe1h2ok4" path="res://Scenes/Moveable Objects/SmallPot.tscn" id="9_24y1s"]
 [ext_resource type="PackedScene" uid="uid://rn2pkhebbltc" path="res://Scenes/Lab/lab_door_in.tscn" id="9_83pca"]
+[ext_resource type="PackedScene" uid="uid://b4ab1c2a8mttm" path="res://Scenes/Moveable Objects/Pots/BluePot.tscn" id="10_tlhqo"]
+[ext_resource type="PackedScene" uid="uid://bugv7rtlksu3q" path="res://Scenes/Moveable Objects/Pots/PurplePot.tscn" id="11_7sesu"]
+[ext_resource type="PackedScene" uid="uid://cip0gomtq685e" path="res://Scenes/Moveable Objects/Pots/YellowPot.tscn" id="12_7sesu"]
+[ext_resource type="PackedScene" uid="uid://db1v7rvbu8k7w" path="res://Scenes/Moveable Objects/Pots/PlantingPot.tscn" id="13_sgrkx"]
 
 [node name="LevelOneMapsObjects" type="Node2D" unique_id=1077622127]
 script = ExtResource("1_8r2hl")
@@ -38,4 +42,20 @@ position = Vector2(1700, -30.000002)
 scale = Vector2(3.5599806, 3.5599806)
 
 [node name="LabDoorIn" parent="Objects" unique_id=325784448 instance=ExtResource("9_83pca")]
-position = Vector2(2936, -21)
+position = Vector2(2232, -28)
+
+[node name="YellowPot" parent="Objects" unique_id=582999157 instance=ExtResource("10_tlhqo")]
+position = Vector2(2702, -26)
+scale = Vector2(2.5060775, 2.5060775)
+
+[node name="PurplePot" parent="Objects" unique_id=885611754 instance=ExtResource("11_7sesu")]
+position = Vector2(2744, -25.000002)
+scale = Vector2(2.5060775, 2.5060775)
+
+[node name="BluePot" parent="Objects" unique_id=2001970402 instance=ExtResource("12_7sesu")]
+position = Vector2(2792.0002, -26)
+scale = Vector2(2.506082, 2.506082)
+
+[node name="GrowingPlant" parent="Objects" unique_id=1579388603 instance=ExtResource("13_sgrkx")]
+position = Vector2(2878.0002, -18)
+scale = Vector2(2.506082, 2.506082)
