@@ -17,6 +17,7 @@ signal time_switch
 signal player_enter_level
 signal load_level
 
+signal planting_pot
 # moving player
 #signal enter_room
 signal move_player
