@@ -1,10 +1,33 @@
 [gd_scene format=3 uid="uid://uxbgojydeoq7"]
 
 [ext_resource type="Script" uid="uid://b2so4ona2xpc7" path="res://Scripts/pickup_component.gd" id="1_8nut8"]
+[ext_resource type="Script" uid="uid://dcxqqnalrejs5" path="res://Scenes/red_flower.gd" id="1_ptu34"]
+[ext_resource type="Texture2D" uid="uid://dafkyftcsv55i" path="res://Sprites/Tiles/GrowingPlant.png" id="2_d2c54"]
 
-[node name="RedFlower" type="Node2D" unique_id=564577148]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgcff"]
+size = Vector2(12, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptu34"]
+atlas = ExtResource("2_d2c54")
+region = Rect2(17, 93, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt88l"]
+atlas = ExtResource("2_d2c54")
+region = Rect2(65, 128, 5, 5)
+
+[node name="RedFlower" type="Node2D" unique_id=1579810654]
+script = ExtResource("1_ptu34")
 
 [node name="PickupComponent" type="Area2D" parent="." unique_id=1181092273]
 script = ExtResource("1_8nut8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=923648755]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_pgcff")
+
+[node name="EmptyPot" type="Sprite2D" parent="." unique_id=1563532810]
+texture = SubResource("AtlasTexture_ptu34")
+
+[node name="PlantedFlower" type="Sprite2D" parent="." unique_id=1637912211]
+position = Vector2(0, -5)
+texture = SubResource("AtlasTexture_rt88l")
