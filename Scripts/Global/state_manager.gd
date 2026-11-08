@@ -11,6 +11,7 @@ enum Apartment {
 	NO_PLANTS	
 }
 
+var picked_up_watch = false
 var current_level = Level.Apartment
 var is_future = true
 var ApartmentState = Apartment.PLANTS
