@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://c2suyeehhy6uy" path="res://Sprites/Tiles/TileMap.tres" id="1_tpm1x"]
 [ext_resource type="Script" uid="uid://dg02j3hmuw0cs" path="res://Scripts/base_level.gd" id="1_xv13j"]
-[ext_resource type="PackedScene" uid="uid://uxbgojydeoq7" path="res://Scenes/red_flower.tscn" id="3_wqe62"]
 
 [node name="apt_past_2" type="Node2D" unique_id=1577474406]
 script = ExtResource("1_xv13j")
@@ -11,5 +10,3 @@ script = ExtResource("1_xv13j")
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAPz/AwAGAAgAAAAAAP3/AwAGAAkAAAAAAP7/AwAGAAoAAAAAAP//AwAGAAsAAAABAPz/AwAHAAgAAAABAP3/AwAHAAkAAAABAP7/AwAHAAoAAAABAP//AwAHAAsAAAACAPz/AwAIAAgAAAACAP3/AwAIAAkAAAACAP7/AwAIAAoAAAACAP//AwAIAAsAAAADAPz/AwAJAAgAAAADAP3/AwAJAAkAAAADAP7/AwAJAAoAAAADAP//AwAJAAsAAAAEAPz/AwAKAAgAAAAEAP3/AwAKAAkAAAAEAP7/AwAKAAoAAAAEAP//AwAKAAsAAAAFAPz/AwALAAgAAAAFAP3/AwALAAkAAAAFAP7/AwALAAoAAAAFAP//AwALAAsAAAAGAPz/AwAMAAgAAAAGAP3/AwAMAAkAAAAGAP7/AwAMAAoAAAAGAP//AwAMAAsAAAAHAPz/AwANAAgAAAAHAP3/AwANAAkAAAAHAP7/AwANAAoAAAAHAP//AwANAAsAAAAIAPz/AwAOAAgAAAAIAP3/AwAOAAkAAAAIAP7/AwAOAAoAAAAIAP//AwAOAAsAAAAJAPz/AwAPAAgAAAAJAP3/AwAPAAkAAAAJAP7/AwAPAAoAAAAJAP//AwAPAAsAAAA=")
 tile_set = ExtResource("1_tpm1x")
-
-[node name="RedFlower" parent="." unique_id=564577148 instance=ExtResource("3_wqe62")]

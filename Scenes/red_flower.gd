@@ -4,12 +4,31 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Persist")
+	$PickupComponent.body_entered.connect(_on_body_entered)
+	$PickupComponent.body_exited.connect(_on_body_exited)
 	pass # Replace with function body.
 
+func _on_body_entered(body : Node2D):
+	if body.is_in_group("Player"):
+		$PickupComponent.player = body
+		$PickupComponent.pickup_able = true
+		$AnimatedSprite2D.play("QButton")
+
+func _on_body_exited(body : Node2D):
+	if body.is_in_group("Player"):
+		$PickupComponent.player = null
+		$PickupComponent.pickup_able = false
+		$AnimatedSprite2D.play("NOTHING")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func get_pickup_component():
+	return $PickupComponent
+
+func get_sprite():
+	return $PlantedFlower.texture
 
 func save():
 	var save_dict = {
