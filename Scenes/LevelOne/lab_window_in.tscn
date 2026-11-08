@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbemgds2cxus0"]
+
+[ext_resource type="Script" uid="uid://bionoy6lmdbg3" path="res://Scripts/Level_One/lab_window_in.gd" id="1_171sw"]
+[ext_resource type="SpriteFrames" uid="uid://c5f5gbuvwmi3s" path="res://Sprites/Characters/Charactersprites_frames.tres" id="2_5bcui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avse5"]
+size = Vector2(57.43243, 6.9977427)
+
+[node name="LabWindowIn" type="Area2D" unique_id=61968386]
+script = ExtResource("1_171sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1050314177]
+scale = Vector2(1.48, 2.215)
+shape = SubResource("RectangleShape2D_avse5")
+
+[node name="UpButton" type="AnimatedSprite2D" parent="." unique_id=44113810]
+position = Vector2(-1, -61)
+sprite_frames = ExtResource("2_5bcui")
+animation = &"UpButton"
+autoplay = "NOTHING"

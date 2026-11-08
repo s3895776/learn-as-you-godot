@@ -1,19 +1,25 @@
 [gd_scene format=3 uid="uid://bh4y3hhi80ekm"]
 
-[ext_resource type="Script" uid="uid://dndlefadjjxcd" path="res://Scenes/Lab/lab_maps_objects.gd" id="1_vb2wj"]
+[ext_resource type="Script" uid="uid://dndlefadjjxcd" path="res://Scripts/Lab/lab_maps_objects.gd" id="1_vb2wj"]
 [ext_resource type="PackedScene" uid="uid://yo0dsbuvip53" path="res://Scenes/Lab/future_lab.tscn" id="2_5mp3c"]
 [ext_resource type="PackedScene" uid="uid://g2isxcdeyico" path="res://Scenes/Lab/past_lab.tscn" id="3_1k03a"]
 [ext_resource type="PackedScene" uid="uid://dvg5hdsbtiasl" path="res://Scenes/Lab/lab_door_out.tscn" id="4_5mp3c"]
+[ext_resource type="PackedScene" uid="uid://cuh0kpdij7a11" path="res://Scenes/Lab/lab_window_out.tscn" id="5_1k03a"]
 
 [node name="LabMapsObjects" type="Node2D" unique_id=688724956]
 script = ExtResource("1_vb2wj")
 
 [node name="PastLab" parent="." unique_id=565451442 instance=ExtResource("3_1k03a")]
+scale = Vector2(3, 3)
 
 [node name="FutureLab" parent="." unique_id=73980454 instance=ExtResource("2_5mp3c")]
+scale = Vector2(3, 3)
 
 [node name="Objects" type="Node2D" parent="." unique_id=507598037]
 
 [node name="LabDoorOut" parent="Objects" unique_id=325784448 instance=ExtResource("4_5mp3c")]
 position = Vector2(20.999998, -17)
 scale = Vector2(0.63, 0.72)
+
+[node name="LabWindowOut" parent="Objects" unique_id=1954369801 instance=ExtResource("5_1k03a")]
+position = Vector2(140, -56)

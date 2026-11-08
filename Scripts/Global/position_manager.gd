@@ -7,6 +7,8 @@ var apartment_door_in_window : Vector2
 
 var lab_door_in : Vector2
 var lab_door_out : Vector2
+var lab_window_in : Vector2
+var lab_window_out : Vector2
 
 var player_next_position : Vector2
 # Called when the node enters the scene tree for the first time.
