@@ -190,12 +190,16 @@ scale = Vector2(2.3200002, 2.3200002)
 texture = ExtResource("10_ymep0")
 
 [node name="SlimBlock" parent="." unique_id=1269202155 instance=ExtResource("11_4tok7")]
-position = Vector2(2956, -17.000002)
-scale = Vector2(1.5864707, 1.5864707)
+position = Vector2(3216, -30.000002)
+scale = Vector2(3, 3)
 
 [node name="SmallBlock" parent="." unique_id=726912748 instance=ExtResource("12_j0ag8")]
 position = Vector2(1172, 216)
-scale = Vector2(1.88, 1.88)
+scale = Vector2(2, 2)
+
+[node name="SmallBlock2" parent="." unique_id=740436503 instance=ExtResource("12_j0ag8")]
+position = Vector2(3356, -12.000001)
+scale = Vector2(3, 3)
 
 [node name="Rain" type="GPUParticles2D" parent="." unique_id=124355641]
 material = SubResource("CanvasItemMaterial_j0ag8")
